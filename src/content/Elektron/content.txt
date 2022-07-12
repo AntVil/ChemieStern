@@ -1,0 +1,11 @@
+---
+Elektron
+    [elektron.svg]
+    negativ geladen
+    $e^-$
+---
+Ein Elektron ist ein negativ geladenes Teilchen.
+
+# Vorkommen
+Elektronen kommen vorallem in Atomen vor, können aber auch alleine auftreten, wie bei elektrischem Strom.
+Sie gehören zu den Grundbausteinen aller Materie im Universum.

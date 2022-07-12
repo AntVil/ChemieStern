@@ -4,6 +4,9 @@
         <link rel="stylesheet" href="./styles/colors.css">
         <link rel="stylesheet" href="./styles/index.css">
 
+        <script src="./scripts/content.js"></script>
+        <script src="./scripts/index.js"></script>
+
         <meta name="viewport" content="width=device-width">
     </head>
 
@@ -12,18 +15,51 @@
 
         <header>
             <nav>
-                <div>Karte</div>
+                <div onclick="loadPageMap()">Karte</div>
 
-                <div>Suche</div>
+                <div onclick="loadPageSearch()">Suche</div>
 
-                <div>Über</div>
+                <div onclick="loadPageAbout()">Über</div>
             </nav>
 
             <label id="headerToggleLabel" for="headerToggle"><div></div></label>
         </header>
 
         <main>
+            <div id="map">
+                map
+            </div>
 
+            <div id="search">
+                <form onsubmit="return false;">
+                    <input id="searchInput" />
+                    <button id="searchButton" type="submit" onclick="search()"><div></div></button>
+                </form>
+
+                <div id="searchResults">
+                    <div>
+                        <img src="../test.jpg" onerror="this.onerror=null; this.src='./images/defaultSearchImage.svg'">
+                        <div>
+                            <div class="title">title</div>
+                            <div class="content">content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content </div>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="../lupe.svg" onerror="this.onerror=null; this.src='./images/defaultSearchImage.svg'">
+                        <div>
+                            <div class="title">title</div>
+                            <div class="content">content content content content content content content </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="about">
+                <div>
+                    Dieses Projekt wurde von Anton Böhler erstellt und soll Zusammenhänge von Chemie-Themen visuell darstellen und damit eine Lernhilfe sein.
+                    Es gibt keine Garantie, dass die hier aufgeführten Informationen korrekt sind.
+                </div>
+            </div>
         </main>
     </body>
 </html>

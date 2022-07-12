@@ -1,0 +1,6 @@
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 100 100' shape-rendering='geometricPrecision' text-rendering='geometricPrecision'>
+    <g fill='none' stroke='#FFFFFF'>
+        <path d='M 25 75 L 50 50' stroke-width='10' stroke-linecap='round'/>
+        <circle cx="60" cy="40" r="14" stroke-width='10' stroke-linecap='round'/>
+    </g>
+</svg>
