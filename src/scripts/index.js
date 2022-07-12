@@ -70,7 +70,7 @@ async function search(){
         let content = contents[i];
         
         let mainContent = content.slice(0, Math.min(content.lastIndexOf("---") + 200, content.length));
-        let mainWords = mainContent.toLowerCase().split(" ");
+        let mainWords = mainContent.toLowerCase().split(/[# $\n\[\]()&.:,\-?/]+/);
         let scores = mainWords.map((string) => string_similarity(string, searchString))
         mainContents.push(
             {
@@ -81,7 +81,7 @@ async function search(){
     }
 
     let results = mainContents.filter(
-        (a) => a["score"] > 0.2
+        (a) => a["score"] >= 0.0
     ).sort(
         (a, b) => b["score"] - a["score"]
     ).map(
@@ -101,7 +101,10 @@ async function search(){
         let resultContent = document.createElement("div");
 
         resultImage.src = `./content/${CONTENT[resultID]}/images/${contents[resultID].match(/\[([^()]*)\]/)[1]}`;
-        resultImage.onerror = "this.onerror=null; this.src='./images/defaultSearchImage.svg'";
+        resultImage.onerror = (e) => {
+            resultImage.onerror = null;
+            resultImage.src = "./images/defaultSearchImage.svg";
+        };
 
         resultTitle.innerText = contents[resultID].match(/---([^()]*)---/)[1].split("\n").map((a) => a.trim()).filter((a) => a.length > 0)[0];
         resultContent.innerText = contents[resultID].slice(contents[resultID].lastIndexOf("---") + 3).replaceAll(/[\n#]+/ig, " ").replaceAll(/[ ]+/ig, " ");

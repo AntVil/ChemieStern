@@ -1,11 +1,4 @@
 ---
-Proton
-    [proton.svg]
-    positiv geladen
-    $H^+$
+Atom
+    [atom.svg]
 ---
-Ein Proton ist ein positiv geladenes Teilchen.
-
-# Vorkommen
-Protonen kommen vorallem in Atomen vor, können aber auch alleine auftreten, wie bei Säuren.
-Sie gehören zu den Grundbausteinen aller Materie im Universum.
