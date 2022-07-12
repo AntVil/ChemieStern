@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- KaTex-->
+        <script defer src="./lib/katex/katex.min.js"></script>
+        <link rel="stylesheet" href="./lib/katex/katex.min.css">
+
+        <!-- styles -->
         <link rel="stylesheet" href="./styles/colors.css">
         <link rel="stylesheet" href="./styles/index.css">
+        <link rel="stylesheet" href="./styles/search.css">
+        <link rel="stylesheet" href="./styles/about.css">
+        <link rel="stylesheet" href="./styles/content.css">
 
+        <!-- scripts -->
         <script src="./scripts/content.js"></script>
         <script src="./scripts/index.js"></script>
+        <script src="./scripts/search.js"></script>
 
         <meta name="viewport" content="width=device-width">
     </head>
@@ -47,7 +57,9 @@
             </div>
 
             <div id="content">
-
+                <div id="contentTitle"></div>
+                <div id="contentCard"></div>
+                <div id="contentText"></div>
             </div>
         </main>
     </body>

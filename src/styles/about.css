@@ -1,0 +1,12 @@
+#about>*{
+    position: relative;
+    left: 50%;
+    top: 50%;
+    max-width: 400px;
+    font-size: 22px;
+    text-align: justify;
+    background-color: var(--highlightColor);
+    padding: 15px;
+    border-radius: 15px;
+    transform: translate(-50%, -50%);
+}

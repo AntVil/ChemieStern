@@ -2,7 +2,8 @@
 Proton
     [proton.svg]
     positiv geladen
-    $H^+$
+    Notation: $$H^+$$
+    inline mathe $a=2$ wow
 ---
 Ein Proton ist ein positiv geladenes Teilchen.
 

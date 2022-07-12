@@ -1,0 +1,143 @@
+:root{
+    --searchBoxHeight: 40px;
+    --searchResultWidth: 800px;
+    --searchResultHeight: 75px;
+}
+
+#search{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 15px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+/* search bar */
+
+#search>form{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: auto var(--searchBoxHeight);
+    align-items: center;
+    justify-items: center;
+    margin: auto;
+    height: var(--searchBoxHeight);
+    background-color: var(--contentBackgroundColor);
+    border-radius: calc(var(--searchBoxHeight) / 2);
+}
+
+#search>form>input{
+    height: var(--searchBoxHeight);
+    padding: 0;
+    border: none;
+    background-color: var(--contentBackgroundColor);
+    border-top-left-radius: calc(var(--searchBoxHeight) / 2);
+    border-bottom-left-radius: calc(var(--searchBoxHeight) / 2);
+    padding-left: calc(var(--searchBoxHeight) / 4);
+    font-size: calc(var(--searchBoxHeight) / 2);
+    outline: none;
+}
+
+#search>form:hover, #search>form:hover>input, #search>form:focus-within, #search>form:focus-within>input, #search>form>input:focus{
+    background-color: var(--highlightColor);
+}
+
+#search>form>button{
+    display: inline-grid;
+    width: calc(var(--searchBoxHeight) * 0.8);
+    height: calc(var(--searchBoxHeight) * 0.8);
+    padding: 0;
+    border: none;
+    border-radius: calc(var(--searchBoxHeight) / 2);
+}
+
+#search>form>button>*{
+    position: relative;
+    width: calc(var(--searchBoxHeight) * 0.6);
+    height: calc(var(--searchBoxHeight) * 0.6);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--fontColor);
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 100 100' shape-rendering='geometricPrecision' text-rendering='geometricPrecision'%3E%3Cg fill='none' stroke='%23FFFFFF'%3E%3Cpath d='M 25 75 L 50 50' stroke-width='10' stroke-linecap='round'/%3E%3Ccircle cx='60' cy='40' r='14' stroke-width='10' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 100 100' shape-rendering='geometricPrecision' text-rendering='geometricPrecision'%3E%3Cg fill='none' stroke='%23FFFFFF'%3E%3Cpath d='M 25 75 L 50 50' stroke-width='10' stroke-linecap='round'/%3E%3Ccircle cx='60' cy='40' r='14' stroke-width='10' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E");
+    background-blend-mode: overlay;
+    background-size: contain;
+}
+
+#search>form>button:hover>*{
+    background-color: var(--highlightColor);
+    cursor: pointer;
+}
+
+/* search results */
+
+#searchResults{
+    overflow-y: scroll;
+    scrollbar-width: none;
+    transition: background-color 0s;
+}
+
+#searchResults::-webkit-scrollbar{
+    width: 0;
+}
+
+#searchResults:empty{
+    background-color: var(--fontColor);
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 100 100' shape-rendering='geometricPrecision' text-rendering='geometricPrecision'%3E%3Cg fill='none' stroke='%23FFFFFF'%3E%3Cpath d='M 25 75 L 50 50' stroke-width='10' stroke-linecap='round'/%3E%3Ccircle cx='60' cy='40' r='14' stroke-width='10' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 100 100' shape-rendering='geometricPrecision' text-rendering='geometricPrecision'%3E%3Cg fill='none' stroke='%23FFFFFF'%3E%3Cpath d='M 25 75 L 50 50' stroke-width='10' stroke-linecap='round'/%3E%3Ccircle cx='60' cy='40' r='14' stroke-width='10' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E");
+    -webkit-mask-size: var(--searchResultHeight) var(--searchResultHeight);
+    mask-size: var(--searchResultHeight) var(--searchResultHeight);
+    -webkit-mask-position: center center;
+    mask-position: center center;
+    -webkit-mask-size: min(100vw, 100vh);
+    mask-size: min(100vw, 100vh);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+}
+
+#searchResults>*{
+    display: grid;
+    grid-template-columns: var(--searchResultHeight) auto;
+    grid-template-rows: auto;
+    max-width: var(--searchResultWidth);
+    height: var(--searchResultHeight);
+    margin: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--contentBackgroundColor);
+    border-radius: var(--searchResultHeight);
+    padding-right: 5px;
+}
+
+#searchResults>*:hover{
+    background-color: var(--highlightColor);
+    cursor: pointer;
+}
+
+#searchResults>*>img{
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: var(--searchResultHeight);
+    max-height: var(--searchResultHeight);
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 100 100' shape-rendering='geometricPrecision' text-rendering='geometricPrecision'%3E%3Cg stroke='none' fill='%23FFFFFF'%3E%3Ccircle cx='50' cy='50' r='50' /%3E%3Crect x='50' y='0' width='50' height='100' /%3E%3C/g%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 100 100' shape-rendering='geometricPrecision' text-rendering='geometricPrecision'%3E%3Cg stroke='none' fill='%23FFFFFF'%3E%3Ccircle cx='50' cy='50' r='50' /%3E%3Crect x='50' y='0' width='50' height='100' /%3E%3C/g%3E%3C/svg%3E");
+    -webkit-mask-size: var(--searchResultHeight) var(--searchResultHeight);
+    mask-size: var(--searchResultHeight) var(--searchResultHeight);
+    -webkit-mask-position: center center;
+    mask-position: center center;
+}
+
+#searchResults>*>div{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
+    padding: 5px;
+}
+
+#searchResults>*>div>*:first-child{
+    font-weight: bold;
+}
