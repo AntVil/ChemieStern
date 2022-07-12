@@ -100,14 +100,18 @@ async function search(){
         let resultTitle = document.createElement("div");
         let resultContent = document.createElement("div");
 
-        resultImage.src = `./content/${CONTENT[resultID]}/images/${contents[resultID].match(/\[([^()]*)\]/)[1]}`;
-        resultImage.onerror = (e) => {
-            resultImage.onerror = null;
+        try{
+            resultImage.src = `./content/${CONTENT[resultID]}/images/${contents[resultID].match(/\[([^()]*)\]/)[1]}`;
+            resultImage.onerror = (e) => {
+                resultImage.onerror = null;
+                resultImage.src = "./images/defaultSearchImage.svg";
+            };
+        }catch{
             resultImage.src = "./images/defaultSearchImage.svg";
-        };
+        }
 
         resultTitle.innerText = contents[resultID].match(/---([^()]*)---/)[1].split("\n").map((a) => a.trim()).filter((a) => a.length > 0)[0];
-        resultContent.innerText = contents[resultID].slice(contents[resultID].lastIndexOf("---") + 3).replaceAll(/[\n#]+/ig, " ").replaceAll(/[ ]+/ig, " ");
+        resultContent.innerText = contents[resultID].slice(contents[resultID].lastIndexOf("---") + 3).replaceAll(/[\n]+|#.*/ig, " ").replaceAll(/[ ]+/ig, " ");
 
         console.log( resultContent.innerText )
 
