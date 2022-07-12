@@ -5,7 +5,11 @@ let headerToggle;
 
 let pages;
 
+let contents;
+
 window.onload = function(){
+    loadContent();
+    
     mapPage = document.getElementById("map");
     searchPage = document.getElementById("search");
     aboutPage = document.getElementById("about");
@@ -14,6 +18,13 @@ window.onload = function(){
     pages = [mapPage, searchPage, aboutPage];
 
     loadPageSearch();
+}
+
+async function loadContent(){
+    contents = []
+    for(let contentName of CONTENT){
+        contents.push((await (await fetch(`./content/${contentName}/content.txt`)).text()).toString())
+    }
 }
 
 
@@ -42,18 +53,68 @@ function loadPageAbout(){
     loadPage(aboutPage);
 }
 
-function search(){
+function loadPageContent(){
+    loadPage(aboutPage);
+}
+
+async function search(){
     let searchInput = document.getElementById("searchInput");
     searchInput.blur();
     let searchButton = document.getElementById("searchButton");
     searchButton.blur();
 
-    let searchString = searchInput.value;
-    for(let contentName of CONTENT){
-        let path = `${window.location}`.split("index.html")[0];
-        console.log(`${path}content/${contentName}/content.txt`)
-        let content = fetch(`${window.location}/content/${contentName}/content.txt`);
-        console.log(content)
+    let searchString = `${searchInput.value}`;
+
+    let mainContents = [];
+    for(let i=0;i<contents.length;i++){
+        let content = contents[i];
+        
+        let mainContent = content.slice(0, Math.min(content.lastIndexOf("---") + 200, content.length));
+        let mainWords = mainContent.toLowerCase().split(" ");
+        let scores = mainWords.map((string) => string_similarity(string, searchString))
+        mainContents.push(
+            {
+                "contentID": i,
+                "score": Math.max(...scores)
+            }
+        );
+    }
+
+    let results = mainContents.filter(
+        (a) => a["score"] > 0.2
+    ).sort(
+        (a, b) => b["score"] - a["score"]
+    ).map(
+        (a) => a["contentID"]
+    );
+
+    console.log(results)
+    
+    let resultsElement = document.getElementById("searchResults")
+    resultsElement.innerHTML = "";
+
+    for(let resultID of results){
+        let resultElement = document.createElement("div");
+        let resultImage = document.createElement("img");
+        let resultText = document.createElement("div");
+        let resultTitle = document.createElement("div");
+        let resultContent = document.createElement("div");
+
+        resultImage.src = `./content/${CONTENT[resultID]}/images/${contents[resultID].match(/\[([^()]*)\]/)[1]}`;
+        resultImage.onerror = "this.onerror=null; this.src='./images/defaultSearchImage.svg'";
+
+        resultTitle.innerText = contents[resultID].match(/---([^()]*)---/)[1].split("\n").map((a) => a.trim()).filter((a) => a.length > 0)[0];
+        resultContent.innerText = contents[resultID].slice(contents[resultID].lastIndexOf("---") + 3).replaceAll(/[\n#]+/ig, " ").replaceAll(/[ ]+/ig, " ");
+
+        console.log( resultContent.innerText )
+
+        resultText.appendChild(resultTitle);
+        resultText.appendChild(resultContent);
+
+        resultElement.appendChild(resultImage);
+        resultElement.appendChild(resultText);
+
+        resultsElement.appendChild(resultElement);
     }
 }
 
