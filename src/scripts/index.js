@@ -1,6 +1,10 @@
+const SEARCH_CHARACTER_LOOK_AHEAD = 200;
+
 let mapPage;
 let searchPage;
 let aboutPage;
+let contentPage;
+
 let headerToggle;
 
 let pages;
@@ -13,9 +17,13 @@ window.onload = function(){
     mapPage = document.getElementById("map");
     searchPage = document.getElementById("search");
     aboutPage = document.getElementById("about");
+    contentPage = document.getElementById("content");
+
+    pages = [mapPage, searchPage, aboutPage, contentPage];
+    
     headerToggle = document.getElementById("headerToggle");
 
-    pages = [mapPage, searchPage, aboutPage];
+    
 
     loadPageSearch();
 }
@@ -26,7 +34,6 @@ async function loadContent(){
         contents.push((await (await fetch(`./content/${contentName}/content.txt`)).text()).toString())
     }
 }
-
 
 function loadPage(page){
     for(let p of pages){
@@ -53,80 +60,11 @@ function loadPageAbout(){
     loadPage(aboutPage);
 }
 
-function loadPageContent(){
-    loadPage(aboutPage);
+function loadPageContent(contentID){
+    loadPage(contentPage);
+
+    contentPage.innerText = contents[contentID];
 }
-
-async function search(){
-    let searchInput = document.getElementById("searchInput");
-    searchInput.blur();
-    let searchButton = document.getElementById("searchButton");
-    searchButton.blur();
-
-    let searchString = `${searchInput.value}`;
-
-    let mainContents = [];
-    for(let i=0;i<contents.length;i++){
-        let content = contents[i];
-        
-        let mainContent = content.slice(0, Math.min(content.lastIndexOf("---") + 200, content.length));
-        let mainWords = mainContent.toLowerCase().split(/[# $\n\[\]()&.:,\-?/]+/);
-        let scores = mainWords.map((string) => string_similarity(string, searchString))
-        mainContents.push(
-            {
-                "contentID": i,
-                "score": Math.max(...scores)
-            }
-        );
-    }
-
-    let results = mainContents.filter(
-        (a) => a["score"] >= 0.0
-    ).sort(
-        (a, b) => b["score"] - a["score"]
-    ).map(
-        (a) => a["contentID"]
-    );
-
-    console.log(results)
-    
-    let resultsElement = document.getElementById("searchResults")
-    resultsElement.innerHTML = "";
-
-    for(let resultID of results){
-        let resultElement = document.createElement("div");
-        let resultImage = document.createElement("img");
-        let resultText = document.createElement("div");
-        let resultTitle = document.createElement("div");
-        let resultContent = document.createElement("div");
-
-        try{
-            resultImage.src = `./content/${CONTENT[resultID]}/images/${contents[resultID].match(/\[([^()]*)\]/)[1]}`;
-            resultImage.onerror = (e) => {
-                resultImage.onerror = null;
-                resultImage.src = "./images/defaultSearchImage.svg";
-            };
-        }catch{
-            resultImage.src = "./images/defaultSearchImage.svg";
-        }
-
-        resultTitle.innerText = contents[resultID].match(/---([^()]*)---/)[1].split("\n").map((a) => a.trim()).filter((a) => a.length > 0)[0];
-        resultContent.innerText = contents[resultID].slice(contents[resultID].lastIndexOf("---") + 3).replaceAll(/[\n]+|#.*/ig, " ").replaceAll(/[ ]+/ig, " ");
-
-        console.log( resultContent.innerText )
-
-        resultText.appendChild(resultTitle);
-        resultText.appendChild(resultContent);
-
-        resultElement.appendChild(resultImage);
-        resultElement.appendChild(resultText);
-
-        resultsElement.appendChild(resultElement);
-    }
-}
-
-
-
 
 function get_bigrams(string){
     let s = string.toLowerCase()
@@ -155,4 +93,71 @@ function string_similarity(str1, str2){
         }
     }
     return 0.0
+}
+
+async function search(){
+    let searchInput = document.getElementById("searchInput");
+    searchInput.blur();
+    let searchButton = document.getElementById("searchButton");
+    searchButton.blur();
+
+    let searchString = `${searchInput.value}`;
+
+    let mainContents = [];
+    for(let i=0;i<contents.length;i++){
+        let content = contents[i];
+        
+        let mainContent = content.slice(0, Math.min(content.lastIndexOf("---") + SEARCH_CHARACTER_LOOK_AHEAD, content.length));
+        let mainWords = [...new Set(mainContent.toLowerCase().split(/[# $\n\[\]()&.:,\-?/]+/))];
+        let scores = mainWords.map((string) => string_similarity(string, searchString))
+        mainContents.push(
+            {
+                "contentID": i,
+                "score": Math.max(...scores)
+            }
+        );
+    }
+
+    let results = mainContents.filter(
+        (a) => a["score"] >= 0.2
+    ).sort(
+        (a, b) => b["score"] - a["score"]
+    ).map(
+        (a) => a["contentID"]
+    );
+    
+    let resultsElement = document.getElementById("searchResults")
+    resultsElement.innerHTML = "";
+
+    for(let resultID of results){
+        let resultElement = document.createElement("div");
+        let resultImage = document.createElement("img");
+        let resultText = document.createElement("div");
+        let resultTitle = document.createElement("div");
+        let resultContent = document.createElement("div");
+        
+        resultElement.onclick = () => loadPageContent(resultID);
+
+        try{
+            resultImage.src = `./content/${CONTENT[resultID]}/images/${contents[resultID].match(/\[([^()]*)\]/)[1]}`;
+            resultImage.onerror = (e) => {
+                e.preventDefault();
+                resultImage.onerror = null;
+                resultImage.src = "./images/defaultSearchImage.svg";
+            };
+        }catch{
+            resultImage.src = "./images/defaultSearchImage.svg";
+        }
+
+        resultTitle.innerText = contents[resultID].match(/---([^()]*)---/)[1].split("\n").map((a) => a.trim()).filter((a) => a.length > 0)[0];
+        resultContent.innerText = contents[resultID].slice(contents[resultID].lastIndexOf("---") + 3).replaceAll(/[\n]+|#.*/ig, " ").replaceAll(/[ ]+/ig, " ");
+
+        resultText.appendChild(resultTitle);
+        resultText.appendChild(resultContent);
+
+        resultElement.appendChild(resultImage);
+        resultElement.appendChild(resultText);
+
+        resultsElement.appendChild(resultElement);
+    }
 }
