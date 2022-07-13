@@ -1,11 +1,10 @@
----
+--- ---
 Proton
     [proton.svg]
     positiv geladen
     Notation: $$H^+$$
-    inline mathe $a=2$ wow
 ---
-Ein Proton ist ein positiv geladenes Teilchen.
+Ein Proton ist ein positiv geladenes Teilchen.---
 
 # Vorkommen
 Protonen kommen vorallem in Atomen vor, können aber auch alleine auftreten, wie bei Säuren.

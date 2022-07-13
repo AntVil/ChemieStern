@@ -27,11 +27,14 @@ async function loadContent(){
 }
 
 function getContentName(contentID){
-    return contents[contentID].match(/---([^()]*)---/)[1].split("\n").map((a) => a.trim()).filter((a) => a.length > 0)[0];
+    return contents[contentID].match(/---(.|\n)*---/)[0].split("\n")[1].trim()
 }
 
 function getContentCard(contentID){
-    return contents[contentID].match(/---([^()]*)---/)[1].split("    ").slice(1).map((a) => a.trim())
+    let result = contents[contentID].match(/---(.|\n)*---/)[0].split("\n").slice(1).map((a) => a.trim());
+    result.shift();
+    result.pop();
+    return result;
 }
 
 function getContentText(contentID, removeSpecial){

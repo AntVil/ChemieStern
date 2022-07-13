@@ -2,7 +2,7 @@
 Elektron
     [elektron.svg]
     negativ geladen
-    $e^-$
+    Notation: $$e^-$$
 ---
 Ein Elektron ist ein negativ geladenes Teilchen.
 

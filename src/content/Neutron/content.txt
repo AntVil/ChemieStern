@@ -3,3 +3,7 @@ Neutron
     [neutron.svg]
     neutral geladen
 ---
+
+# Vorkommen
+Neutronen kommen vorallem in Atomen vor, können aber auch alleine auftreten.
+Sie gehören zu den Grundbausteinen aller Materie im Universum.
