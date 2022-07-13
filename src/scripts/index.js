@@ -47,8 +47,8 @@ function loadPageAbout(){
     loadPage(aboutPage);
 }
 
-function loadPageContent(contentID){
+function loadPageContent(contentName){
     loadPage(contentPage);
 
-    renderContent(contentID);
+    renderContent(contentName);
 }

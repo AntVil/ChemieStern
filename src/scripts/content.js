@@ -30,28 +30,28 @@ async function loadContents(){
     }
 }
 
-function getContentName(contentID){
-    return contents[contentID].match(/---(.|\n)*---/)[0].split("\n")[1].trim()
+function getContentName(contentName){
+    return contents[contentName].match(/---(.|\n)*---/)[0].split("\n")[1].trim()
 }
 
-function getContentCard(contentID){
-    console.log(contents[contentID], contents[contentID].match(/---(.|\n)*---/))
-    let result = contents[contentID].match(/---(.|\n)*---/)[0].split("\n").slice(1).map((a) => a.trim());
+function getContentCard(contentName){
+    console.log(contents[contentName], contents[contentName].match(/---(.|\n)*---/))
+    let result = contents[contentName].match(/---(.|\n)*---/)[0].split("\n").slice(1).map((a) => a.trim());
     result.shift();
     result.pop();
     return result;
 }
 
-function getContentText(contentID, removeSpecial){
-    let result = contents[contentID].slice(contents[contentID].lastIndexOf("---") + 3)
+function getContentText(contentName, removeSpecial){
+    let result = contents[contentName].slice(contents[contentName].lastIndexOf("---") + 3)
     if(removeSpecial){
         result = result.replaceAll(/[\n]+|#.*/ig, " ").replaceAll(/[ ]+/ig, " ")
     }
     return result
 }
 
-function renderContent(contentID){
-    let card = getContentCard(contentID);
+function renderContent(contentName){
+    let card = getContentCard(contentName);
     
     let cardElement = document.getElementById("contentCard");
     cardElement.innerHTML = "";
@@ -65,7 +65,7 @@ function renderContent(contentID){
             let itemElement;
             if(item.startsWith("[") && item.endsWith("]")){
                 itemElement = document.createElement("img");
-                itemElement.src = `./content/${CONTENT[contentID]}/images/${item.slice(1, item.length-1)}`;
+                itemElement.src = `./content/${contentName}/images/${item.slice(1, item.length-1)}`;
             }else if(item.includes("$")){
                 if(item.startsWith("$$") && item.endsWith("$$")){
                     itemElement = document.createElement("div");
@@ -92,9 +92,9 @@ function renderContent(contentID){
         cardElement.appendChild(rowElement);
     }
 
-    document.getElementById("contentTitle").innerText = getContentName(contentID);
+    document.getElementById("contentTitle").innerText = getContentName(contentName);
 
-    let text = getContentText(contentID, false);
+    let text = getContentText(contentName, false);
     let textElement = document.getElementById("contentText");
     textElement.innerHTML = "";
     let insideTable = false;
@@ -123,7 +123,7 @@ function renderContent(contentID){
                         let itemElement;
                         if(item.startsWith("[") && item.endsWith("]")){
                             itemElement = document.createElement("img");
-                            itemElement.src = `./content/${CONTENT[contentID]}/images/${item.slice(1, item.length-1)}`;
+                            itemElement.src = `./content/${contentName}/images/${item.slice(1, item.length-1)}`;
                         }else if(item.includes("$")){
                             if(item.startsWith("$$") && item.endsWith("$$")){
                                 itemElement = document.createElement("div");
@@ -158,7 +158,7 @@ function renderContent(contentID){
             lineElement.style.textDecoration = "underline";
         }else if(line.startsWith("[") && line.endsWith("]")){
             lineElement = document.createElement("img");
-            lineElement.src = `./content/${CONTENT[contentID]}/images/${line.slice(1, line.length-1)}`;
+            lineElement.src = `./content/${contentName}/images/${line.slice(1, line.length-1)}`;
         }else if(line.startsWith("$$") && line.endsWith("$$")){
             lineElement = document.createElement("div");
             katex.render(item.slice(2, item.length-2), lineElement, {

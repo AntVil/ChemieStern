@@ -39,15 +39,15 @@ async function search(){
     let searchString = `${searchInput.value}`;
 
     let mainContents = [];
-    for(let i=0;i<contents.length;i++){
-        let content = contents[i];
+    for(let contentName of CONTENT){
+        let content = contents[contentName];
         
         let mainContent = content.slice(0, Math.min(content.lastIndexOf("---") + SEARCH_CHARACTER_LOOK_AHEAD, content.length));
         let mainWords = [...new Set(mainContent.toLowerCase().split(/[#| $\n\[\]()&.:,\-?/]+/))];
         let scores = mainWords.map((string) => string_similarity(string, searchString))
         mainContents.push(
             {
-                "contentID": i,
+                "contentName": contentName,
                 "score": Math.max(...scores)
             }
         );
@@ -58,23 +58,23 @@ async function search(){
     ).sort(
         (a, b) => b["score"] - a["score"]
     ).map(
-        (a) => a["contentID"]
+        (a) => a["contentName"]
     );
     
     let resultsElement = document.getElementById("searchResults")
     resultsElement.innerHTML = "";
 
-    for(let resultID of results){
+    for(let contentName of results){
         let resultElement = document.createElement("div");
         let resultImage = document.createElement("img");
         let resultText = document.createElement("div");
         let resultTitle = document.createElement("div");
         let resultContent = document.createElement("div");
         
-        resultElement.onclick = () => loadPageContent(resultID);
+        resultElement.onclick = () => loadPageContent(contentName);
 
         try{
-            resultImage.src = `./content/${CONTENT[resultID]}/images/${contents[resultID].match(/\[([^()]*)\]/)[1]}`;
+            resultImage.src = `./content/${contentName}/images/${contents[contentName].match(/\[([^()]*)\]/)[1]}`;
             resultImage.onerror = (e) => {
                 e.preventDefault();
                 resultImage.onerror = null;
@@ -84,8 +84,8 @@ async function search(){
             resultImage.src = "./images/defaultSearchImage.svg";
         }
 
-        resultTitle.innerText = getContentName(resultID);
-        resultContent.innerText = getContentText(resultID, true);
+        resultTitle.innerText = getContentName(contentName);
+        resultContent.innerText = getContentText(contentName, true);
 
         resultText.appendChild(resultTitle);
         resultText.appendChild(resultContent);
