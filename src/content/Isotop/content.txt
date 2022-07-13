@@ -1,0 +1,22 @@
+Periodensystem
+---
+Isotop
+    [deuterium.svg]
+    Deuterium (${}^{2}H$)
+---
+Isotope sind Elemente mit unterschiedlicher Anzahl an Neutronen. Die Anzahl der Elektronen und Protonen hat keine Auswirkungen auf das Isotop.
+
+# Schreibweise
+Für ein Isotop wird die Anzahl an Protonen und Neuronen addiert und oben links über dem Element aufgeschrieben.
+
+{
+    Elementarer Wasserstoff: $${}^{1}H$$
+    Schwerer Wasserstoff (Deuterium): $${}^{2}H$$
+    Überschwerer Wasserstoff (Tritium): $${}^{3}H$$
+}
+
+Wird die Zahl nicht angegeben handelt es sich um die gängigste Form des Elements.
+
+# Eigenschaften
+Die Neutronen
+Sind zuviele Neutronen im Atomkern enthalten wird das Atom instabil und zerfällt.

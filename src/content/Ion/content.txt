@@ -1,0 +1,8 @@
+Atom
+---
+Ion
+    [natrium_kation.svg]
+    Natrium Kation ($Na^+$)
+---
+Ein Ion ist ein Teilchen, welches nicht neutral geladen ist. Dabei ist ein Kation positiv und ein Anion negativ geladen.
+Kationen haben zu wenig Elektronen und Anionen haben zuviele Elektronen.

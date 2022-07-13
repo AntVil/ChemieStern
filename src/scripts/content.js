@@ -3,8 +3,11 @@ const CONTENT = [
     "Elektron",
     "Neutron",
     "Atom",
+    "Ion",
     "Periodensystem",
-    "Atombindung"
+    "Isotop",
+    "Atombindung",
+    "Ionbindung"
 ];
 
 

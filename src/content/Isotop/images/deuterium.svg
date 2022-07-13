@@ -1,0 +1,13 @@
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 500 500' shape-rendering='geometricPrecision' text-rendering='geometricPrecision'>
+    <circle cx="250" cy="250" r="200" stroke-width='1' stroke="#000000" fill='none'/>
+    
+    
+    <circle cx="260" cy="260" r="20" stroke-width='10' fill='#DDDDDD'/>
+    <text x="260" y="260" text-anchor="middle" alignment-baseline="central">n</text>
+    
+    <circle cx="240" cy="240" r="20" stroke-width='10' fill='#EE4B2B'/>
+    <text x="240" y="240" text-anchor="middle" alignment-baseline="central">+</text>
+
+    <circle cx="450" cy="250" r="5" stroke-width='10' fill='#89CFF0'/>
+    <text x="450" y="250" text-anchor="middle" alignment-baseline="central">‒</text>
+</svg>

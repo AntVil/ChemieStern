@@ -1,0 +1,16 @@
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 1000 1000' shape-rendering='geometricPrecision' text-rendering='geometricPrecision'>
+    <circle cx="500" cy="500" r="200" stroke-width='1' stroke="#000000" fill='none'/>
+    <circle cx="500" cy="500" r="400" stroke-width='1' stroke="#000000" fill='none'/>
+    
+    <circle cx="500" cy="500" r="50" stroke-width='10' fill='#EE4B2B'/>
+    <text x="500" y="500" font-size="30" text-anchor="middle" alignment-baseline="central">Na</text>
+
+    <circle cx="700" cy="500" r="5" stroke-width='10' fill='#89CFF0'/>
+    <text x="700" y="500" text-anchor="middle" alignment-baseline="central">‒</text>
+
+    <circle cx="300" cy="500" r="5" stroke-width='10' fill='#89CFF0'/>
+    <text x="300" y="500" text-anchor="middle" alignment-baseline="central">‒</text>
+
+    <circle cx="900" cy="500" r="5" stroke-width='10' fill='#89CFF0'/>
+    <text x="900" y="500" text-anchor="middle" alignment-baseline="central">‒</text>
+</svg>

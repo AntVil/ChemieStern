@@ -1,3 +1,7 @@
+Periodensystem
 ---
 Atombindung
+    [elementarer_wasserstoff]
+    Elementarer Wasserstoff ($H_2$)
 ---
+# Schreibweise (Lewis-Schreibweise)

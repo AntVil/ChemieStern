@@ -1,4 +1,11 @@
+Proton
+Neutron
+Elektron
 ---
 Atom
-    [atom.svg]
+    [helium.svg]
+    Helium ($He$)
 ---
+# Bohrsches Atommodell
+Ein Atom besteht aus Protonen, Neuronen und Elektronen. Die Protonen und Elektronen sind dabei im Atomkern (Nucleus) enthalten. Die Elektronen sind in Schalen um den Atomkern herum verteilt. Damit das Atom neutral geladen ist muss die Anzahl der Protonen mit der Anzahl der Elektronen übereinstimmen. Die Neutronen sorgen für die Stabilität des Atomkerns.
+Jedes Atom möchte die äußerste Elektronen-Schale vollkommen ausfüllen.
