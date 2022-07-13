@@ -1,7 +1,7 @@
 Periodensystem
 ---
 Atombindung
-    [elementarer_wasserstoff]
+    [elementarer_wasserstoff.svg]
     Elementarer Wasserstoff ($H_2$)
 ---
 # Schreibweise (Lewis-Schreibweise)

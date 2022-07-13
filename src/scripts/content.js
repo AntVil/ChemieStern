@@ -17,7 +17,7 @@ let contents;
 
 async function loadContent(contents, contentName){
     try{
-        contents[contentName] = (await (await fetch(`./content/${contentName}/content.txt`)).text()).toString();
+        contents[contentName] = (await (await fetch(`./content/${contentName}/content.txt`)).text()).toString().replaceAll("\r", "");
     }catch{
         console.warn(`could not find ${contentName}`);
     }
@@ -31,19 +31,26 @@ async function loadContents(){
 }
 
 function getContentName(contentName){
-    return contents[contentName].match(/---(.|\n)*---/)[0].split("\n")[1].trim()
+    return contents[contentName].split("---")[1].split("\n")[1].trim()
 }
 
 function getContentCard(contentName){
-    console.log(contents[contentName], contents[contentName].match(/---(.|\n)*---/))
-    let result = contents[contentName].match(/---(.|\n)*---/)[0].split("\n").slice(1).map((a) => a.trim());
-    result.shift();
-    result.pop();
+    let result = contents[contentName].split("---")[1].split("\n").slice(2).map((a) => a.trim()).filter((a) => a.length > 0);
     return result;
 }
 
 function getContentText(contentName, removeSpecial){
-    let result = contents[contentName].slice(contents[contentName].lastIndexOf("---") + 3)
+    let result = contents[contentName].slice(contents[contentName].lastIndexOf("---") + 3).split("\n");
+    
+    while(result.length > 0 && result[0].trim().length === 0){
+        result.shift();
+    }
+    while(result.length > 0 && result[result.length-1].trim().length === 0){
+        result.pop();
+    }
+
+    result = result.join("\n");
+
     if(removeSpecial){
         result = result.replaceAll(/[\n]+|#.*/ig, " ").replaceAll(/[ ]+/ig, " ")
     }
@@ -61,7 +68,7 @@ function renderContent(contentName){
         rowElement.style.display = "grid";
         rowElement.style.gridTemplateColumns = `repeat(${items.length}, 1fr)`;
         for(let item of items){
-            item = item.trim()
+            item = item.trim();
             let itemElement;
             if(item.startsWith("[") && item.endsWith("]")){
                 itemElement = document.createElement("img");
@@ -98,6 +105,7 @@ function renderContent(contentName){
     let textElement = document.getElementById("contentText");
     textElement.innerHTML = "";
     let insideTable = false;
+    let previousElement = "none";
     let tableContent = [];
 
     for(let line of text.replaceAll(/\n\n+/g, "\n\n").split("\n")){
@@ -107,6 +115,7 @@ function renderContent(contentName){
 
         if(line.length == 0){
             lineElement = document.createElement("br");
+            previousElement = "linebreak";
         }else if(line.startsWith("{") || insideTable){
             insideTable = true;
             tableContent.push(line);
@@ -151,20 +160,24 @@ function renderContent(contentName){
                     lineElement.appendChild(rowElement);
                 }
             }
+            previousElement = "table";
         }else if(line.startsWith("#")){
             lineElement = document.createElement("div");
             lineElement.innerText = line.replaceAll(/\#*/g, "");
             lineElement.style.fontWeight = "bold";
             lineElement.style.textDecoration = "underline";
+            previousElement = "heading";
         }else if(line.startsWith("[") && line.endsWith("]")){
             lineElement = document.createElement("img");
             lineElement.src = `./content/${contentName}/images/${line.slice(1, line.length-1)}`;
+            previousElement = "image";
         }else if(line.startsWith("$$") && line.endsWith("$$")){
             lineElement = document.createElement("div");
-            katex.render(item.slice(2, item.length-2), lineElement, {
+            katex.render(line.slice(2, line.length-2), lineElement, {
                 throwOnError: false
             });
             lineElement.style.textAlign = "center";
+            previousElement = "math";
         }else if(line.includes("$")){
             lineElement = document.createElement("div");
             for(let sub of line.match(/\$([^\$]*)\$/g)){
@@ -172,10 +185,17 @@ function renderContent(contentName){
                     throwOnError: false
                 }));
             }
-            itemElement.innerHTML = line;
+            lineElement.innerHTML = line;
+            previousElement = "math";
         }else{
+            if(previousElement === "text"){
+                let element = textElement.children[textElement.children.length - 1];
+                element.innerText = `${element.innerText} ${line}`.replaceAll(/  +/g, " ");
+                continue;
+            }
             lineElement = document.createElement("div");
             lineElement.innerText = line;
+            previousElement = "text";
         }
         
         if(!insideTable && lineElement !== undefined){
