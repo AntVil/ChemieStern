@@ -8,7 +8,7 @@ let pages;
 
 
 window.onload = function(){
-    loadContent();
+    loadContents();
     
     mapPage = document.getElementById("map");
     searchPage = document.getElementById("search");
