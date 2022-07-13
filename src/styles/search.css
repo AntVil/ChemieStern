@@ -2,6 +2,7 @@
     --searchBoxHeight: 40px;
     --searchResultWidth: 800px;
     --searchResultHeight: 75px;
+    --viewHeight: -webkit-fill-available;
 }
 
 #search{
@@ -140,4 +141,10 @@
 
 #searchResults>*>div>*:first-child{
     font-weight: bold;
+}
+
+#searchResults>*:last-child::after{
+    content: " ";
+    max-height: var(--viewHeight);
+    height: 100vh;
 }
