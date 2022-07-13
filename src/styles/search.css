@@ -2,7 +2,6 @@
     --searchBoxHeight: 40px;
     --searchResultWidth: 800px;
     --searchResultHeight: 75px;
-    --viewHeight: -webkit-fill-available;
 }
 
 #search{
@@ -145,6 +144,6 @@
 
 #searchResults>*:last-child::after{
     content: " ";
-    max-height: var(--viewHeight);
+    max-height: -webkit-fill-available;
     height: 100vh;
 }
