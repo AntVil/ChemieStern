@@ -1,5 +1,9 @@
 :root{
-    --contentWidth: 1000px;
+    /* for mobile */
+    --contentWidthSmall: 600px;
+    /* for desktop */
+    --contentWidthLarge: 1000px;
+    
     --cardWidth: 300px;
     --contentSpace: 15px;
     --contentMargin: 15px;
@@ -19,13 +23,13 @@
         left: unset !important;
         top: unset !important;
         transform: none !important;
-        width: calc(100vw - var(--contentMargin)) !important;
+        width: min(var(--contentWidthSmall) - var(--cardWidth) - 2 * var(--contentMargin), calc(100vw - 2 * var(--contentMargin))) !important;
     }
 }
 
 #content{
     display: grid;
-    grid-template-columns: min(calc(var(--contentWidth) - var(--cardWidth) - var(--contentSpace) - 2 * var(--contentMargin)), 100vw - var(--cardWidth) - var(--contentSpace) - 2 * var(--contentMargin)) var(--cardWidth);
+    grid-template-columns: min(calc(var(--contentWidthLarge) - var(--cardWidth) - var(--contentSpace) - 2 * var(--contentMargin)), 100vw - var(--cardWidth) - var(--contentSpace) - 2 * var(--contentMargin)) var(--cardWidth);
     grid-template-rows: auto 1fr;
     position: absolute;
     left: 50%;
