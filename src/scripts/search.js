@@ -95,4 +95,8 @@ async function search(){
 
         resultsElement.appendChild(resultElement);
     }
+
+    if(results.length > 0){
+        resultsElement.appendChild(document.createElement("div"));
+    }
 }
