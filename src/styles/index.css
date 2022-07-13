@@ -3,6 +3,9 @@
     --headerWidth: 300px;
 }
 
+html {
+    height: -webkit-fill-available;
+}
 
 *{
     transition: all 0.2s;
@@ -24,10 +27,18 @@ header{
     top: 0;
     width: var(--headerWidth);
     height: 100vh;
+    /* mobile viewport bug fix */
+    height: -webkit-fill-available;
     transform: translate(-100%, 0%);
     z-index: 1;
-    background-color: var(--headerBackgroundColor);
+    background-color: var(--headerBackgroundColorTransparet);
     backdrop-filter: blur(10px);
+}
+
+@supports not (backdrop-filter: blur(10px)) {
+    header, #headerToggleLabel{
+        background-color: var(--headerBackgroundColor) !important;
+    }
 }
 
 nav{
@@ -56,7 +67,7 @@ nav>*:hover{
     width: var(--headerToggleSize);
     height: var(--headerToggleSize);
     transform: translate(100%, 0%);
-    background-color: var(--headerBackgroundColor);
+    background-color: var(--headerBackgroundColorTransparet);
     border-top-right-radius: calc(var(--headerToggleSize) / 2);
     border-bottom-right-radius: calc(var(--headerToggleSize) / 2);
 }
@@ -108,6 +119,8 @@ main{
     top: 0;
     width: 100vw;
     height: 100vh;
+    /* mobile viewport bug fix */
+    height: -webkit-fill-available;
     z-index: 0;
     background-color: var(--mainBackgroundColor);
 }

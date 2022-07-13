@@ -7,7 +7,14 @@ const CONTENT = [
     "Periodensystem",
     "Isotop",
     "Atombindung",
-    "Ionenbindung"
+    "Ionenbindung",
+    "Metallbindung",
+    "Reaktionsgleichung",
+    "Molekül",
+    "Nomenklatur",
+    "Funktionelle Gruppe",
+    "Katalysator",
+    "Redoxreaktion"
 ];
 
 
