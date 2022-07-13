@@ -104,6 +104,7 @@ function renderContent(contentName){
             rowElement.appendChild(itemElement);
         }
         cardElement.appendChild(rowElement);
+        cardElement.classList.add("table");
     }
 
     document.getElementById("contentTitle").innerText = getContentName(contentName);
@@ -164,8 +165,11 @@ function renderContent(contentName){
                         
                         rowElement.appendChild(itemElement);
                     }
-                    lineElement.appendChild(rowElement);
+                    if(rowElement.innerText !== ""){
+                        lineElement.appendChild(rowElement);
+                    }
                 }
+                lineElement.classList.add("table")
             }
             previousElement = "table";
         }else if(line.startsWith("#")){
