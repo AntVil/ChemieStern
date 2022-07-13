@@ -25,6 +25,11 @@
         transform: none !important;
         width: min(var(--contentWidthSmall) - var(--cardWidth) - 2 * var(--contentMargin), calc(100vw - 2 * var(--contentMargin))) !important;
     }
+
+    #contentCard{
+        margin-top: var(--contentMargin);
+        margin-bottom: var(--contentMargin);
+    }
 }
 
 #content{
@@ -39,12 +44,20 @@
     transform: translate(-50%, -50%);
     gap: var(--contentSpace);
     box-sizing: border-box;
-    padding: var(--contentMargin)
+    padding: var(--contentMargin);
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+#content::-webkit-scrollbar{
+    display: none;
 }
 
 #contentTitle{
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
+    font-weight: bolder;
+    text-decoration: underline;
 }
 
 #contentCard{
