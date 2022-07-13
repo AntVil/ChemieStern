@@ -7,7 +7,7 @@ const CONTENT = [
     "Periodensystem",
     "Isotop",
     "Atombindung",
-    "Ionbindung"
+    "Ionenbindung"
 ];
 
 
@@ -15,14 +15,18 @@ const CONTENT = [
 let contents;
 
 
-async function loadContent(){
-    contents = []
+async function loadContent(contents, contentName){
+    try{
+        contents[contentName] = (await (await fetch(`./content/${contentName}/content.txt`)).text()).toString();
+    }catch{
+        console.warn(`could not find ${contentName}`);
+    }
+}
+
+async function loadContents(){
+    contents = {};
     for(let contentName of CONTENT){
-        try{
-            contents.push((await (await fetch(`./content/${contentName}/content.txt`)).text()).toString())
-        }catch{
-            console.warn(`could not find ${contentName}`);
-        }
+        loadContent(contents, contentName);
     }
 }
 
@@ -31,6 +35,7 @@ function getContentName(contentID){
 }
 
 function getContentCard(contentID){
+    console.log(contents[contentID], contents[contentID].match(/---(.|\n)*---/))
     let result = contents[contentID].match(/---(.|\n)*---/)[0].split("\n").slice(1).map((a) => a.trim());
     result.shift();
     result.pop();

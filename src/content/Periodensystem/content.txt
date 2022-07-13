@@ -4,4 +4,12 @@ Periodensystem der Elemente
 ---
 Das Periodensystem entält alle Elemente. Jedes Element wird durch die Anzahl der Protonen im Atomkern bestimmt und ist neutral geladen. Diese Anzahl wird als Ordnungszahl bezeichnet.
 
-# Elektronennegativität
+# Einteilung
+
+
+# Edelgas-Regel
+
+
+# Elektronegativität
+Die Elektronegativität von einem Element bestimmt, wie stark dieses Element Elektronen zu sich zieht.
+Sie ist bedeutend für die Erklärung von Polarität und Partialladungen ($\delta^+$ bzw. $\delta^-$).
