@@ -2,23 +2,24 @@
     --contentWidth: 1000px;
     --cardWidth: 300px;
     --contentSpace: 15px;
-    --contentMargin: 20px;
+    --contentMargin: 15px;
 }
 
 @media only screen and (max-width: 900px) {
     #content{
-        display: unset;
-        grid-template-columns: unset;
-        grid-template-rows: auto;
+        display: unset !important;
+        grid-template-columns: unset !important;
+        grid-template-rows: auto !important;
     }
 
     #content>*{
-        grid-column: unset;
-        grid-row: unset;
-        position: unset;
-        left: unset;
-        top: unset;
-        transform: none;
+        grid-column: unset !important;
+        grid-row: unset !important;
+        position: unset !important;
+        left: unset !important;
+        top: unset !important;
+        transform: none !important;
+        width: calc(100vw - var(--contentMargin)) !important;
     }
 }
 
