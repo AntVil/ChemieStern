@@ -1,12 +1,30 @@
 :root{
-    --textWidth: 800px;
+    --contentWidth: 1000px;
     --cardWidth: 300px;
-    --searchResultHeight: 75px;
+    --contentSpace: 15px;
+    --contentMargin: 20px;
+}
+
+@media only screen and (max-width: 900px) {
+    #content{
+        display: unset;
+        grid-template-columns: unset;
+        grid-template-rows: auto;
+    }
+
+    #content>*{
+        grid-column: unset;
+        grid-row: unset;
+        position: unset;
+        left: unset;
+        top: unset;
+        transform: none;
+    }
 }
 
 #content{
     display: grid;
-    grid-template-columns: var(--textWidth) var(--cardWidth);
+    grid-template-columns: min(calc(var(--contentWidth) - var(--cardWidth) - var(--contentSpace) - 2 * var(--contentMargin)), 100vw - var(--cardWidth) - var(--contentSpace) - 2 * var(--contentMargin)) var(--cardWidth);
     grid-template-rows: auto 1fr;
     position: absolute;
     left: 50%;
@@ -14,6 +32,7 @@
     width: unset;
     height: 100%;
     transform: translate(-50%, -50%);
+    gap: var(--contentSpace);
 }
 
 #contentTitle{
