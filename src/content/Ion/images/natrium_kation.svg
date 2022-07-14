@@ -13,4 +13,25 @@
 
     <circle cx="900" cy="500" r="5" stroke-width='10' fill='#89CFF0'/>
     <text x="900" y="500" text-anchor="middle" dominant-baseline="central" alignment-baseline="central">‒</text>
+
+    <circle cx="100" cy="500" r="5" stroke-width='10' fill='#89CFF0'/>
+    <text x="100" y="500" text-anchor="middle" dominant-baseline="central" alignment-baseline="central">‒</text>
+
+    <circle cx="500" cy="100" r="5" stroke-width='10' fill='#89CFF0'/>
+    <text x="500" y="100" text-anchor="middle" dominant-baseline="central" alignment-baseline="central">‒</text>
+
+    <circle cx="500" cy="900" r="5" stroke-width='10' fill='#89CFF0'/>
+    <text x="500" y="900" text-anchor="middle" dominant-baseline="central" alignment-baseline="central">‒</text>
+
+    <circle cx="782.842712" cy="782.842712" r="5" stroke-width='10' fill='#89CFF0'/>
+    <text x="782.842712" y="782.842712" text-anchor="middle" dominant-baseline="central" alignment-baseline="central">‒</text>
+
+    <circle cx="217.157288" cy="782.842712" r="5" stroke-width='10' fill='#89CFF0'/>
+    <text x="217.157288" y="782.842712" text-anchor="middle" dominant-baseline="central" alignment-baseline="central">‒</text>
+
+    <circle cx="782.842712" cy="217.157288" r="5" stroke-width='10' fill='#89CFF0'/>
+    <text x="782.842712" y="217.157288" text-anchor="middle" dominant-baseline="central" alignment-baseline="central">‒</text>
+
+    <circle cx="217.157288" cy="217.157288" r="5" stroke-width='10' fill='#89CFF0'/>
+    <text x="217.157288" y="217.157288" text-anchor="middle" dominant-baseline="central" alignment-baseline="central">‒</text>
 </svg>
