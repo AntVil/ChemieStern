@@ -76,7 +76,7 @@ async function search(){
         let card_images = contents[contentName].split("---")[1].split("\n").slice(1).map(
             (a) => a.trim()
         ).filter(
-            (a) => a.startswith("[") && a.endswith("]")
+            (a) => (a.startsWith("[") && a.endsWith("]"))
         ).map(
             (a) => a.slice(1, a.length-1)
         );
