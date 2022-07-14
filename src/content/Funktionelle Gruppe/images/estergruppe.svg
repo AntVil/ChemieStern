@@ -1,0 +1,21 @@
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 150 150' shape-rendering='geometricPrecision' text-rendering='geometricPrecision'>
+    <text x="30" y="75" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">R</text>
+    <text x="60" y="75" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">C</text>
+    <text x="80" y="50" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">O</text>
+    <text x="80" y="100" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">O</text>
+    <text x="110" y="100" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">R</text>
+    
+
+    <path d="M 40 75 L 50 75" stroke="black"></path>
+    <path d="M 90 100 L 100 100" stroke="black"></path>
+
+    <path d="M 67 82 L 75 93" stroke="black"></path>
+    <path d="M 67 67 L 75 57" stroke="black"></path>
+    <path d="M 65 65 L 73 55" stroke="black"></path>
+
+    <path d="M 68 100 L 73 108" stroke="black"></path>
+    <path d="M 77 110 L 85 110" stroke="black"></path>
+
+    <path d="M 89 45 L 89 55" stroke="black"></path>
+    <path d="M 75 40 L 85 40" stroke="black"></path>
+</svg>

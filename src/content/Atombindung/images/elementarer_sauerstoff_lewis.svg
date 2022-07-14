@@ -1,0 +1,15 @@
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 100 100' shape-rendering='geometricPrecision' text-rendering='geometricPrecision'>
+    <path d="M 43 48.5 L 57 48.5" stroke="black"></path>
+    <path d="M 43 51.5 L 57 51.5" stroke="black"></path>
+    
+    <text x="35" y="50" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">O</text>
+    <text x="65" y="50" text-anchor="middle" alignment-baseline="central" font-size="16"font-family="Arab">O</text>
+    
+    <path d="M 30 60 L 40 60" stroke="black"></path>
+    <path d="M 30 40 L 40 40" stroke="black"></path>
+    <path d="M 25 45 L 25 55" stroke="black"></path>
+
+    <path d="M 60 60 L 70 60" stroke="black"></path>
+    <path d="M 60 40 L 70 40" stroke="black"></path>
+    <path d="M 75 45 L 75 55" stroke="black"></path>
+</svg>

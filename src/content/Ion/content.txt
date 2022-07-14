@@ -1,8 +1,21 @@
-Atom
+Periodensystem
+Reaktionsgleichung
 ---
 Ion
     [natrium_kation.svg]
     Natrium Kation ($Na^+$)
 ---
-Ein Ion ist ein Teilchen, welches nicht neutral geladen ist. Dabei ist ein Kation positiv und ein Anion negativ geladen.
+Ein Ion ist ein Teilchen, welches nicht neutral geladen ist.
+Dabei ist ein Kation positiv und ein Anion negativ geladen.
 Kationen haben zu wenig Elektronen und Anionen haben zuviele Elektronen.
+
+# Entstehung
+Ionen entstehen, wenn Atome oder Moleküle Elektronen aufnehmen bzw. abgeben.
+Dies kann zum Beispiel passieren wenn einem Atom nur sehr wenig Elektronen benötigt bzw. über hat um die Edelgas-Regel zu erfüllen.
+Ein Beispiel für ein Atom, welches ein Elektron benötigt ist Chlor ($Cl_2$) und ein Atom, welches ein Elektron zuviel hat ist Natrium.
+Bei deren Reaktion kann Natrium das Elektron das es zuviel hat an Chlor abgeben.
+$$2Na + Cl_2 \rightarrow 2Na^+ + 2Cl^-$$
+Dadurch erfüllen alle beteiligten Atome die Edelgas-Regel.
+
+# Löslichkeit
+Dadurch das Ionen geladene Teilchen sind, können sie sich fast ausschließlich in polaren Flüssigkeiten wie Wasser lösen.

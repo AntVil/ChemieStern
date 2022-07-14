@@ -1,4 +1,18 @@
 ---
 Funktionelle Gruppe
-
+    [carboxylgruppe.svg]
+    Carboxyl-Gruppe ($COOH$)
 ---
+Funktionelle Gruppe sind spezielle Konfigurationen verschiedener Atome, welche zum Beispiel an einem Alkan angehängt sein können.
+Sie haben spezielle Eigenschaften, welche sie zu einem gewissen Grad auf das Molekül an dem sie hängen übertragen.
+{
+    Name:Verbindung:Beschreibung
+    Alkohol-Gruppe:[alkoholgruppe.svg]:Wasserlöslich
+    Carbonyl-Gruppe:[carbonylgruppe.svg]:Oberbegriff Keton & Aldehyd
+    Keton-Gruppe:[ketongruppe.svg]:Kann oft zu Aldehyd werden
+    Aldehyd-Gruppe:[aldehydgruppe.svg]:Wirkt reduzierend bei Redoxreaktion
+    Carboxyl-Gruppe:[carboxylgruppe.svg]:Wirkt als Säure
+    Amino-Gruppe:[aminogruppe.svg]:Wirkt als Base
+    Ether-Gruppe:[ethergruppe.svg]:Entsteht bei Reaktion Alkohol-Alkohol
+    Ester-Gruppe:[estergruppe.svg]:Entsteht bei Reaktion Carboxyl-Alkohol
+}
