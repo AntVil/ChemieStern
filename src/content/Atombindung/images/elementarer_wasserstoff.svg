@@ -3,14 +3,14 @@
     <circle cx="700" cy="500" r="230" stroke-width='1' stroke="#000000" fill='none'/>
     
     <circle cx="300" cy="500" r="20" stroke-width='10' fill='#EE4B2B'/>
-    <text x="300" y="500" text-anchor="middle" alignment-baseline="central">+</text>
+    <text x="300" y="500" text-anchor="middle" dominant-baseline="central" alignment-baseline="central">+</text>
 
     <circle cx="700" cy="500" r="20" stroke-width='10' fill='#EE4B2B'/>
-    <text x="700" y="500" text-anchor="middle" alignment-baseline="central">+</text>
+    <text x="700" y="500" text-anchor="middle" dominant-baseline="central" alignment-baseline="central">+</text>
 
     <circle cx="500" cy="430" r="5" stroke-width='10' fill='#89CFF0'/>
-    <text x="500" y="430" text-anchor="middle" alignment-baseline="central">‒</text>
+    <text x="500" y="430" text-anchor="middle" dominant-baseline="central" alignment-baseline="central">‒</text>
 
     <circle cx="500" cy="570" r="5" stroke-width='10' fill='#89CFF0'/>
-    <text x="500" y="570" text-anchor="middle" alignment-baseline="central">‒</text>
+    <text x="500" y="570" text-anchor="middle" dominant-baseline="central" alignment-baseline="central">‒</text>
 </svg>

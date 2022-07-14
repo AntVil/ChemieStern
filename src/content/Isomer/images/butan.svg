@@ -1,21 +1,21 @@
 <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 200 200' shape-rendering='geometricPrecision' text-rendering='geometricPrecision'>
     <g transform="translate(25, 0)">
-        <text x="0" y="75" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
-        <text x="30" y="75" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">C</text>
-        <text x="60" y="75" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">C</text>
-        <text x="90" y="75" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">C</text>
-        <text x="120" y="75" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">C</text>
-        <text x="150" y="75" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
+        <text x="0" y="75" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
+        <text x="30" y="75" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">C</text>
+        <text x="60" y="75" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">C</text>
+        <text x="90" y="75" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">C</text>
+        <text x="120" y="75" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">C</text>
+        <text x="150" y="75" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
 
-        <text x="30" y="45" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
-        <text x="60" y="45" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
-        <text x="90" y="45" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
-        <text x="120" y="45" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
+        <text x="30" y="45" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
+        <text x="60" y="45" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
+        <text x="90" y="45" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
+        <text x="120" y="45" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
 
-        <text x="30" y="105" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
-        <text x="60" y="105" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
-        <text x="90" y="105" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
-        <text x="120" y="105" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
+        <text x="30" y="105" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
+        <text x="60" y="105" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
+        <text x="90" y="105" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
+        <text x="120" y="105" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
         
         <path d="M 10 75 L 20 75" stroke="black"></path>
         <path d="M 40 75 L 50 75" stroke="black"></path>

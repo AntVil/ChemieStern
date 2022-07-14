@@ -1,7 +1,7 @@
 <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 100 100' shape-rendering='geometricPrecision' text-rendering='geometricPrecision'>
-    <text x="50" y="40" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">O</text>
-    <text x="35" y="65" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">O</text>
-    <text x="65" y="65" text-anchor="middle" alignment-baseline="central" font-size="16" font-family="Arab">O</text>
+    <text x="50" y="40" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">O</text>
+    <text x="35" y="65" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">O</text>
+    <text x="65" y="65" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">O</text>
     <path d="M 43 65 L 57 65" stroke="black"></path>
     <path d="M 38 57 L 45 45" stroke="black"></path>
     <path d="M 62 57 L 55 45" stroke="black"></path>
