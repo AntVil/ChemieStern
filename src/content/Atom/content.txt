@@ -15,6 +15,7 @@ Die Neutronen sorgen für die Stabilität des Atomkerns.
 
 Jedes Atom möchte die äußerste Elektronen-Schale möglichst vollkommen ausfüllen.
 Die Schalen sind dabei verschieden Groß:
+
 {
     Schale:Größe
     1: 2
@@ -22,6 +23,7 @@ Die Schalen sind dabei verschieden Groß:
     3: 18
     4: 32
 }
+
 Hierbei ist zu beachten, dass für Elemente mit mehr als 20 Protonen die Schalen nicht gleichmäßig aufgefüllt werden.
 Beispielsweise hat ein Titan-Atom, welches 22 Protonen hat, die Schalenbesetzung 2-8-10-2.
 Grund für diese ungleichmäßige Befüllung sind die Enegielevel der verschiedenen Schalen bzw Subschalen.

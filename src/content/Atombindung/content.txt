@@ -14,6 +14,7 @@ Bei der Lewis-Schreibweise wird der Atomkern durch das Elementsymbol ersetzt.
 Einzelne Elektronen werden als Punkte und doppelte Elektronen als Striche eingezeichnet.
 Nur die äußerste Schale wird dabei gezeichnet, die inneren Schalen werden weggelassen.
 Als Beispiel dient hier elementarer Wasserstoff:
+
 {
     Bohr-Modell:Lewis-Schreibweise
     [elementarer_wasserstoff.svg]:[elementarer_wasserstoff_lewis.svg]

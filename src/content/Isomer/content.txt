@@ -8,10 +8,12 @@ Ein Isomer ist ein Stoff, welcher die gleiche chemische Formel besitzt wie ein a
 
 # Struktur-Isomerie
 Für die chemische Formel $C_4H_8$ gibt es zwei verschiede Struktur-Isomere.
+
 {
     Butan:Isobutan
     [butan.svg]:[isobutan.svg]
 }
+
 Struktur-Isomere unterschieden sich im Aufbau des Moleküls.
 Dabei sind verdrehte Einfach-Bindungen kein unterschied.
 Sie haben meist unterschiedliche Eigenschaften.

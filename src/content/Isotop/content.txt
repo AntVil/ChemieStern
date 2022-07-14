@@ -9,11 +9,13 @@ Die Anzahl der Elektronen und Protonen hat keine Auswirkungen auf das Isotop.
 
 # Schreibweise
 Für ein Isotop wird die Anzahl an Protonen und Neuronen addiert und oben links über dem Element aufgeschrieben.
+
 {
     Elementarer Wasserstoff: $${}^{1}H$$
     Schwerer Wasserstoff (Deuterium): $${}^{2}H$$
     Überschwerer Wasserstoff (Tritium): $${}^{3}H$$
 }
+
 Wird die Zahl nicht angegeben handelt es sich um das gängigste Isotop des Elements.
 
 # Eigenschaften
