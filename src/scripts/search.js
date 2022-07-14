@@ -1,6 +1,11 @@
 const SEARCH_CHARACTER_LOOK_AHEAD = 200;
 
 
+function searchSetup(resolve, reject){
+    resolve();
+}
+
+
 function get_bigrams(string){
     let s = string.toLowerCase()
     let v = s.split("");

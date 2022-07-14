@@ -21,6 +21,54 @@ label:hover{
     cursor: pointer;
 }
 
+#pageLoader{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    height: -webkit-fill-available;
+    z-index: 2;
+    background-color: var(--mainBackgroundColor);
+}
+
+#pageLoader>*:first-child{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    padding: 3px;
+    background: 
+        radial-gradient(farthest-side,#89CFF0 95%,#0000) 50% 0/12px 12px no-repeat,
+        radial-gradient(farthest-side,#0000 calc(100% - 2px),#000000 calc(100% - 4px)) content-box;
+    animation: pageLoaderRotate 2s infinite ;
+}
+
+@keyframes pageLoaderRotate {
+    to{transform: translate(-50%, -50%) rotate(1turn)}
+}
+
+#pageLoader>*:last-child{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: #EE4B2B;
+    animation: pageLoaderPulsate 2s infinite ;
+}
+
+@keyframes pageLoaderPulsate {
+    0%{transform: translate(-50%, -50%)}
+    50%{transform: translate(-50%, -50%) scale(1.1)}
+    /*100%{transform: translate(-50%, -50%)}*/
+}
+
 header{
     position: fixed;
     left: 0;

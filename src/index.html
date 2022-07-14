@@ -19,12 +19,18 @@
         <script src="./scripts/content.js"></script>
         <script src="./scripts/index.js"></script>
         <script src="./scripts/search.js"></script>
+        <script src="./scripts/map.js"></script>
         
         <!-- meta -->
         <meta name="viewport" content="width=device-width">
     </head>
 
     <body>
+        <div id="pageLoader">
+            <div></div>
+            <div></div>
+        </div>
+
         <input id="headerToggle" type="checkbox">
 
         <header>
@@ -41,7 +47,7 @@
 
         <main>
             <div id="map">
-                map
+                <canvas id="mapCanvas"></canvas>
             </div>
 
             <div id="search">

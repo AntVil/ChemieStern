@@ -7,8 +7,14 @@ let contentPage;
 let pages;
 
 
-window.onload = function(){
-    loadContents();
+window.onload = async function(){
+    await Promise.all(
+        [
+            new Promise(contentSetup),
+            new Promise(searchSetup),
+            new Promise(mapSetup),
+        ]
+    );
     
     mapPage = document.getElementById("map");
     searchPage = document.getElementById("search");
@@ -17,9 +23,10 @@ window.onload = function(){
 
     pages = [mapPage, searchPage, aboutPage, contentPage];
 
+    document.getElementById("pageLoader").style.display = "none";
+
     loadPageSearch();
 }
-
 
 
 function loadPage(page){
@@ -33,7 +40,6 @@ function loadPage(page){
     page.style.zIndex = "0";
     document.getElementById("headerToggle").checked = false;
 }
-
 
 function loadPageMap(){
     loadPage(mapPage);
@@ -49,6 +55,5 @@ function loadPageAbout(){
 
 function loadPageContent(contentName){
     loadPage(contentPage);
-
     renderContent(contentName);
 }

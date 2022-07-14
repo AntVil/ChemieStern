@@ -27,6 +27,12 @@ const CONTENT_TYPE = Symbol("text_type");
 let contents;
 
 
+async function contentSetup(resolve, reject){
+    await loadContents();
+    resolve();
+}
+
+
 async function loadContent(contents, contentName){
     try{
         let content = (await (await fetch(`./content/${contentName}/content.txt`)).text()).toString();
