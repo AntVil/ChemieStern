@@ -13,6 +13,8 @@ const CONTENT = [
     "Molekül",
     "Nomenklatur",
     "Funktionelle Gruppe",
+    "Isomer",
+    "Kunststoff",
     "Katalysator",
     "Redoxreaktion"
 ];
