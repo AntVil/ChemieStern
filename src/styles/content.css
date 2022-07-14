@@ -84,6 +84,7 @@
 
 .table>*{
     background-color: var(--contentBackgroundColor);
+    box-sizing: border-box;
 }
 
 .table>*:first-child{
@@ -99,6 +100,7 @@
 .table>*>*{
     border-right: 1px solid var(--fontColor);
     border-bottom: 1px solid var(--fontColor);
+    box-sizing: border-box;
 }
 
 .table>*>*:first-child{
