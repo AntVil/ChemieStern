@@ -73,14 +73,22 @@ async function search(){
         
         resultElement.onclick = () => loadPageContent(contentName);
 
-        try{
-            resultImage.src = `./content/${contentName}/images/${contents[contentName].match(/\[([^()]*)\]/)[1]}`;
+        let card_images = contents[contentName].split("---")[1].split("\n").slice(1).map(
+            (a) => a.trim()
+        ).filter(
+            (a) => a.startswith("[") && a.endswith("]")
+        ).map(
+            (a) => a.slice(1, a.length-1)
+        );
+        
+        if(card_images.length > 0){
+            resultImage.src = `./content/${contentName}/images/${card_images[0]}`;
             resultImage.onerror = (e) => {
                 e.preventDefault();
                 resultImage.onerror = null;
                 resultImage.src = "./images/defaultSearchImage.svg";
             };
-        }catch{
+        }else{
             resultImage.src = "./images/defaultSearchImage.svg";
         }
 
