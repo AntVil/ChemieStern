@@ -23,13 +23,34 @@ window.onload = async function(){
 
     pages = [mapPage, searchPage, aboutPage, contentPage];
 
+    for(let p of pages){
+        p.style.opacity = "0";
+        p.style.zIndex = "-1";
+    }
+
+    window.onpopstate = (e) => {
+        try{
+            if(e.state.page === contentPage.id){
+                loadPageContent(e.state.attribute);
+            }else{
+                loadPage(document.getElementById(e.state.page), null);
+            }
+        }catch{
+            history.go(-1);
+        }
+    };
+
     document.getElementById("pageLoader").style.display = "none";
 
     loadPageMap();
 }
 
 
-function loadPage(page){
+function loadPage(page, pushState){
+    if(pushState !== null){
+        history.pushState(pushState, "");
+    }
+
     for(let p of pages){
         if(p !== page){
             p.style.opacity = "0";
@@ -42,18 +63,30 @@ function loadPage(page){
 }
 
 function loadPageMap(){
-    loadPage(mapPage);
+    if(mapPage.style.opacity === "0"){
+        loadPage(mapPage, {page: mapPage.id, attribute: null});
+    }else{
+        loadPage(mapPage, null);
+    }
 }
 
 function loadPageSearch(){
-    loadPage(searchPage);
+    if(searchPage.style.opacity === "0"){
+        loadPage(searchPage, {page: searchPage.id, attribute: null});
+    }else{
+        loadPage(searchPage, null);
+    }
 }
 
 function loadPageAbout(){
-    loadPage(aboutPage);
+    if(aboutPage.style.opacity === "0"){
+        loadPage(aboutPage, {page: aboutPage.id, attribute: null});
+    }else{
+        loadPage(aboutPage, null);
+    }
 }
 
 function loadPageContent(contentName){
-    loadPage(contentPage);
+    loadPage(contentPage, {page: contentPage.id, attribute: contentName});
     renderContent(contentName);
 }

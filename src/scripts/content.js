@@ -49,6 +49,10 @@ async function loadContents(){
     }
 }
 
+function getContentParents(contentName){
+    return contents[contentName].split("---")[0].split("\n").map((a) => a.trim()).filter((a) => a.length > 0);
+}
+
 function getContentName(contentName){
     return contents[contentName].split("---")[1].split("\n")[1].trim()
 }
