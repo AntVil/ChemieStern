@@ -25,7 +25,7 @@ window.onload = async function(){
 
     document.getElementById("pageLoader").style.display = "none";
 
-    loadPageSearch();
+    loadPageMap();
 }
 
 
