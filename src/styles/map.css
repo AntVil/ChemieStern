@@ -38,11 +38,6 @@
 }
 
 #mapToolbar>input+label>*{
-    position: relative;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
     width: calc((var(--toolbarHeight) - 2 * 5px) * 0.8);
     height: calc((var(--toolbarHeight) - 2 * 5px) * 0.8);
     background-color: var(--fontColor);
