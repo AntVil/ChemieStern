@@ -1,8 +1,8 @@
 const SEARCH_CHARACTER_LOOK_AHEAD = 200;
 
 
-function searchSetup(resolve, reject){
-    resolve();
+async function searchSetup(){
+    
 }
 
 

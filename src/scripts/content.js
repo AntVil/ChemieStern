@@ -1,4 +1,5 @@
 const CONTENT = [
+    "Chemie",
     "Proton",
     "Elektron",
     "Neutron",
@@ -27,9 +28,8 @@ const CONTENT_TYPE = Symbol("text_type");
 let contents;
 
 
-async function contentSetup(resolve, reject){
+async function contentSetup(){
     await loadContents();
-    resolve();
 }
 
 
@@ -44,9 +44,11 @@ async function loadContent(contents, contentName){
 
 async function loadContents(){
     contents = {};
+    let promises = []
     for(let contentName of CONTENT){
-        loadContent(contents, contentName);
+        promises.push(loadContent(contents, contentName));
     }
+    await Promise.all(promises);
 }
 
 function getContentParents(contentName){

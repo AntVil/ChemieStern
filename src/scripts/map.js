@@ -1,4 +1,7 @@
 const MAP_SCALING_FACTOR = 1.5;
+const SIMULATION_STEPS = 1;
+const GRAPH_OFFSET_X = 50;
+const GRAPH_OFFSET_Y = 50;
 
 let mapCanvas;
 let ctxt;
@@ -12,12 +15,18 @@ let mapToolDragElement;
 let mapToolZoomInElement;
 let mapToolZoomOutElement;
 
-function mapSetup(resolve, reject){
+let graph;
+let graphStart;
+
+async function mapSetup(){
     mapToolDragElement = document.getElementById("mapToolDrag");
     mapToolZoomInElement = document.getElementById("mapToolZoomIn");
     mapToolZoomOutElement = document.getElementById("mapToolZoomOut");
 
     mapCanvas = document.getElementById("mapCanvas");
+    mapCanvas.width = mapCanvas.clientWidth;
+    mapCanvas.height = mapCanvas.clientHeight;
+    ctxt = mapCanvas.getContext("2d");
     new ResizeObserver((x) => setCanvasSize()).observe(mapCanvas);
 
     mapCanvas.addEventListener("mousedown", (e) => {
@@ -45,28 +54,119 @@ function mapSetup(resolve, reject){
         e.preventDefault();
         endPointer();
     });
+    
+    pointerDragging = false;
 
     mapTransform = [
         1, 0, 0,
         0, 1, 0,
         0, 0, 1
     ];
-
     pointerOffsetPosition = [0, 0];
 
-    setCanvasSize();
+    graph = [];
+    for(let content of Object.keys(contents)){
+        graph[content] = {
+            "x": 0,
+            "y": 0,
+            "parents": getContentParents(content)
+        };
+    }
 
-    pointerDragging = false;
+    let rootNodes = new Set(Object.keys(graph));
+    while(rootNodes.size > 1){
+        let temp = new Set();
+        for(let node of rootNodes){
+            graph[node].parents.forEach((p) => temp.add(p));
+        }
+        temp.delete(undefined);
+        rootNodes = temp;
+    }
+    
+    let layers = [Array.from(rootNodes)];
+    let addedNodes = new Set(rootNodes);
+    while(addedNodes.size !== Object.keys(graph).length){
+        let layer = [];
+        for(let node of Object.keys(graph)){
+            if(!addedNodes.has(node) && graph[node].parents.filter((n) => !addedNodes.has(n)).length === 0){
+                layer.push(node);
+            }
+        }
+        
+        layers.push(layer);
+        layer.forEach((n) => addedNodes.add(n));
+    }
 
-    resolve();
+
+    
+    for(let i=0;i<layers.length;i++){
+        for(let j=0;j<layers[i].length;j++){
+            graph[layers[i][j]].x = j;
+            graph[layers[i][j]].y = i;
+        }
+    }
+
+    console.log(layers)
+
+    let extraNodeId = 0;
+    for(let i=layers.length-1;i>=0;i--){
+        console.log(i, layers)
+        for(let j=0;j<layers[i].length;j++){
+            let node = graph[layers[i][j]];
+            let parents = node.parents;
+            for(let k=0;k<parents.length;k++){
+                let distance = i - graph[parents[k]].y;
+                if(distance === 1){
+                    continue;
+                }
+
+                let extraNode;
+                for(let l=0;l<distance-1;l++){
+                    let y = i - l - 1;
+                    console.log("y", y)
+                    let extraNodeName = `_${extraNodeId}`;
+                    extraNode = {
+                        "x": layers[y].length,
+                        "y": y,
+                        "parents": [`_${extraNodeId+1}`]
+                    }
+                    layers[y].push(extraNodeName)
+                    graph[extraNodeName] = extraNode;
+                    extraNodeId++;
+                }
+                extraNode.parents = [parents[k]];
+            }
+        }
+    }
+
+    for(let t=0;t<SIMULATION_STEPS;t++){
+        for(let i=0;i<layers.length;i++){
+            for(let j=0;j<layers[i].length;j++){
+
+            }
+        }
+    }
+    
+    for(let i=0;i<layers.length;i++){
+        for(let j=0;j<layers[i].length;j++){
+            graph[layers[i][j]].x = (j - 0.5 * (layers[i].length-1)) * GRAPH_OFFSET_X;
+            graph[layers[i][j]].y = -i * GRAPH_OFFSET_Y;
+        }
+    }
+
+    mapTransform[2] += mapCanvas.width / 2;
+    mapTransform[5] += mapCanvas.height / 2;
+
+    mapRender();
 }
+
 
 function setCanvasSize(){
     // client size is calculated by css
     mapCanvas.width = mapCanvas.clientWidth;
     mapCanvas.height = mapCanvas.clientHeight;
     ctxt = mapCanvas.getContext("2d");
-    mapUpdate();
+    mapRender();
 }
 
 function startPointer(x, y){
@@ -79,7 +179,7 @@ function movePointer(x, y){
         pointerOffsetPosition[0] = x - pointerStartPosition[0];
         pointerOffsetPosition[1] = y - pointerStartPosition[1];
 
-        mapUpdate();
+        mapRender();
     }
 }
 
@@ -96,10 +196,10 @@ function endPointer(){
     pointerOffsetPosition = [0, 0];
     pointerDragging = false;
 
-    mapUpdate();
+    mapRender();
 }
 
-function mapUpdate(){
+function mapRender(){
     ctxt.clearRect(0, 0, mapCanvas.width, mapCanvas.height);
     ctxt.save();
     let offset = [0, 0];
@@ -108,10 +208,18 @@ function mapUpdate(){
     }
     ctxt.setTransform(mapTransform[0], mapTransform[3], mapTransform[1], mapTransform[4], mapTransform[2] + offset[0], mapTransform[5] + offset[1]);
 
+    for(let node of Object.keys(graph)){
+        ctxt.fillRect(graph[node].x-10, graph[node].y-10, 20, 20);
 
-    ctxt.fillRect(0, 0, 20, 20);
-
-    ctxt.fillRect(200, 200, 20, 20);
+        for(let parent of graph[node].parents){
+            ctxt.beginPath();
+            ctxt.moveTo(graph[node].x, graph[node].y);
+            ctxt.lineTo(graph[parent].x, graph[parent].y);
+            ctxt.stroke();
+        }
+    }
+    
+    
 
     ctxt.restore();
 }
