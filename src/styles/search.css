@@ -52,6 +52,7 @@
     padding: 0;
     border: none;
     border-radius: calc(var(--searchBoxHeight) / 2);
+    background-color: var(--supportColor);
 }
 
 #search>form>button>*{

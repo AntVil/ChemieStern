@@ -22,13 +22,19 @@
     gap: var(--toolbarPadding);
 }
 
-#mapToolbar>input:checked+label{
+/* only highlight selected if not hovering other */
+#mapToolbar:hover, #mapToolbar>input:checked+label>*, #mapToolbar:hover>input+label:hover>*{
     background-color: var(--highlightColor);
-    border-radius: var(--toolbarHeight);
+}
+
+#mapToolbar:hover>input+label>*{
+    background-color: var(--fontColor);
 }
 
 #mapToolbar>input+label{
+    background-color: var(--supportColor);
     padding: 5px;
+    border-radius: var(--toolbarHeight);
 }
 
 #mapToolbar>input+label>*{

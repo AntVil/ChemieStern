@@ -6,6 +6,7 @@
         --highlightColor: #FF9900;
         --mainBackgroundColor: #FFFFFF;
         --contentBackgroundColor: #EEEEEE;
+        --supportColor: #DDDDDD;
     }
     
 }
@@ -18,5 +19,6 @@
         --highlightColor: #0099FF;
         --mainBackgroundColor: #333333;
         --contentBackgroundColor: #555555;
+        --supportColor: #AAAAAA;
     }
 }
