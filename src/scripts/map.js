@@ -25,6 +25,8 @@ let mapToolZoomOutElement;
 let graph;
 let graphStart;
 
+let hoverElement;
+
 async function mapSetup(){
     mapToolDragElement = document.getElementById("mapToolDrag");
     mapToolZoomInElement = document.getElementById("mapToolZoomIn");
@@ -43,6 +45,11 @@ async function mapSetup(){
     mapCanvas.addEventListener("mousemove", (e) => {
         e.preventDefault();
         movePointer(e.clientX, e.clientY);
+        let hoverElement_ = mapGetHoverElement(e.clientX, e.clientY);
+        if(hoverElement !== hoverElement_){
+            hoverElement = hoverElement_;
+            mapRender();
+        }
     });
     mapCanvas.addEventListener("mouseup", (e) => {
         e.preventDefault();
@@ -187,6 +194,8 @@ async function mapSetup(){
     mapTransform[2] += mapCanvas.width / 2;
     mapTransform[5] += mapCanvas.height / 2;
 
+    hoverElement = null;
+
     mapRender();
 }
 
@@ -202,6 +211,15 @@ function setCanvasSize(){
 function startPointer(x, y){
     pointerStartPosition = [x, y];
     pointerDragging = true;
+
+    if(mapToolDragElement.checked){
+        let selectedElement = mapGetHoverElement(x, y);
+        if(selectedElement !== null){
+            endPointer();
+            hoverElement = null;
+            loadPageContent(selectedElement);
+        }
+    }
 }
 
 function movePointer(x, y){
@@ -232,12 +250,10 @@ function endPointer(){
 function mapRender(){
     ctxt.clearRect(0, 0, mapCanvas.width, mapCanvas.height);
     ctxt.save();
-    let offset = [0, 0];
-    if(mapToolDragElement.checked){
-        offset = pointerOffsetPosition;
-    }
-    ctxt.setTransform(mapTransform[0], mapTransform[3], mapTransform[1], mapTransform[4], mapTransform[2] + offset[0], mapTransform[5] + offset[1]);
+    ctxt.setTransform(mapTransform[0], mapTransform[3], mapTransform[1], mapTransform[4], mapTransform[2] + pointerOffsetPosition[0], mapTransform[5] + pointerOffsetPosition[1]);
 
+    ctxt.lineWidth = 1;
+    ctxt.strokeStyle = window.getComputedStyle(document.documentElement).getPropertyValue('--fontColor');
     for(let node of Object.keys(graph)){
         for(let parent of graph[node].parents){
             ctxt.beginPath();
@@ -247,16 +263,63 @@ function mapRender(){
         }
     }
 
+    ctxt.fillStyle = window.getComputedStyle(document.documentElement).getPropertyValue('--contentBackgroundColor');
     for(let node of Object.keys(graph)){
         if(!node.startsWith("_")){
-            ctxt.fillStyle = "#AAAAAA";
             roundedRect(ctxt, graph[node].x - NODE_WIDTH / 2, graph[node].y - NODE_HEIGHT / 2, NODE_WIDTH, NODE_HEIGHT, NODE_RADIUS);
             ctxt.fill();
-            ctxt.textAlign = "center";
-            ctxt.textBaseline = "middle";
-            ctxt.fillStyle = "#333333";
-            ctxt.font = `${NODE_FONT_SIZE}px Arial`;
+        }
+    }
+
+    ctxt.textAlign = "center";
+    ctxt.textBaseline = "middle";
+    ctxt.fillStyle = window.getComputedStyle(document.documentElement).getPropertyValue('--fontColor');
+    ctxt.font = `${NODE_FONT_SIZE}px Arial`;
+    for(let node of Object.keys(graph)){
+        if(!node.startsWith("_")){
             ctxt.fillText(node, graph[node].x, graph[node].y)
+        }
+    }
+
+    if(hoverElement !== null){
+        let highlightElements = new Set([hoverElement]);
+        let stack = [hoverElement];
+        while(stack.length > 0){
+            let node = stack.pop();
+            let parents = graph[node].parents;
+            if(parents.length > 0){
+                stack.push(...parents);
+                parents.forEach((n) => highlightElements.add(n));
+            }
+        }
+
+        ctxt.lineWidth = 5;
+        ctxt.strokeStyle = window.getComputedStyle(document.documentElement).getPropertyValue('--highlightColor');
+        for(let node of highlightElements){
+            for(let parent of graph[node].parents){
+                ctxt.beginPath();
+                ctxt.moveTo(graph[node].x, graph[node].y);
+                ctxt.bezierCurveTo(graph[node].x, graph[parent].y, graph[parent].x, graph[node].y, graph[parent].x, graph[parent].y);
+                ctxt.stroke();
+            }
+        }
+        
+        ctxt.fillStyle = window.getComputedStyle(document.documentElement).getPropertyValue('--supportColor');
+        for(let node of highlightElements){
+            if(!node.startsWith("_")){
+                roundedRect(ctxt, graph[node].x - NODE_WIDTH / 2, graph[node].y - NODE_HEIGHT / 2, NODE_WIDTH, NODE_HEIGHT, NODE_RADIUS);
+                ctxt.fill();
+            }
+        }
+
+        ctxt.textAlign = "center";
+        ctxt.textBaseline = "middle";
+        ctxt.fillStyle = window.getComputedStyle(document.documentElement).getPropertyValue('--highlightColor');
+        ctxt.font = `${NODE_FONT_SIZE}px Arial`;
+        for(let node of highlightElements){
+            if(!node.startsWith("_")){
+                ctxt.fillText(node, graph[node].x, graph[node].y)
+            }
         }
     }
 
@@ -362,4 +425,21 @@ function zoom(x, y, zoomIn, mapTransform){
     );
 
     return result;
+}
+
+function mapGetHoverElement(x, y){
+    let transform = mapTransform.slice();
+
+    transform[2] += pointerOffsetPosition[0];
+    transform[5] += pointerOffsetPosition[1];
+    
+    let [x_, y_] = mapTransformPoint(x, y, transform);
+
+    for(let node of Object.keys(graph)){
+        if(!node.startsWith("_") && graph[node].x - NODE_WIDTH/2 < x_ && graph[node].x + NODE_WIDTH/2 > x_ && graph[node].y - NODE_HEIGHT/2 < y_ && graph[node].y + NODE_HEIGHT/2 > y_){
+            return node
+        }
+    }
+
+    return null;
 }

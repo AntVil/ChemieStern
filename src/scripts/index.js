@@ -26,10 +26,18 @@ window.onload = async function(){
         p.style.zIndex = "-1";
     }
 
+    document.addEventListener('keydown', function(e) {
+        if(e.key === "Escape") {
+            loadPageMap();
+        }
+    });
+
     window.onpopstate = (e) => {
         try{
             if(e.state.page === contentPage.id){
                 loadPageContent(e.state.attribute);
+            }else if(e.state.page === mapPage.id){
+                loadPageMap();
             }else{
                 loadPage(document.getElementById(e.state.page), null);
             }
@@ -66,6 +74,7 @@ function loadPageMap(){
     }else{
         loadPage(mapPage, null);
     }
+    mapRender();
 }
 
 function loadPageSearch(){
