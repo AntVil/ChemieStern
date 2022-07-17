@@ -1,7 +1,7 @@
 const CONTENT = [
+    "Aggregatszustand",
     "Atom",
     "Atombindung",
-    "Bindungsarten",
     "Chemie",
     "Chemisches Gleichgewicht",
     "Dipol-Dipol-Wechselwirkung",
@@ -12,7 +12,10 @@ const CONTENT = [
     "Isomer",
     "Isotop",
     "Katalysator",
+    "Kohlenhydrate",
+    "Kohlenwasserstoff",
     "Kunststoff",
+    "Lipide",
     "Metallbindung",
     "Molekül",
     "Neutron",
@@ -23,6 +26,7 @@ const CONTENT = [
     "Reaktionsgleichung",
     "Redoxreaktion",
     "Sekundärbindung",
+    "Säure-Base-Reaktion",
     "Van-der-Waals-Kraft",
     "Wasserstoff-Brückenbindung"
 ];

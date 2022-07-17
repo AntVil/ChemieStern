@@ -1,4 +1,4 @@
-Molekül
+Kohlenwasserstoff
 ---
 Funktionelle Gruppe
     [carboxylgruppe.svg]
