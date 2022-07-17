@@ -6,6 +6,7 @@ Funktionelle Gruppe
 ---
 Funktionelle Gruppe sind spezielle Konfigurationen verschiedener Atome, welche zum Beispiel an einem Alkan angehängt sein können.
 Sie haben spezielle Eigenschaften, welche sie zu einem gewissen Grad auf das Molekül an dem sie hängen übertragen.
+Dabei wird oft der Rest des Molekül mit dem Buchstaben $R$ abgekürzt.
 
 {
     Name:Verbindung:Beschreibung

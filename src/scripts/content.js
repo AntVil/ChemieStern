@@ -26,10 +26,29 @@ const CONTENT_TYPE = Symbol("text_type");
 
 /* page contents */
 let contents;
+let contentGraph;
 
 
 async function contentSetup(){
     await loadContents();
+    contentGraph = [];
+    for(let content of Object.keys(contents)){
+        contentGraph[content] = {
+            "parents": contents[content].split("---")[0].split("\n").map((a) => a.trim()).filter((a) => a.length > 0),
+            "children": []
+        };
+
+        if(content === "Ion"){
+            console.log(JSON.stringify(contentGraph[content]))
+            console.log(contentGraph[content])
+        }
+        
+    }
+    for(let content of Object.keys(contentGraph)){
+        for(let parent of contentGraph[content].parents){
+            contentGraph[parent].children.push(content);
+        }
+    }
 }
 
 
@@ -52,7 +71,11 @@ async function loadContents(){
 }
 
 function getContentParents(contentName){
-    return contents[contentName].split("---")[0].split("\n").map((a) => a.trim()).filter((a) => a.length > 0);
+    return contentGraph[contentName].parents.slice();
+}
+
+function getContentChildren(contentName){
+    return contentGraph[contentName].children.slice();
 }
 
 function getContentName(contentName){
@@ -107,6 +130,7 @@ function renderContentBlockMath(contentName, math){
     katex.render(math, element, {
         throwOnError: false
     });
+    element.style.textAlign = "center";
     return element;
 }
 
@@ -126,7 +150,6 @@ function renderContentTextline(contentName, text){
     return element;
 }
 
-
 function renderContentItem(contentName, item){
     item = item.trim();
     if(item.startsWith("[") && item.endsWith("]")){
@@ -144,7 +167,6 @@ function renderContentItem(contentName, item){
     }
 }
 
-
 function renderContentTableRow(contentName, row){
     let rowElement = document.createElement("div");
     let items = row.split(":");
@@ -157,6 +179,17 @@ function renderContentTableRow(contentName, row){
     return rowElement;
 }
 
+function renderContentNav(links){
+    let nav = document.createElement("aside");
+    nav[CONTENT_TYPE] = "nav";
+    for(let link of links){
+        let linkElement = document.createElement("a");
+        linkElement.onclick = () => loadPageContent(link, true);
+        linkElement.innerText = link;
+        nav.appendChild(linkElement);
+    }
+    return nav;
+}
 
 function renderContent(contentName){
     // title
@@ -173,9 +206,13 @@ function renderContent(contentName){
     cardElement.classList.add("table");
     
     // main
+    let prefix = renderContentNav(getContentParents(contentName));
+    let suffix = renderContentNav(getContentChildren(contentName));
     let text = getContentText(contentName, false);
     let textElement = document.getElementById("contentText");
     textElement.innerHTML = "";
+
+    textElement.appendChild(prefix);
 
     let isTable = false;
     let tableElement = document.createElement("div");
@@ -208,4 +245,6 @@ function renderContent(contentName){
             }
         }
     }
+
+    textElement.appendChild(suffix);
 }

@@ -35,7 +35,7 @@ window.onload = async function(){
     window.onpopstate = (e) => {
         try{
             if(e.state.page === contentPage.id){
-                loadPageContent(e.state.attribute);
+                loadPageContent(e.state.attribute, false);
             }else if(e.state.page === mapPage.id){
                 loadPageMap();
             }else{
@@ -46,6 +46,11 @@ window.onload = async function(){
         }
     };
 
+
+    window.matchMedia('(prefers-color-scheme: dark)').onchange = (e) => {
+        mapRender();
+    }
+
     document.getElementById("pageLoader").style.display = "none";
 
     loadPageMap();
@@ -54,6 +59,7 @@ window.onload = async function(){
 
 function loadPage(page, pushState){
     if(pushState !== null){
+        console.log("pushing", pushState);
         history.pushState(pushState, "");
     }
 
@@ -93,7 +99,11 @@ function loadPageAbout(){
     }
 }
 
-function loadPageContent(contentName){
-    loadPage(contentPage, {page: contentPage.id, attribute: contentName});
+function loadPageContent(contentName, pushState){
+    if(pushState){
+        loadPage(contentPage, {page: contentPage.id, attribute: contentName});
+    }else{
+        loadPage(contentPage, null);
+    }
     renderContent(contentName);
 }

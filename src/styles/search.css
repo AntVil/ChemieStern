@@ -11,7 +11,9 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
     gap: var(--searchPadding);
-    padding: var(--searchPadding);
+    padding-top: var(--searchPadding);
+    padding-left: var(--searchPadding);
+    padding-right: var(--searchPadding);
     box-sizing: border-box;
 }
 

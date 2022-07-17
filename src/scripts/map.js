@@ -3,8 +3,8 @@ const SIMULATION_STEPS = 10;
 const SIMULATION_REPULSION_STRENGTH = 0.1;
 const SIMULATION_FRICTION_STRENGTH = 0.3;
 const SIMULATION_ATTRACTION_STRENGTH = 0.4;
-const GRAPH_OFFSET_X = 250;
-const GRAPH_OFFSET_Y = 100;
+const mapGraph_OFFSET_X = 250;
+const mapGraph_OFFSET_Y = 100;
 const NODE_WIDTH = 230;
 const NODE_HEIGHT = 50;
 const NODE_RADIUS = 15;
@@ -22,8 +22,8 @@ let mapToolDragElement;
 let mapToolZoomInElement;
 let mapToolZoomOutElement;
 
-let graph;
-let graphStart;
+let mapGraph;
+let mapGraphStart;
 
 let hoverElement;
 
@@ -45,10 +45,34 @@ async function mapSetup(){
     mapCanvas.addEventListener("mousemove", (e) => {
         e.preventDefault();
         movePointer(e.clientX, e.clientY);
-        let hoverElement_ = mapGetHoverElement(e.clientX, e.clientY);
-        if(hoverElement !== hoverElement_){
-            hoverElement = hoverElement_;
-            mapRender();
+
+        if(mapToolDragElement.checked){
+            let hoverElement_ = mapGetHoverElement(e.clientX, e.clientY);
+            if(hoverElement !== hoverElement_){
+                hoverElement = hoverElement_;
+                mapRender();
+            }
+
+            if(hoverElement !== null){
+                mapCanvas.className = "cursorPointer";
+            }else{
+                mapCanvas.className = "cursorMove";
+            }
+        }else if(mapToolZoomInElement.checked){
+            if(hoverElement !== null){
+                hoverElement = null;
+                mapRender();
+            }
+            
+            mapCanvas.className = "cursorZoomIn";
+        }else if(mapToolZoomOutElement.checked){
+            if(hoverElement !== null){
+                hoverElement = null;
+                mapRender();
+            }
+
+            hoverElement = null;
+            mapCanvas.className = "cursorZoomOut";
         }
     });
     mapCanvas.addEventListener("mouseup", (e) => {
@@ -77,10 +101,10 @@ async function mapSetup(){
     pointerOffsetPosition = [0, 0];
     pointerDragging = false;
 
-    // setup graph
-    graph = [];
+    // setup mapGraph
+    mapGraph = [];
     for(let content of Object.keys(contents)){
-        graph[content] = {
+        mapGraph[content] = {
             "x": 0,
             "y": 0,
             "parents": getContentParents(content)
@@ -88,11 +112,11 @@ async function mapSetup(){
     }
 
     // get root node
-    let rootNodes = new Set(Object.keys(graph));
+    let rootNodes = new Set(Object.keys(mapGraph));
     while(rootNodes.size > 1){
         let temp = new Set();
         for(let node of rootNodes){
-            graph[node].parents.forEach((p) => temp.add(p));
+            mapGraph[node].parents.forEach((p) => temp.add(p));
         }
         temp.delete(undefined);
         rootNodes = temp;
@@ -101,10 +125,10 @@ async function mapSetup(){
     // put nodes into layers
     let layers = [Array.from(rootNodes)];
     let addedNodes = new Set(rootNodes);
-    while(addedNodes.size !== Object.keys(graph).length){
+    while(addedNodes.size !== Object.keys(mapGraph).length){
         let layer = [];
-        for(let node of Object.keys(graph)){
-            if(!addedNodes.has(node) && graph[node].parents.filter((n) => !addedNodes.has(n)).length === 0){
+        for(let node of Object.keys(mapGraph)){
+            if(!addedNodes.has(node) && mapGraph[node].parents.filter((n) => !addedNodes.has(n)).length === 0){
                 layer.push(node);
             }
         }
@@ -114,8 +138,8 @@ async function mapSetup(){
     }
     for(let i=0;i<layers.length;i++){
         for(let j=0;j<layers[i].length;j++){
-            graph[layers[i][j]].x = j;
-            graph[layers[i][j]].y = i;
+            mapGraph[layers[i][j]].x = j;
+            mapGraph[layers[i][j]].y = i;
         }
     }
     
@@ -123,10 +147,10 @@ async function mapSetup(){
     let extraNodeId = 0;
     for(let i=layers.length-1;i>=0;i--){
         for(let j=0;j<layers[i].length;j++){
-            let node = graph[layers[i][j]];
+            let node = mapGraph[layers[i][j]];
             let parents = node.parents;
             for(let k=0;k<parents.length;k++){
-                let distance = i - graph[parents[k]].y;
+                let distance = i - mapGraph[parents[k]].y;
                 if(distance === 1){
                     continue;
                 }
@@ -142,7 +166,7 @@ async function mapSetup(){
                         "parents": [`_${extraNodeId+1}`]
                     }
                     layers[y].push(extraNodeName)
-                    graph[extraNodeName] = extraNode;
+                    mapGraph[extraNodeName] = extraNode;
                     extraNodeId++;
                 }
                 extraNode.parents = [parents[k]];
@@ -155,8 +179,8 @@ async function mapSetup(){
     for(let i=0;i<layers.length;i++){
         layers[i] = layers[i].sort();
         for(let j=0;j<layers[i].length;j++){
-            graph[layers[i][j]].x = j;
-            graph[layers[i][j]].dx = 0;
+            mapGraph[layers[i][j]].x = j;
+            mapGraph[layers[i][j]].dx = 0;
         }
     }    
 
@@ -164,30 +188,30 @@ async function mapSetup(){
     for(let t=0;t<SIMULATION_STEPS;t++){
         for(let i=0;i<layers.length-1;i++){
             for(let j=0;j<layers[i].length;j++){
-                let parents = graph[layers[i][j]].parents
+                let parents = mapGraph[layers[i][j]].parents
                 for(let k=0;k<parents.length;k++){
-                    graph[layers[i][j]].dx += SIMULATION_ATTRACTION_STRENGTH * (graph[parents[k]].x - graph[layers[i][j]].x);
-                    graph[parents[k]].dx += SIMULATION_ATTRACTION_STRENGTH * (graph[layers[i][j]].x - graph[parents[k]].x);
+                    mapGraph[layers[i][j]].dx += SIMULATION_ATTRACTION_STRENGTH * (mapGraph[parents[k]].x - mapGraph[layers[i][j]].x);
+                    mapGraph[parents[k]].dx += SIMULATION_ATTRACTION_STRENGTH * (mapGraph[layers[i][j]].x - mapGraph[parents[k]].x);
                 }
                 for(let k=0;k<layers[i].length;k++){
-                    graph[layers[i][j]].dx -= SIMULATION_REPULSION_STRENGTH * Math.cbrt(graph[layers[i][k]].x - graph[layers[i][j]].x);
+                    mapGraph[layers[i][j]].dx -= SIMULATION_REPULSION_STRENGTH * Math.cbrt(mapGraph[layers[i][k]].x - mapGraph[layers[i][j]].x);
                 }
             }
         }
         for(let i=0;i<layers.length;i++){
             for(let j=0;j<layers[i].length;j++){
-                graph[layers[i][j]].dx *= SIMULATION_FRICTION_STRENGTH;
-                graph[layers[i][j]].x += graph[layers[i][j]].dx;
+                mapGraph[layers[i][j]].dx *= SIMULATION_FRICTION_STRENGTH;
+                mapGraph[layers[i][j]].x += mapGraph[layers[i][j]].dx;
             }
         }
     }
 
     // set final positions
     for(let i=0;i<layers.length;i++){
-        layers[i] = layers[i].sort((a, b) => graph[a].x - graph[b].x)
+        layers[i] = layers[i].sort((a, b) => mapGraph[a].x - mapGraph[b].x)
         for(let j=0;j<layers[i].length;j++){
-            graph[layers[i][j]].x = (j - 0.5 * (layers[i].length-1)) * GRAPH_OFFSET_X;
-            graph[layers[i][j]].y = -i * GRAPH_OFFSET_Y;
+            mapGraph[layers[i][j]].x = (j - 0.5 * (layers[i].length-1)) * mapGraph_OFFSET_X;
+            mapGraph[layers[i][j]].y = -i * mapGraph_OFFSET_Y;
         }
     }
 
@@ -217,7 +241,7 @@ function startPointer(x, y){
         if(selectedElement !== null){
             endPointer();
             hoverElement = null;
-            loadPageContent(selectedElement);
+            loadPageContent(selectedElement, true);
         }
     }
 }
@@ -254,19 +278,19 @@ function mapRender(){
 
     ctxt.lineWidth = 1;
     ctxt.strokeStyle = window.getComputedStyle(document.documentElement).getPropertyValue('--fontColor');
-    for(let node of Object.keys(graph)){
-        for(let parent of graph[node].parents){
+    for(let node of Object.keys(mapGraph)){
+        for(let parent of mapGraph[node].parents){
             ctxt.beginPath();
-            ctxt.moveTo(graph[node].x, graph[node].y);
-            ctxt.bezierCurveTo(graph[node].x, graph[parent].y, graph[parent].x, graph[node].y, graph[parent].x, graph[parent].y);
+            ctxt.moveTo(mapGraph[node].x, mapGraph[node].y);
+            ctxt.bezierCurveTo(mapGraph[node].x, mapGraph[parent].y, mapGraph[parent].x, mapGraph[node].y, mapGraph[parent].x, mapGraph[parent].y);
             ctxt.stroke();
         }
     }
 
     ctxt.fillStyle = window.getComputedStyle(document.documentElement).getPropertyValue('--contentBackgroundColor');
-    for(let node of Object.keys(graph)){
+    for(let node of Object.keys(mapGraph)){
         if(!node.startsWith("_")){
-            roundedRect(ctxt, graph[node].x - NODE_WIDTH / 2, graph[node].y - NODE_HEIGHT / 2, NODE_WIDTH, NODE_HEIGHT, NODE_RADIUS);
+            roundedRect(ctxt, mapGraph[node].x - NODE_WIDTH / 2, mapGraph[node].y - NODE_HEIGHT / 2, NODE_WIDTH, NODE_HEIGHT, NODE_RADIUS);
             ctxt.fill();
         }
     }
@@ -275,9 +299,9 @@ function mapRender(){
     ctxt.textBaseline = "middle";
     ctxt.fillStyle = window.getComputedStyle(document.documentElement).getPropertyValue('--fontColor');
     ctxt.font = `${NODE_FONT_SIZE}px Arial`;
-    for(let node of Object.keys(graph)){
+    for(let node of Object.keys(mapGraph)){
         if(!node.startsWith("_")){
-            ctxt.fillText(node, graph[node].x, graph[node].y)
+            ctxt.fillText(node, mapGraph[node].x, mapGraph[node].y)
         }
     }
 
@@ -286,7 +310,7 @@ function mapRender(){
         let stack = [hoverElement];
         while(stack.length > 0){
             let node = stack.pop();
-            let parents = graph[node].parents;
+            let parents = mapGraph[node].parents;
             if(parents.length > 0){
                 stack.push(...parents);
                 parents.forEach((n) => highlightElements.add(n));
@@ -296,10 +320,10 @@ function mapRender(){
         ctxt.lineWidth = 5;
         ctxt.strokeStyle = window.getComputedStyle(document.documentElement).getPropertyValue('--highlightColor');
         for(let node of highlightElements){
-            for(let parent of graph[node].parents){
+            for(let parent of mapGraph[node].parents){
                 ctxt.beginPath();
-                ctxt.moveTo(graph[node].x, graph[node].y);
-                ctxt.bezierCurveTo(graph[node].x, graph[parent].y, graph[parent].x, graph[node].y, graph[parent].x, graph[parent].y);
+                ctxt.moveTo(mapGraph[node].x, mapGraph[node].y);
+                ctxt.bezierCurveTo(mapGraph[node].x, mapGraph[parent].y, mapGraph[parent].x, mapGraph[node].y, mapGraph[parent].x, mapGraph[parent].y);
                 ctxt.stroke();
             }
         }
@@ -307,7 +331,7 @@ function mapRender(){
         ctxt.fillStyle = window.getComputedStyle(document.documentElement).getPropertyValue('--supportColor');
         for(let node of highlightElements){
             if(!node.startsWith("_")){
-                roundedRect(ctxt, graph[node].x - NODE_WIDTH / 2, graph[node].y - NODE_HEIGHT / 2, NODE_WIDTH, NODE_HEIGHT, NODE_RADIUS);
+                roundedRect(ctxt, mapGraph[node].x - NODE_WIDTH / 2, mapGraph[node].y - NODE_HEIGHT / 2, NODE_WIDTH, NODE_HEIGHT, NODE_RADIUS);
                 ctxt.fill();
             }
         }
@@ -318,7 +342,7 @@ function mapRender(){
         ctxt.font = `${NODE_FONT_SIZE}px Arial`;
         for(let node of highlightElements){
             if(!node.startsWith("_")){
-                ctxt.fillText(node, graph[node].x, graph[node].y)
+                ctxt.fillText(node, mapGraph[node].x, mapGraph[node].y)
             }
         }
     }
@@ -435,8 +459,8 @@ function mapGetHoverElement(x, y){
     
     let [x_, y_] = mapTransformPoint(x, y, transform);
 
-    for(let node of Object.keys(graph)){
-        if(!node.startsWith("_") && graph[node].x - NODE_WIDTH/2 < x_ && graph[node].x + NODE_WIDTH/2 > x_ && graph[node].y - NODE_HEIGHT/2 < y_ && graph[node].y + NODE_HEIGHT/2 > y_){
+    for(let node of Object.keys(mapGraph)){
+        if(!node.startsWith("_") && mapGraph[node].x - NODE_WIDTH/2 < x_ && mapGraph[node].x + NODE_WIDTH/2 > x_ && mapGraph[node].y - NODE_HEIGHT/2 < y_ && mapGraph[node].y + NODE_HEIGHT/2 > y_){
             return node
         }
     }

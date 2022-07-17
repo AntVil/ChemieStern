@@ -21,6 +21,22 @@ label:hover{
     cursor: pointer;
 }
 
+.cursorPointer:hover{
+    cursor: pointer;
+}
+
+.cursorMove:hover{
+    cursor: move;
+}
+
+.cursorZoomIn:hover{
+    cursor: zoom-in;
+}
+
+.cursorZoomOut:hover{
+    cursor: zoom-out;
+}
+
 #pageLoader{
     position: fixed;
     left: 0;
