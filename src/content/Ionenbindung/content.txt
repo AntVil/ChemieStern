@@ -1,4 +1,4 @@
-Ion
+Primärbindung
 ---
 Ionenbindung
     [salz.svg]

@@ -1,4 +1,4 @@
-Nomenklatur
+Molekül
 ---
 Funktionelle Gruppe
     [carboxylgruppe.svg]

@@ -59,7 +59,6 @@ window.onload = async function(){
 
 function loadPage(page, pushState){
     if(pushState !== null){
-        console.log("pushing", pushState);
         history.pushState(pushState, "");
     }
 

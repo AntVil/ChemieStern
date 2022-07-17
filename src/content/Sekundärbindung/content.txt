@@ -1,5 +1,4 @@
 Primärbindung
 ---
-Metallbindung
-    
+Sekundärbindung
 ---

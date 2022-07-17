@@ -1,23 +1,30 @@
 const CONTENT = [
-    "Chemie",
-    "Proton",
-    "Elektron",
-    "Neutron",
     "Atom",
-    "Ion",
-    "Periodensystem",
-    "Isotop",
     "Atombindung",
-    "Ionenbindung",
-    "Metallbindung",
-    "Reaktionsgleichung",
-    "Molekül",
-    "Nomenklatur",
+    "Bindungsarten",
+    "Chemie",
+    "Chemisches Gleichgewicht",
+    "Dipol-Dipol-Wechselwirkung",
+    "Elektron",
     "Funktionelle Gruppe",
+    "Ion",
+    "Ionenbindung",
     "Isomer",
-    "Kunststoff",
+    "Isotop",
     "Katalysator",
-    "Redoxreaktion"
+    "Kunststoff",
+    "Metallbindung",
+    "Molekül",
+    "Neutron",
+    "Nomenklatur",
+    "Periodensystem",
+    "Primärbindung",
+    "Proton",
+    "Reaktionsgleichung",
+    "Redoxreaktion",
+    "Sekundärbindung",
+    "Van-der-Waals-Kraft",
+    "Wasserstoff-Brückenbindung"
 ];
 
 
@@ -37,12 +44,6 @@ async function contentSetup(){
             "parents": contents[content].split("---")[0].split("\n").map((a) => a.trim()).filter((a) => a.length > 0),
             "children": []
         };
-
-        if(content === "Ion"){
-            console.log(JSON.stringify(contentGraph[content]))
-            console.log(contentGraph[content])
-        }
-        
     }
     for(let content of Object.keys(contentGraph)){
         for(let parent of contentGraph[content].parents){

@@ -1,4 +1,4 @@
-Periodensystem
+Primärbindung
 ---
 Atombindung
     [elementarer_wasserstoff.svg]
