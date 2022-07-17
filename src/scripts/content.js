@@ -1,34 +1,55 @@
 const CONTENT = [
     "Aggregatszustand",
+    "Antiinfektiva",
+    "Arzneimittel",
     "Atom",
     "Atombindung",
+    "Bakterie",
     "Chemie",
     "Chemisches Gleichgewicht",
+    "Desoxyribonukleinsäure",
     "Dipol-Dipol-Wechselwirkung",
+    "Disperses System",
     "Elektron",
+    "Enzym",
     "Funktionelle Gruppe",
+    "Granulat",
     "Ion",
     "Ionenbindung",
     "Isomer",
     "Isotop",
     "Katalysator",
-    "Kohlenhydrate",
+    "Kohlenhydrat",
     "Kohlenwasserstoff",
     "Kunststoff",
-    "Lipide",
+    "Lebewesen",
+    "Lipid",
+    "Mensch",
     "Metallbindung",
+    "Molekular Biologie",
     "Molekül",
     "Neutron",
     "Nomenklatur",
+    "Peptid",
     "Periodensystem",
+    "Pflanze",
+    "Pharmakodynamik",
+    "Pharmakokinetik",
+    "Pharmakologie",
+    "Pilz",
     "Primärbindung",
     "Proton",
+    "Pulver",
     "Reaktionsgleichung",
     "Redoxreaktion",
     "Sekundärbindung",
     "Säure-Base-Reaktion",
+    "Tier",
+    "Trennverfahren",
     "Van-der-Waals-Kraft",
-    "Wasserstoff-Brückenbindung"
+    "Virus",
+    "Zellatmung",
+    "Zelltransport"
 ];
 
 
@@ -51,7 +72,11 @@ async function contentSetup(){
     }
     for(let content of Object.keys(contentGraph)){
         for(let parent of contentGraph[content].parents){
-            contentGraph[parent].children.push(content);
+            try{
+                contentGraph[parent].children.push(content);
+            }catch{
+                console.warn(`parent ${parent} does not exist for child ${content}`);
+            }
         }
     }
 }

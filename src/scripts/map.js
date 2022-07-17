@@ -27,6 +27,9 @@ let mapGraphStart;
 
 let hoverElement;
 
+let mapMouseX;
+let mapMouseY;
+
 async function mapSetup(){
     mapToolDragElement = document.getElementById("mapToolDrag");
     mapToolZoomInElement = document.getElementById("mapToolZoomIn");
@@ -78,6 +81,15 @@ async function mapSetup(){
     mapCanvas.addEventListener("mouseup", (e) => {
         e.preventDefault();
         endPointer();
+    });
+    mapCanvas.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        if(e.deltaY > 0){
+            mapTransform = zoom(mapMouseX, mapMouseY, false, mapTransform);
+        }else{
+            mapTransform = zoom(mapMouseX, mapMouseY, true, mapTransform);
+        }
+        mapRender();
     });
 
     mapCanvas.addEventListener("touchstart", (e) => {
@@ -253,6 +265,9 @@ function movePointer(x, y){
 
         mapRender();
     }
+
+    mapMouseX = x;
+    mapMouseY = y;
 }
 
 function endPointer(){
