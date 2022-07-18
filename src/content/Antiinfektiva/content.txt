@@ -1,6 +1,0 @@
-Pilz
-Bakterie
-Virus
----
-Antiinfektiva
----

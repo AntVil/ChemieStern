@@ -1,6 +1,6 @@
 Atom
 ---
-Periodensystem der Elemente
+Periodensystem
 ---
 Das Periodensystem entält alle Elemente. Jedes Element wird durch die Anzahl der Protonen im Atomkern bestimmt und ist neutral geladen. Diese Anzahl wird als Ordnungszahl bezeichnet.
 

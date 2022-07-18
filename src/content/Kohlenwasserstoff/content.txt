@@ -1,8 +1,8 @@
-Molekül
+Stoff
 ---
 Kohlenwasserstoff
 ---
 
-# Alkane
-# Alkene
-# Alkine
+# Alkan
+# Alken
+# Alkin

@@ -29,3 +29,5 @@ Die Außenelektronen werden ebenfalls als Striche eingezeichnet:
 Sauerstoff kann die Egelgas-Regel aber auch mit einer anderen Atombindung erfüllen.
 Nämlich als Ozon ($O_3$):
 [ozon_lewis.svg]
+
+# Polare Atombindung

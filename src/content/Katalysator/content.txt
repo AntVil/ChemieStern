@@ -1,7 +1,0 @@
-Reaktionsgleichung
----
-Katalysator
----
-Ein Katalysator ist ein Stoff, welcher eine chemische Reaktion beschleunigt ohne dabei aufgebraucht zu werden.
-Dabei setzt ein Katalysator die benötigte Temperatur, damit eine Reaktion stattfindet herunter.
-Diese kann dadurch dann leichter Ablaufen.
