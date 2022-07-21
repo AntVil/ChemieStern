@@ -58,8 +58,18 @@ const CONTENT_TYPE = Symbol("text_type");
 let contents;
 let contentGraph;
 
+let contentTitle;
+let contentCard;
+let contentText;
+let contentImage;
+
 
 async function contentSetup(){
+    contentTitle = document.getElementById("contentTitle");
+    contentCard = document.getElementById("contentCard");
+    contentText = document.getElementById("contentText");
+    contentImage = document.getElementById("contentImage");
+
     await loadContents();
     contentGraph = [];
     for(let content of Object.keys(contents)){
@@ -137,6 +147,17 @@ function renderContentImage(contentName, imageSrc){
     let element = document.createElement("img");
     element[CONTENT_TYPE] = "img";
     element.src = `./content/${contentName}/images/${imageSrc}`;
+    element.onclick = () => {
+        contentImage.src = element.src;
+        contentImage.style.opacity = 1;
+        contentImage.style.zIndex = 3;
+
+        contentImage.onclick = () => {
+            contentImage.src = "";
+            contentImage.style.opacity = 0;
+            contentImage.style.zIndex = -1;
+        }
+    }
     return element;
 }
 
@@ -221,26 +242,24 @@ function renderContentNav(links){
 
 function renderContent(contentName){
     // title
-    document.getElementById("contentTitle").innerText = getContentName(contentName);
+    contentTitle.innerText = getContentName(contentName);
 
     // card
     let cardList = getContentCardList(contentName);
-    let cardElement = document.getElementById("contentCard");
-    cardElement.innerHTML = "";
+    contentCard.innerHTML = "";
     for(let row of cardList){
         let rowElement = renderContentTableRow(contentName, row);
-        cardElement.appendChild(rowElement)
+        contentCard.appendChild(rowElement)
     }
-    cardElement.classList.add("table");
+    contentCard.classList.add("table");
     
     // main
     let prefix = renderContentNav(getContentParents(contentName));
     let suffix = renderContentNav(getContentChildren(contentName));
     let text = getContentText(contentName, false);
-    let textElement = document.getElementById("contentText");
-    textElement.innerHTML = "";
 
-    textElement.appendChild(prefix);
+    contentText.innerHTML = "";
+    contentText.appendChild(prefix);
 
     let isTable = false;
     let tableElement = document.createElement("div");
@@ -251,7 +270,7 @@ function renderContent(contentName){
             if(line.endsWith("}")){
                 isTable = false;
                 tableElement.classList.add("table");
-                textElement.appendChild(tableElement);
+                contentText.appendChild(tableElement);
                 tableElement = document.createElement("div")
             }else{
                 isTable = true;
@@ -261,18 +280,18 @@ function renderContent(contentName){
                 tableElement.appendChild(renderContentTableRow(contentName, line));
             }
         }else if(line.length === 0){
-            textElement.appendChild(document.createElement("br"));
+            contentText.appendChild(document.createElement("br"));
         }else{
             let element = renderContentItem(contentName, line);
-            let previousElement = textElement.lastElementChild;
+            let previousElement = contentText.lastElementChild;
 
             if(previousElement !== null && (element[CONTENT_TYPE] === "text" && previousElement[CONTENT_TYPE] === "text")){
                 previousElement.innerText += ` ${element.innerText}`;
             }else{
-                textElement.appendChild(element);
+                contentText.appendChild(element);
             }
         }
     }
 
-    textElement.appendChild(suffix);
+    contentText.appendChild(suffix);
 }

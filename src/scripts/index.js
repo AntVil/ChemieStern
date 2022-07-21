@@ -58,6 +58,8 @@ window.onload = async function(){
 
 
 function loadPage(page, pushState){
+    contentImage.click();
+
     if(pushState !== null){
         history.pushState(pushState, "");
     }

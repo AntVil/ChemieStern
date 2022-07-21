@@ -149,3 +149,16 @@
     background-color: var(--highlightColor);
     cursor: pointer;
 }
+
+#contentImage{
+    z-index: -1;
+    opacity: 0;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    background-color: var(--contentBackgroundColor);
+    box-sizing: border-box;
+    padding: var(--contentMargin);
+}
