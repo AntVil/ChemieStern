@@ -1,8 +1,11 @@
 Atom
 ---
 Periodensystem
+    [periodensystem.svg]
 ---
-Das Periodensystem entält alle Elemente. Jedes Element wird durch die Anzahl der Protonen im Atomkern bestimmt und ist neutral geladen. Diese Anzahl wird als Ordnungszahl bezeichnet.
+Das Periodensystem entält alle Elemente.
+Jedes Element wird durch die Anzahl der Protonen im Atomkern bestimmt und ist neutral geladen.
+Diese Anzahl wird als Ordnungszahl bezeichnet.
 
 # Einteilung
 
