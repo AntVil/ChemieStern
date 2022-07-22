@@ -3,4 +3,10 @@ Stoff
 Stoffgemisch
 ---
 
+homogen/heterogen
+
 # Lösung
+
+# Disperses System
+
+# Trennverfahren

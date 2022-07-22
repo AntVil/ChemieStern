@@ -2,4 +2,40 @@ Periodensystem
 Ion
 ---
 Primärbindung
+    [wasser.svg]
+    Wasser-Molekül
 ---
+Eine Primärbindung ist eine starke Bindung zwischen zwei oder mehreren Atomen.
+Atome gehen Bindungen ein um die äußerste Elektronen-Schale zu füllen.
+
+{
+    Atombindung:Elektronen werden geteilt (Molekül entsteht):[elementarer_wasserstoff.svg]
+    Ionenbindung:Elektronen werden abgegeben (Ionen bilden Gitter):[salz.svg]
+    Metallbindung:Elektronen frei (Atome bilden Gitter):[metall.svg]
+}
+
+# Lewis-Schreibweise
+Die Lewis-Schreibweise ist eine vereinfachte Darstellung komplexer Moleküle.
+
+{
+    Geteilte Elektronen werden als Striche gezeichnet:[elementarer_wasserstoff_lewis.svg]
+    Elektronen der äußersten Schale werden gezeichnet:[elementarer_sauerstoff_lewis.svg]
+}
+
+# Chemische Formel
+Die chemische Formel ist eine verkürzte Art Moleküle zu Beschreiben.
+Dabei werden die chemischen Buchstaben die im Molekül vorkommen aufgeschrieben.
+Zusätzlich wird die Anzahl, wenn sie nich eins ist, als kleine Zahl unten rechts eingetragen.
+Die chemische Formel von Wasser ist:
+
+$$H_2O$$
+
+# Polarität
+Wenn der Unterschied zwischen der Elektronegativität zweier Atome relativ groß ist wird die Bindung Polar.
+Ist der Unterschied zu groß entsteht eine Ionenbindung, ansonsten werden die Elektronen nur leicht verschoben aber noch geteilt.
+Diese Verschiebung erzeugt Partielle Ladungen ($\delta +$ bzw. $\delta -$) an denen das Molekül positiver oder negativer geladen ist.
+
+{
+    unpolare Atombindung:[methan_unpolar.svg]
+    polare Atombindung:[methanal_polar.svg]
+}

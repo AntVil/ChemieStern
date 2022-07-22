@@ -1,0 +1,19 @@
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 150 100' shape-rendering='geometricPrecision' text-rendering='geometricPrecision'>
+    <g transform="translate(50, 25)">
+        <text x="0" y="0" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">C</text>
+        <text x="50" y="0" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
+
+        <circle cx="25" cy="-2" r="1.5" stroke-width='10' fill='#89CFF0'/>
+        <circle cx="25" cy="2" r="1.5" stroke-width='10' fill='#89CFF0'/>
+    </g>
+
+    <g transform="translate(50, 75)">
+        <text x="0" y="0" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab" fill="#89CFF0">C</text>
+        <text x="50" y="0" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab" fill="#EE4B2B">H</text>
+
+        <circle cx="15" cy="-2" r="1.5" stroke-width='10' fill='#89CFF0'/>
+        <circle cx="15" cy="2" r="1.5" stroke-width='10' fill='#89CFF0'/>
+    </g>
+
+    <text x="75" y="50" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab" fill="#000000">⇅</text>
+</svg>

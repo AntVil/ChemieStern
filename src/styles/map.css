@@ -18,7 +18,7 @@
     background-color: var(--headerBackgroundColorTransparet);
     backdrop-filter: blur(10px);
     border-radius: var(--toolbarHeight);
-    margin: var(--toolbarPadding);
+    margin-bottom: var(--toolbarPadding);
     padding: 5px;
     gap: var(--toolbarPadding);
 }

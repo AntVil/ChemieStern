@@ -1,41 +1,27 @@
 const CONTENT = [
-    "Arzneimittel",
     "Atom",
-    "Atombindung",
     "Bakterie",
     "Chemie",
     "Desoxyribonukleinsäure",
-    "Dipol-Dipol-Wechselwirkung",
-    "Disperses System",
     "Elektron",
     "Enzym",
     "Funktionelle Gruppe",
-    "Granulat",
     "Ion",
-    "Ionenbindung",
     "Isomer",
     "Isotop",
     "Kohlenhydrat",
     "Kohlenwasserstoff",
-    "Kunststoff",
     "Lebewesen",
     "Lipid",
     "Mensch",
-    "Metallbindung",
     "Molekular Biologie",
-    "Molekül",
     "Neutron",
-    "Nomenklatur",
     "Peptid",
     "Periodensystem",
     "Pflanze",
-    "Pharmakodynamik",
-    "Pharmakokinetik",
-    "Pharmakologie",
     "Pilz",
     "Primärbindung",
     "Proton",
-    "Pulver",
     "Reaktionsgleichung",
     "Redoxreaktion",
     "Sekundärbindung",
@@ -43,8 +29,6 @@ const CONTENT = [
     "Stoffgemisch",
     "Säure-Base-Reaktion",
     "Tier",
-    "Trennverfahren",
-    "Van-der-Waals-Kraft",
     "Virus",
     "Zellatmung",
     "Zelltransport"
@@ -218,12 +202,18 @@ function renderContentItem(contentName, item){
 function renderContentTableRow(contentName, row){
     let rowElement = document.createElement("div");
     let items = row.split(":");
+    let gridColumns = "";
     for(let item of items){
         let itemElement = renderContentItem(contentName, item);
+        if(itemElement[CONTENT_TYPE] === "img"){
+            gridColumns += "auto "
+        }else{
+            gridColumns += "1fr "
+        }
         rowElement.appendChild(itemElement);
     }
     rowElement.style.display = "grid";
-    rowElement.style.gridTemplateColumns = `repeat(${items.length}, 1fr)`;
+    rowElement.style.gridTemplateColumns = gridColumns;
     return rowElement;
 }
 

@@ -1,0 +1,24 @@
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 150 150' shape-rendering='geometricPrecision' text-rendering='geometricPrecision'>
+    <g transform="translate(20, 0)">
+        <text x="40" y="100" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
+        <text x="60" y="75" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">C</text>
+        <text x="60" y="50" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">O</text>
+        <text x="80" y="100" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
+
+        <path d="M 53 82 L 45 93" stroke="black"></path>
+        <path d="M 67 82 L 75 93" stroke="black"></path>
+        <path d="M 58 67 L 58 57" stroke="black"></path>
+        <path d="M 62 67 L 62 57" stroke="black"></path>
+
+        <path d="M 57 40 L 50 50" stroke="black"></path>
+        <path d="M 62 40 L 70 50" stroke="black"></path>
+
+        <text x="75" y="45" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="10" font-family="Arab" fill="#89CFF0">δ</text>
+        <text x="75" y="70" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="10" font-family="Arab" fill="#EE4B2B">δ</text>
+
+        <g transform="translate(4, -3)">
+            <text x="75" y="45" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="6" font-family="Arab" fill="#89CFF0">‒</text>
+            <text x="75" y="70" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="6" font-family="Arab" fill="#EE4B2B">+</text>
+        </g>
+    </g>
+</svg>

@@ -1,4 +1,4 @@
-Molekül
+Primärbindung
 ---
 Isomer
     [isobutan.svg]

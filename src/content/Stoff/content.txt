@@ -1,6 +1,21 @@
-Molekül
+Primärbindung
 ---
 Stoff
 ---
+Ein Stoff ist eine Ansammlung mehrerer Moleküle eines Types.
+
+# Dichte
+Die Dichte eines Stoffes gibt das Gewicht pro Volumen an.
+
+$$\rho = \displaystyle\frac{m}{V}$$
+
+Sie ist eine wichtige physikalische Größe.
 
 # Aggregatszustand
+Der Aggregatszustand bestimmt in welcher Form ein Stoff vorliegt.
+
+{
+    Fest:[fest.svg]
+    Flüssig:[flüssig.svg]
+    Gasförmig:[gasförmig.svg]
+}

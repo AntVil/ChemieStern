@@ -1,4 +1,28 @@
 Primärbindung
 ---
 Sekundärbindung
+    [dipol_dipol_wechselwirkung.svg]
+    Dipol-Dipol-Wechselwirkung
 ---
+Sekundärbindungen herschen zwischen ganzen Molekülen.
+Sie sind viel schwächer als Primärbindungen.
+
+# Dipol-Dipol-Wechselwirkung
+Wenn zwei Moleküle polar sind entstehen Dipol-Dipol-Wechselwirkungen.
+Dabei ziehen sich die Partiellen Ladungen gegenseitig an.
+
+[dipol_dipol_wechselwirkung.svg]
+
+# Wasserstoffbrückenbindung
+Falls bei der Dipol-Dipol-Wechselwirkung Wasserstoff in den Bindungen vorliegt entstehen Wasserstoffbrückenbindung.
+Diese funktionieren genau gleich wie Dipol-Dipol-Wechselwirkungen, sind jedoch stärker.
+
+[wasserstoffbrückenbindung.svg]
+
+# Van-der-Waals-Kraft
+Die Van-der-Waals-Kraft ist die schwächste Sekundärbindung.
+Sie entsteht wenn unpolare Moleküle sich nahe kommen.
+Die Elektronen dieser Moleküle bewegen sich und können dabei weiter auf einer Seite liegen.
+Dadurch können für kurze Zeit Partielle Ladungen entstehen und die Moleküle ziehen sich kurz gegenseitig leicht an.
+
+[van_der_waals_kraft.svg]

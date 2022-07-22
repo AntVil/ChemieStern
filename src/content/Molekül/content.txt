@@ -1,7 +1,0 @@
-Atombindung
----
-Molekül
-    [wasser.svg]
----
-Ein Molekül ist ein Zusammenschluss mehrerer Atome.
-Die Atome eines Molekül sind über Atombindungen miteinander Verknüpft.
