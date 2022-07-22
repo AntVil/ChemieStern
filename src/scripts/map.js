@@ -96,6 +96,9 @@ async function mapSetup(){
     mapCanvas.addEventListener("touchstart", (e) => {
         e.preventDefault();
         startPointer(e.touches[0].clientX, e.touches[0].clientY);
+        if(e.touches.length > 1){
+            pointerTouchesDistance = Math.hypot(e.touches[0].clientY - e.touches[1].clientY, e.touches[0].clientX - e.touches[1].clientX);
+        }
     });
     mapCanvas.addEventListener("touchmove", (e) => {
         e.preventDefault();
@@ -128,6 +131,7 @@ async function mapSetup(){
     ];
     pointerOffsetPosition = [0, 0];
     pointerDragging = false;
+    pointerTouchesDistance = 1;
 
     // setup mapGraph
     mapGraph = [];
