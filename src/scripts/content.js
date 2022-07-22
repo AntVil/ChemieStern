@@ -150,10 +150,9 @@ function renderContentImage(contentName, imageSrc){
     element.onclick = () => {
         contentImage.src = element.src;
         contentImage.style.opacity = 1;
-        contentImage.style.zIndex = 3;
+        contentImage.style.zIndex = 1;
 
         contentImage.onclick = () => {
-            contentImage.src = "";
             contentImage.style.opacity = 0;
             contentImage.style.zIndex = -1;
         }

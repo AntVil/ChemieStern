@@ -1,3 +1,5 @@
+const UNLOAD_PAGE = Symbol("unload_page");
+
 /* pages */
 let mapPage;
 let searchPage;
@@ -18,6 +20,13 @@ window.onload = async function(){
     searchPage = document.getElementById("search");
     aboutPage = document.getElementById("about");
     contentPage = document.getElementById("content");
+
+    mapPage[UNLOAD_PAGE] = () => {};
+    searchPage[UNLOAD_PAGE] = () => {};
+    aboutPage[UNLOAD_PAGE] = () => {};
+    contentPage[UNLOAD_PAGE] = () => {
+        contentImage.click()
+    };
 
     pages = [mapPage, searchPage, aboutPage, contentPage];
 
@@ -58,8 +67,6 @@ window.onload = async function(){
 
 
 function loadPage(page, pushState){
-    contentImage.click();
-
     if(pushState !== null){
         history.pushState(pushState, "");
     }
@@ -69,6 +76,7 @@ function loadPage(page, pushState){
             p.style.opacity = "0";
             p.style.zIndex = "-1";
         }
+        p[UNLOAD_PAGE]();
     }
     page.style.opacity = "1";
     page.style.zIndex = "0";

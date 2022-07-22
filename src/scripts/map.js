@@ -17,6 +17,7 @@ let mapTransform;
 let pointerStartPosition;
 let pointerOffsetPosition;
 let pointerDragging;
+let pointerTouchesDistance;
 
 let mapToolDragElement;
 let mapToolZoomInElement;
@@ -84,10 +85,10 @@ async function mapSetup(){
     });
     mapCanvas.addEventListener("wheel", (e) => {
         e.preventDefault();
-        if(e.deltaY > 0){
-            mapTransform = zoom(mapMouseX, mapMouseY, false, mapTransform);
+        if(e.deltaY < 0){
+            mapTransform = zoom(mapMouseX, mapMouseY, MAP_SCALING_FACTOR, mapTransform);
         }else{
-            mapTransform = zoom(mapMouseX, mapMouseY, true, mapTransform);
+            mapTransform = zoom(mapMouseX, mapMouseY, 1 / MAP_SCALING_FACTOR, mapTransform);
         }
         mapRender();
     });
@@ -98,7 +99,22 @@ async function mapSetup(){
     });
     mapCanvas.addEventListener("touchmove", (e) => {
         e.preventDefault();
-        movePointer(e.touches[0].clientX, e.touches[0].clientY);
+        if(e.touches.length == 1){
+            movePointer(e.touches[0].clientX, e.touches[0].clientY);
+        }else{
+            let pointerTouchesDistance_ = Math.hypot(e.touches[0].clientY - e.touches[1].clientY, e.touches[0].clientX - e.touches[1].clientX);
+            zoomFactor = pointerTouchesDistance_ / pointerTouchesDistance;
+
+            mapTransform = zoom(
+                (e.touches[0].clientX + e.touches[1].clientX) / 2,
+                (e.touches[0].clientY + e.touches[1].clientY) / 2,
+                zoomFactor,
+                mapTransform
+            );
+
+            pointerTouchesDistance = pointerTouchesDistance_;
+        }
+        
     });
     mapCanvas.addEventListener("touchend", (e) => {
         e.preventDefault();
@@ -275,9 +291,9 @@ function endPointer(){
         mapTransform[2] += pointerOffsetPosition[0];
         mapTransform[5] += pointerOffsetPosition[1];
     }else if(mapToolZoomInElement.checked){
-        mapTransform = zoom(pointerStartPosition[0] + pointerOffsetPosition[0], pointerStartPosition[1] + pointerOffsetPosition[1], true, mapTransform);
+        mapTransform = zoom(pointerStartPosition[0] + pointerOffsetPosition[0], pointerStartPosition[1] + pointerOffsetPosition[1], MAP_SCALING_FACTOR, mapTransform);
     }else if(mapToolZoomOutElement.checked){
-        mapTransform = zoom(pointerStartPosition[0] + pointerOffsetPosition[0], pointerStartPosition[1] + pointerOffsetPosition[1], false, mapTransform);
+        mapTransform = zoom(pointerStartPosition[0] + pointerOffsetPosition[0], pointerStartPosition[1] + pointerOffsetPosition[1], 1 / MAP_SCALING_FACTOR, mapTransform);
     }
 
     pointerOffsetPosition = [0, 0];
@@ -422,7 +438,7 @@ function mapTransformPoint(x, y, mapTransform){
     ];
 }
 
-function zoom(x, y, zoomIn, mapTransform){
+function zoom(x, y, scaleFactor, mapTransform){
     let [x_, y_] = mapTransformPoint(x, y, mapTransform);
     
     let result = matrixMultiplication(
@@ -434,25 +450,14 @@ function zoom(x, y, zoomIn, mapTransform){
         ]
     );
 
-    if(zoomIn){
-        result = matrixMultiplication(
-            result,
-            [
-                MAP_SCALING_FACTOR, 0, 0,
-                0, MAP_SCALING_FACTOR, 0,
-                0, 0, 1
-            ]
-        );
-    }else{
-        result = matrixMultiplication(
-            result,
-            [
-                1 / MAP_SCALING_FACTOR, 0, 0,
-                0, 1 / MAP_SCALING_FACTOR, 0,
-                0, 0, 1
-            ]
-        );
-    }
+    result = matrixMultiplication(
+        result,
+        [
+            scaleFactor, 0, 0,
+            0, scaleFactor, 0,
+            0, 0, 1
+        ]
+    );
                
     result = matrixMultiplication(
         result,
