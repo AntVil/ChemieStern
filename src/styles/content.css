@@ -167,7 +167,7 @@
     margin: auto;
 }
 
-.table>*>img{
+#contentCard:not()>.table>*>img{
     max-width: var(--cardWidth);
 }
 
