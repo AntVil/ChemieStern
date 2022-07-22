@@ -116,6 +116,7 @@ async function mapSetup(){
             );
 
             pointerTouchesDistance = pointerTouchesDistance_;
+            mapRender();
         }
         
     });

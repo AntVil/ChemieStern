@@ -7,6 +7,10 @@ html {
     height: -webkit-fill-available;
 }
 
+body{
+    background-color: var(--supportColor);
+}
+
 *{
     transition: all 0.2s;
     color: var(--fontColor);
