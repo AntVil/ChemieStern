@@ -3,7 +3,19 @@ Primärbindung
 Reaktionsgleichung
     
 ---
+Bei einer chemischen Reaktion reagieren Moleküle miteinander und bilden neue Moleküle.
+Dabei werden Primärbindungen von einander getrennt und neu verbunden.
+Falls eine Reaktion Energie freisetzt wird sie als exotherm bezeichnet.
+Braucht die Reaktion Energie wird sie stattdessen als endotherm bezeichnet.
+Das Ergebnis einer Reaktion wird Produkt gennant, die Reaktionspartner als Edukte
+
+# Schreibweise
+Um eine Reaktionsgleichung aufzustellen braucht man 
 
 # Chemisches Gleichgewicht
+$$\rightleftharpoons$$
 
 # Katalysator
+Ein Katalysator setzt die Energie, die für eine Reaktion benötigt wird, herunter.
+Somit kann die Reaktion leichter und schneller ablaufen.
+Für jede Reaktion ist der Katalysator ein anderer.

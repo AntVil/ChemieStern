@@ -1,6 +1,9 @@
 Primärbindung
+Sekundärbindung
 ---
 Stoff
+    [fest.svg]
+    Feststoff
 ---
 Ein Stoff ist eine Ansammlung mehrerer Moleküle eines Types.
 
@@ -11,11 +14,17 @@ $$\rho = \displaystyle\frac{m}{V}$$
 
 Sie ist eine wichtige physikalische Größe.
 
+# Temperatur
+Die Temperatur eines Stoffes ist die durchschnittliche Geschwindigkeit der darin enthaltenen Teilchen.
+Sind die Teilchen schnell, dann ist der Stoff warm.
+Sind die Teilchen langsam, dann ist der Stoff kalt.
+Bewegen sich die Teilchen nicht, dann ist der Absolute Nullpunkt von $0^\circ K$ ($= -273.15^\circ C$) erreicht.
+
 # Aggregatszustand
 Der Aggregatszustand bestimmt in welcher Form ein Stoff vorliegt.
+Er wird durch die Dichte und Temperatur eines Stoffes bestimmt.
 
 {
-    Fest:[fest.svg]
-    Flüssig:[flüssig.svg]
-    Gasförmig:[gasförmig.svg]
+    Fest:Flüssig:Gasförmig
+    [fest.svg]:[flüssig.svg]:[gasförmig.svg]
 }

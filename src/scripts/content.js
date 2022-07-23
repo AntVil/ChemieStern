@@ -213,6 +213,9 @@ function renderContentTableRow(contentName, row){
         rowElement.appendChild(itemElement);
     }
     rowElement.style.display = "grid";
+    if(!gridColumns.includes("1fr")){
+        gridColumns = gridColumns.replaceAll("auto", "1fr");
+    }
     rowElement.style.gridTemplateColumns = gridColumns;
     return rowElement;
 }
