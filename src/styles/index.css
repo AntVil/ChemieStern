@@ -102,12 +102,10 @@ header{
     height: -webkit-fill-available;
     transform: translate(-100%, 0%);
     z-index: 1;
-    background-color: var(--headerBackgroundColorTransparet);
-    backdrop-filter: blur(10px);
 }
 
 @supports not (backdrop-filter: blur(10px)) {
-    header, #headerToggleLabel{
+    nav, #headerToggleLabel{
         background-color: var(--headerBackgroundColor) !important;
     }
 }
@@ -118,11 +116,17 @@ nav{
     left: 0;
     top: 50%;
     width: 100%;
-    height: 50%;
+    height: 100%;
     transform: translate(0%, -50%);
     align-items: center;
     justify-content: center;
     font-size: 30px;
+    background-color: var(--headerBackgroundColorTransparet);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding-top: 50%;
+    padding-bottom: 50%;
+    box-sizing: border-box;
 }
 
 nav>*:hover{
@@ -141,6 +145,9 @@ nav>*:hover{
     background-color: var(--headerBackgroundColorTransparet);
     border-top-right-radius: calc(var(--headerToggleSize) / 2);
     border-bottom-right-radius: calc(var(--headerToggleSize) / 2);
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 #headerToggleLabel>*{

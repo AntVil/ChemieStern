@@ -66,6 +66,11 @@ window.onload = async function(){
 }
 
 
+function closeHeader(){
+    document.getElementById("headerToggle").checked = false;
+}
+
+
 function loadPage(page, pushState){
     if(pushState !== null){
         history.pushState(pushState, "");

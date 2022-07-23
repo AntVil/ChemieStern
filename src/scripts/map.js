@@ -266,6 +266,8 @@ function setCanvasSize(){
 }
 
 function startPointer(x, y){
+    closeHeader();
+
     pointerStartPosition = [x, y];
     pointerDragging = true;
 
