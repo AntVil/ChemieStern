@@ -104,12 +104,6 @@ header{
     z-index: 1;
 }
 
-@supports not (backdrop-filter: blur(10px)) {
-    nav, #headerToggleLabel{
-        background-color: var(--headerBackgroundColor) !important;
-    }
-}
-
 nav{
     display: grid;
     position: absolute;
@@ -121,7 +115,7 @@ nav{
     align-items: center;
     justify-content: center;
     font-size: 30px;
-    background-color: var(--headerBackgroundColorTransparet);
+    background-color: var(--headerBackgroundColor);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     padding-top: 50%;
@@ -142,7 +136,7 @@ nav>*:hover{
     width: var(--headerToggleSize);
     height: var(--headerToggleSize);
     transform: translate(100%, 0%);
-    background-color: var(--headerBackgroundColorTransparet);
+    background-color: var(--headerBackgroundColor);
     border-top-right-radius: calc(var(--headerToggleSize) / 2);
     border-bottom-right-radius: calc(var(--headerToggleSize) / 2);
     z-index: 1;

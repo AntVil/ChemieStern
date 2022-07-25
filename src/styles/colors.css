@@ -1,7 +1,6 @@
 @media (prefers-color-scheme: light) {
     :root{
-        --headerBackgroundColorTransparet: #DDDDDD66;
-        --headerBackgroundColor: #DDDDDD;
+        --headerBackgroundColor: #DDDDDD66;
         --fontColor: #333333;
         --highlightColor: #FF9900;
         --mainBackgroundColor: #FFFFFF;
@@ -13,8 +12,7 @@
   
 @media (prefers-color-scheme: dark) {
     :root{
-        --headerBackgroundColorTransparet: #66666666;
-        --headerBackgroundColor: #666666;
+        --headerBackgroundColor: #66666666;
         --fontColor: #DDDDDD;
         --highlightColor: #0099FF;
         --mainBackgroundColor: #333333;

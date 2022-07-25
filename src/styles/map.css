@@ -15,18 +15,12 @@
     left: 50%;
     bottom: 0;
     transform: translate(-50%, 0%);
-    background-color: var(--headerBackgroundColorTransparet);
+    background-color: var(--headerBackgroundColor);
     backdrop-filter: blur(10px);
     border-radius: var(--toolbarHeight);
     margin-bottom: var(--toolbarPadding);
     padding: 5px;
     gap: var(--toolbarPadding);
-}
-
-@supports not (backdrop-filter: blur(10px)) {
-    #mapToolbar{
-        background-color: var(--headerBackgroundColor) !important;
-    }
 }
 
 /* only highlight selected if not hovering other */
