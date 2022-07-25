@@ -8,13 +8,13 @@ jobs:
       - run: ls ./src/content/ > ./src/_content.txt
       - run: export IS_VALID=${git diff --exit-code src/_content.txt}
       - run: echo ${IS_VALID}
-      - if: ${{ env.IS_VALID != "" }}
+      - if: ${{ -n env.IS_VALID }}
         run: |
           git config --local user.email "antboehler@gmail.com"
           git config --local user.name "AntVil"
           git add ./src/_content.txt
           git commit -m "update _content.txt"
-      - if: ${{ env.IS_VALID != "" }}
+      - if: ${{ -n env.IS_VALID }}
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
