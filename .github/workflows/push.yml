@@ -6,8 +6,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: ls ./src/content/ > ./src/_content.txt
-      - run: export IS_VALID=${git diff --exit-code src/_content.txt}
-      - run: echo ${IS_VALID}
+      - env: 
+          IS_VALID: '${git diff --exit-code src/_content.txt}'
       - if: ${{ env.IS_VALID == '' }}
         run: |
           git config --local user.email "antboehler@gmail.com"
