@@ -15,7 +15,7 @@ let contentImage;
 
 
 async function contentSetup(){
-    CONTENT = (await (await fetch(`./_content.txt`)).text()).toString().split("\n");
+    CONTENT = (await (await fetch(`./_content.txt`)).text()).toString().split("\n").filter((a) => a.length > 0);
 
     contentTitle = document.getElementById("contentTitle");
     contentCard = document.getElementById("contentCard");
