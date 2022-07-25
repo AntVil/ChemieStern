@@ -103,6 +103,7 @@ function loadPageSearch(){
     }else{
         loadPage(searchPage, null);
     }
+    document.getElementById("searchInput").focus();
 }
 
 function loadPageAbout(){

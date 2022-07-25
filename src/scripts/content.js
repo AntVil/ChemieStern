@@ -1,38 +1,4 @@
-const CONTENT = [
-    "Atom",
-    "Bakterie",
-    "Chemie",
-    "Desoxyribonukleinsäure",
-    "Elektron",
-    "Enzym",
-    "Funktionelle Gruppe",
-    "Ion",
-    "Isomer",
-    "Isotop",
-    "Kohlenhydrat",
-    "Kohlenwasserstoff",
-    "Lebewesen",
-    "Lipid",
-    "Mensch",
-    "Molekular Biologie",
-    "Neutron",
-    "Peptid",
-    "Periodensystem",
-    "Pflanze",
-    "Pilz",
-    "Primärbindung",
-    "Proton",
-    "Reaktionsgleichung",
-    "Redoxreaktion",
-    "Sekundärbindung",
-    "Stoff",
-    "Stoffgemisch",
-    "Säure-Base-Reaktion",
-    "Tier",
-    "Virus",
-    "Zellatmung",
-    "Zelltransport"
-];
+let CONTENT;
 
 
 const CONTENT_TYPE = Symbol("text_type");
@@ -49,6 +15,8 @@ let contentImage;
 
 
 async function contentSetup(){
+    CONTENT = (await (await fetch(`./_content.txt`)).text()).toString().split("\n");
+
     contentTitle = document.getElementById("contentTitle");
     contentCard = document.getElementById("contentCard");
     contentText = document.getElementById("contentText");
@@ -276,9 +244,10 @@ function renderContent(contentName){
         }else{
             let element = renderContentItem(contentName, line);
             let previousElement = contentText.lastElementChild;
+            let textElements = ["text", "inlinemath"];
 
-            if(previousElement !== null && (element[CONTENT_TYPE] === "text" && previousElement[CONTENT_TYPE] === "text")){
-                previousElement.innerText += ` ${element.innerText}`;
+            if(previousElement !== null && (textElements.includes(element[CONTENT_TYPE]) && textElements.includes(previousElement[CONTENT_TYPE]))){
+                previousElement.innerHTML += ` ${element.innerHTML}`;
             }else{
                 contentText.appendChild(element);
             }

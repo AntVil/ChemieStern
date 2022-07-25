@@ -2,7 +2,7 @@ Periodensystem
 ---
 Isotop
     [deuterium.svg]
-    Deuterium (${}^{2}H$)
+    Deuterium ($\ce{^{2}H}$)
 ---
 Isotope sind Elemente mit unterschiedlicher Anzahl an Neutronen.
 Die Anzahl der Elektronen und Protonen hat keine Auswirkungen auf das Isotop.
@@ -11,9 +11,9 @@ Die Anzahl der Elektronen und Protonen hat keine Auswirkungen auf das Isotop.
 Für ein Isotop wird die Anzahl an Protonen und Neuronen addiert und oben links über dem Element aufgeschrieben.
 
 {
-    Elementarer Wasserstoff: $${}^{1}H$$
-    Schwerer Wasserstoff (Deuterium): $${}^{2}H$$
-    Überschwerer Wasserstoff (Tritium): $${}^{3}H$$
+    Elementarer Wasserstoff: $$\ce{^{1}H}$$
+    Schwerer Wasserstoff (Deuterium): $$\ce{^{2}H}$$
+    Überschwerer Wasserstoff (Tritium): $$\ce{^{3}H}$$
 }
 
 Wird die Zahl nicht angegeben handelt es sich um das gängigste Isotop des Elements.

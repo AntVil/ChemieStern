@@ -10,10 +10,19 @@ Braucht die Reaktion Energie wird sie stattdessen als endotherm bezeichnet.
 Das Ergebnis einer Reaktion wird Produkt gennant, die Reaktionspartner als Edukte
 
 # Schreibweise
-Um eine Reaktionsgleichung aufzustellen braucht man 
+Jede Reaktionsgleichung hat einen Reaktionspfeil.
+Auf die linke Seite des Reaktionspfeils wird die Edukte aufgeschrieben.
+Auf der rechten Seite die Produkte.
+Sie werden jeweils durch Pluse getrennt.
+Vor jedes Molekül wird die Anzahl des Moleküles geschrieben.
+
+$$\ce{2 H_2 + O_2 -> 2 H_2O}$$
+
+Um eine Reaktionsgleichung aufzustellen werden zuerst die Edukte und Produkte aufgeschrieben.
+Danach werden nach und nach die Anzahlen der Moleküle verändert, bis die Gleichung korrekt ist.
 
 # Chemisches Gleichgewicht
-$$\rightleftharpoons$$
+$$\ce{<=>}$$
 
 # Katalysator
 Ein Katalysator setzt die Energie, die für eine Reaktion benötigt wird, herunter.

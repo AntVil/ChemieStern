@@ -4,3 +4,5 @@ Säure-Base-Reaktion
 ---
 
 # Autoprotolyse (Autodissoziation) des Wasser
+
+$$\ce{H2O + H2O <<=>[endotherm][exotherm]H3O+ + OH-}$$

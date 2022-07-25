@@ -1,10 +1,11 @@
 Primärbindung
+Reaktionsgleichung
 ---
 Isomer
     [isobutan.svg]
     Isobutan
 ---
-Ein Isomer ist ein Stoff, welcher die gleiche chemische Formel besitzt wie ein anderer Stoff, sich jedoch trotzdem von diesem Unterscheidet.
+Ein Isomer ist ein Molekül, welches die gleiche chemische Formel besitzt wie ein anderes Molekül, sich jedoch trotzdem von diesem Unterscheidet.
 
 # Struktur-Isomerie
 Für die chemische Formel $C_4H_8$ gibt es zwei verschiede Struktur-Isomere.
@@ -18,3 +19,12 @@ Struktur-Isomere unterschieden sich im Aufbau des Moleküls.
 Dabei sind verdrehte Einfach-Bindungen kein unterschied.
 Sie haben meist unterschiedliche Eigenschaften.
 Meist ist eine Bennenung des Molekül hilfreich um zu bestimmen, ob es sich um ein Struktur-Isomer handelt.
+
+# Tautomerie
+Bei einer Tautomerie herrscht ein chemisches Gleichgewicht zwischen zwei Struktur-Isomeren.
+
+# Enantiomer
+Die Enantiomere gehören zur Stereoisomerie.
+Enantiomere sind Moleküle, welche Spiegelbilder von einander sind.
+Es kommt zu einem Enantiomer, wenn es mindestens ein Atom in einem Molekül gibt, welches vier verschiedene Bindungspartner (Substituenten) hat.
+Dieses Atom ist dann chiral.
