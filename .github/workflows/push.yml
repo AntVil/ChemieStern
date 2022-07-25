@@ -1,8 +1,8 @@
-name: learn-github-actions
+name: push
 on: [push]
 jobs:
-  check-bats-version:
+  list-contents:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: ls > ./src/_content.txt
+      - run: ls ./src/content/ > ./src/_content.txt
