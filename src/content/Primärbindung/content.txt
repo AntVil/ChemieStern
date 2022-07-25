@@ -28,7 +28,7 @@ Dabei werden die chemischen Buchstaben die im Molekül vorkommen aufgeschrieben.
 Zusätzlich wird die Anzahl, wenn sie nich eins ist, als kleine Zahl unten rechts eingetragen.
 Die chemische Formel von Wasser ist:
 
-$$H_2O$$
+$$\ce{H_2O}$$
 
 # Polarität
 Wenn der Unterschied zwischen der Elektronegativität zweier Atome relativ groß ist wird die Bindung Polar.
