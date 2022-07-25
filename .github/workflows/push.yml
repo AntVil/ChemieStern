@@ -7,13 +7,13 @@ jobs:
       - uses: actions/checkout@v3
       - run: ls ./src/content/ > ./src/_content.txt
       - run: echo "IS_VALID=$(git diff --exit-code src/_content.txt)" >> $GITHUB_ENV
-      - if: ${{ env.IS_VALID == '' }}
+      - if: ${{ env.IS_VALID == *'diff'* }}
         run: |
           git config --local user.email "antboehler@gmail.com"
           git config --local user.name "AntVil"
           git add ./src/_content.txt
           git commit -m "update _content.txt"
-      - if: ${{ env.IS_VALID == '' }}
+      - if: ${{ env.IS_VALID == *'diff'* }}
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
