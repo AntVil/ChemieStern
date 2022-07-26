@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: ls ./src/content/ > ./src/_content.txt
-      - run: if [ '$(git diff --exit-code src/_content.txt)' == *'diff'* ]; then echo "IS_VALID=true" >> $GITHUB_ENV; else echo "IS_VALID=false" >> $GITHUB_ENV ;fi
+      - run: if [[ "$(git diff --exit-code src/_content.txt)" =~ 'diff' ]]; then echo "IS_VALID=true" >> $GITHUB_ENV; else echo "IS_VALID=false" >> $GITHUB_ENV ;fi
       - if: ${{ env.IS_VALID == 'true' }}
         run: |
           git config --local user.email "antboehler@gmail.com"
