@@ -4,6 +4,7 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 
+/* emulate 'ls ./src/content/ > ./src/_content.txt' in github-action */
 fs.writeFileSync(
     path.join(__dirname, "src", "_content.txt"),
     fs.readdirSync(path.join(__dirname, "src", "content")).join("\n") + "\n"
