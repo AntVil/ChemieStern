@@ -1,4 +1,4 @@
-const MAP_SCALING_FACTOR = 1.5;
+const MAP_SCALING_FACTOR = 1.2;
 const SIMULATION_STEPS = 10;
 const SIMULATION_REPULSION_STRENGTH = 0.1;
 const SIMULATION_FRICTION_STRENGTH = 0.3;
@@ -85,12 +85,10 @@ async function mapSetup(){
     });
     mapCanvas.addEventListener("wheel", (e) => {
         e.preventDefault();
-        if(e.deltaY < 0){
-            mapTransform = zoom(mapMouseX, mapMouseY, MAP_SCALING_FACTOR, mapTransform);
-        }else{
-            mapTransform = zoom(mapMouseX, mapMouseY, 1 / MAP_SCALING_FACTOR, mapTransform);
+        if(e.deltaY !== 0){
+            mapTransform = zoom(mapMouseX, mapMouseY, Math.pow(MAP_SCALING_FACTOR, -e.deltaY), mapTransform);
+            mapRender();
         }
-        mapRender();
     });
 
     mapCanvas.addEventListener("touchstart", (e) => {

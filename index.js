@@ -4,8 +4,10 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 
-let content = fs.readdirSync(path.join(__dirname, "src", "content"));
-fs.writeFileSync(path.join(__dirname, "src", "_content.txt"), content.join("\n"));
+fs.writeFileSync(
+    path.join(__dirname, "src", "_content.txt"),
+    fs.readdirSync(path.join(__dirname, "src", "content")).join("\n") + "\n"
+);
 
 let app = express();
 
