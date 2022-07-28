@@ -22,9 +22,20 @@ Um eine Reaktionsgleichung aufzustellen werden zuerst die Edukte und Produkte au
 Danach werden nach und nach die Anzahlen der Moleküle verändert, bis die Gleichung korrekt ist.
 
 # Chemisches Gleichgewicht
-$$\ce{<=>}$$
+Jede chemische Reaktion kann rückgängig gemacht werden.
+Man sagt auch sie sind reversibel.
+Falls die Hinreaktion exotherm ist, so ist die Rückreaktion endotherm.
+Oftmals finden beide Reaktionen statt.
+Dies wird als chemisches Gleichgewicht bezeichnet.
+Ein Beispiel bildet die Ammoniksynthese.
+
+$$\ce{N_2 + 3 H_2 <=> 2 NH_3}$$
+
+Um möglichst viel Ammoniak herzustellen wird sehr viel Edukte beigefügt, da dann die Hinreaktion öfter passiert.
+Zusätzlich werden die Produkte entfernt, damit die Rückreaktion seltener passiert.
 
 # Katalysator
 Ein Katalysator setzt die Energie, die für eine Reaktion benötigt wird, herunter.
 Somit kann die Reaktion leichter und schneller ablaufen.
 Für jede Reaktion ist der Katalysator ein anderer.
+Bei der Ammoniksynthese wird ein Katalysator verwendet, damit die Hinreaktion öfter abläuft.

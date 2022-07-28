@@ -183,3 +183,7 @@
     box-sizing: border-box;
     padding: var(--contentMargin);
 }
+
+#contentText>img:hover, .table>*>img:hover{
+    cursor: pointer;
+}

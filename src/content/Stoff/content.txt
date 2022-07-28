@@ -22,9 +22,26 @@ Bewegen sich die Teilchen nicht, dann ist der Absolute Nullpunkt von $0^\circ K$
 
 # Aggregatszustand
 Der Aggregatszustand bestimmt in welcher Form ein Stoff vorliegt.
-Er wird durch die Dichte und Temperatur eines Stoffes bestimmt.
+Er wird durch den Druck der auf den Stoff wirkt und Temperatur des Stoffes bestimmt.
+Dabei ist ein Stoff fest, wenn die Teilchen des Stoffes sehr nah aneinander sind.
+Ansonsten ist der Stoff flüssig oder sogar gasförmig.
 
 {
     Fest:Flüssig:Gasförmig
     [fest.svg]:[flüssig.svg]:[gasförmig.svg]
 }
+
+Der Abstand zwischen den Teilchen ist dabei kleiner, wenn die Teilchen kühler sind, weil dann die Sekundärbindungen stärker sind.
+Ein hoher Druck führt dazu, dass die Teilchen aneinander gepresst werden. Dadurch verringert sich der Abstand ebenfalls.
+
+Ein Phasendiagramm zeigt wie sich ein Stoff verhält unter verschiedenen Temperatur und Druck verhältnissen.
+Für die meisten Stoffe sieht es ungefähr so aus:
+
+[phasendiagramm.svg]
+
+Ein Sonderfall bildet das Phasendiagramm von Wasser.
+Der Unterschied zum normalen Phasendiagramm kommt durch die vielen Wasserstoffbrückenbindungen, welche Wasser bildet.
+
+[wasser_phasendiagramm.svg]
+
+Dieser Unterschied wird auch Anomalie des Wassers genannt.

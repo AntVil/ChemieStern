@@ -5,6 +5,8 @@ Stoffgemisch
 
 homogen/heterogen
 
+# Diffusion
+
 # Lösung
 
 # Disperses System
