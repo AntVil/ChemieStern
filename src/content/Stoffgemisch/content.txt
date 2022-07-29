@@ -1,14 +1,43 @@
 Stoff
 ---
 Stoffgemisch
+    [salz-wasser-lösung.svg]
 ---
-
-homogen/heterogen
-
-# Diffusion
+Ein Stoffgemisch besteht aus mindestens zwei verschiedenen Stoffen.
+Ein Stoffgemisch ist homogen, wenn es einheitlich vermischt ist und keine Phasen oder Teile erkennbar sind.
+Wenn Phasen oder Teile erkennbar sind, so ist es heterogen.
 
 # Lösung
+Eine Lösung ist ein Stoffgemisch in dem sich mindestens ein Stoff in einem anderen Stoff, dem Lösungsmittel, gelöst hat.
+Dabei wird eine Lösung mit Wasser als Lösungsmittel als wässrige Lösung bezeichnet.
+Ein Beispiel für eine Lösung ist eine Kochsalz-Wasser-Lösung $\ce{NaCl(aq)}$.
+Hierbei wird das Salzgitter von dem Wasser zerstört (Dissoziation) und die Ionen verteilen sich im Wasser.
+
+[salz-wasser-lösung.svg]
+
+# Diffusion
+Die Diffusion beschreibt die allmähliche Durchmischung eines Stoffgemisch.
+Sie läuft komplett von selber ab. 
+Grundlage für Diffusion ist, dass die beteiligten Stoffe sich vermischen lassen.
+
+[diffusion.svg]
+
+Diffusion geschieht, weil Teilchen sich permanent bewegen.
+Wenn sich die Teilchen nicht gegenseitig abstoßen oder eine andere Kraft wirkt, verteilen sich die Teilchen gleichmäßig.
 
 # Disperses System
+Eine Dispersion ist ein heterogenes Gemisch, in dem sich die Stoffe gegenseitig fast nicht oder garnicht lösen.
+
+{
+    :Fest in:Flüssig in:Gasförmig in
+    Fest:Suspension:Paste:Schaum
+    Flüssig:Suspension:Emulsion:Schaum
+    Gasförmig:Aerosol:Aerosol:(Gas)
+}
+
+# Tenside
+Tenside sind Stoffe, welche die Oberflächenspannung zwischen zwei Phasen herabsetzt.
+Sie werden auch als Dispergiermittel oder Emulgatoren bezeichnet.
+Sie können dafür sorgen, dass zwei nicht mischbare Phasen, wie Wasser und Öl, vermischt werden können.
 
 # Trennverfahren

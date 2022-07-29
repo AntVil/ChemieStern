@@ -1,4 +1,4 @@
-const MAP_SCALING_FACTOR = 1.2;
+const MAP_SCALING_FACTOR = 1.5;
 const SIMULATION_STEPS = 10;
 const SIMULATION_REPULSION_STRENGTH = 0.1;
 const SIMULATION_FRICTION_STRENGTH = 0.3;
@@ -86,7 +86,7 @@ async function mapSetup(){
     mapCanvas.addEventListener("wheel", (e) => {
         e.preventDefault();
         if(e.deltaY !== 0){
-            mapTransform = zoom(mapMouseX, mapMouseY, Math.pow(MAP_SCALING_FACTOR, -e.deltaY), mapTransform);
+            mapTransform = zoom(mapMouseX, mapMouseY, Math.pow(MAP_SCALING_FACTOR, -(e.deltaY / 100)), mapTransform);
             mapRender();
         }
     });

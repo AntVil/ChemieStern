@@ -1,4 +1,4 @@
-const SEARCH_CHARACTER_LOOK_AHEAD = 200;
+const SEARCH_CHARACTER_LOOK_AHEAD = 1000;
 
 
 async function searchSetup(){

@@ -1,0 +1,30 @@
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 100 100' shape-rendering='geometricPrecision' text-rendering='geometricPrecision'>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0099FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF0099;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <mask id="myMask">
+    <rect x="10" y="10" width="80" height="80" fill="white" rx="10" ry="10"/>
+  </mask>
+  
+  <rect x="10" y="10" width="60" height="80" fill="#0099FF" mask="url(#myMask)" />
+  <rect x="70" y="10" width="20" height="80" fill="#FF0099" mask="url(#myMask)" />
+
+  <rect x="70" y="10" width="0" height="80" fill="url(#grad)" mask="url(#myMask)" >
+    <animate 
+          attributeName="x" 
+          from="70"
+          to="10"
+          dur="2s"
+          repeatCount="indefinite"/>
+    <animate 
+          attributeName="width" 
+          from="0"
+          to="80"
+          dur="2s"
+          repeatCount="indefinite"/>
+  </rect>
+</svg>
