@@ -12,6 +12,7 @@
 @media only screen and (max-width: 900px) {
     #content{
         display: unset !important;
+        width: 80% !important;
         grid-template-columns: unset !important;
         grid-template-rows: auto !important;
         overflow-y: scroll;
@@ -24,12 +25,16 @@
         left: unset !important;
         top: unset !important;
         transform: none !important;
-        width: min(var(--contentWidthSmall) - var(--cardWidth) - 2 * var(--contentMargin), calc(100vw - 2 * var(--contentMargin))) !important;
+        /*width: min(var(--contentWidthSmall) - var(--cardWidth) - 2 * var(--contentMargin), calc(100vw - 2 * var(--contentMargin))) !important;*/
     }
 
     #contentCard{
+        display: block;
         margin-top: var(--contentMargin);
         margin-bottom: var(--contentMargin);
+        margin-left: auto;
+        margin-right: auto;
+        max-width: var(--cardWidth);
     }
 }
 

@@ -119,8 +119,8 @@ nav{
     background-color: var(--headerBackgroundColor);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    padding-top: 50%;
-    padding-bottom: 50%;
+    padding-top: 100px;
+    padding-bottom: 100px;
     box-sizing: border-box;
 }
 
