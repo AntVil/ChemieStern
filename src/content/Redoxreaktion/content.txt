@@ -3,3 +3,14 @@ Reaktionsgleichung
 Redoxreaktion
     
 ---
+Eine Redoxreaktion ist eine chemische Reaktion, bei der Elektronen von einem Stoff auf einen anderen Stoff übertragen werden.
+Redoxreaktionen bestehen aus der Reduktion, bei der Elektronen aufgenommen werden, und der Oxidation, bei der Elektronen abgegeben werden.
+Ein Oxidationsmittel ist ein Stoff mit hoher Elektronegativität.
+Das Reduktionsmittel hat stattdessen eine niedrige Elektronegativität.
+
+# Oxidationszahlen
+Die Oxidationszahl ist ein Maß um zu bestimmen, wie viele Elektronen einem Atom zugewiesen sind.
+Sie werden meist verwendet um zu bestimmen, welche Stoffe oxidiert bzw. reduziert wurden.
+
+# Gleichung aufstellen
+$$\begin{array}{c}\scriptsize 0 \quad \quad +\!\!1 -\!\!1 \; \quad \quad +\!\!2 -\!\!1 \quad \quad 0\\\ce{Zn + 2 HCl->ZnCl2 + H2}\end{array}$$

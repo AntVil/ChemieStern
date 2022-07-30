@@ -45,3 +45,27 @@ Der Unterschied zum normalen Phasendiagramm kommt durch die vielen Wasserstoffbr
 [wasser_phasendiagramm.svg]
 
 Dieser Unterschied wird auch Anomalie des Wassers genannt.
+
+# Oberflächenspannung
+Die Oberflächenspannung bzw. Grenzflächenspannung zieht eine Flüssigkeit zusammen, sodass diese die kleinst mögliche Oberfläche hat.
+In den meisten Fällen entsteht eine kugelförmige Oberfläche.
+Oberflächenspannung entsteht, weil zwischen den Teilchen eine Flüssigkeit Kohäsion herscht.
+Die Teilchen ziehen sich also gegenseitig an.
+Wenn ein Teilchen von anderen Teilchen umrandet ist, heben sich die verschiedenen Kräfte auf.
+Für ein Teilchen am Rand wirkt jedoch eine Kraft in Richtung der anderen Teilchen.
+
+{
+    Innen:Außen
+    [oberflächenspannung_innen.svg]:[oberflächenspannung_aussen.svg]
+}
+
+# Kapillarkräfte
+Kapillarkräfte beschreiben wie Flüssigkeiten sich an röhrenartigen Oberflächen verhalten.
+Ist die Adhäsion zwischen Flüssigkeit und Oberfläche größer als die Kohäsion der Flüssigkeit, steigt die Flüssigkeit an der Oberfläche hoch.
+Man nennt dies Kapillaraszension.
+Wenn das Gegenteil zutrifft spricht man von Kapillardepression.
+
+{
+    Kapillaraszension:Kapillardepression
+    [kapillaraszension.svg]:[kapillardepression.svg]
+}

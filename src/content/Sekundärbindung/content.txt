@@ -4,8 +4,10 @@ Sekundärbindung
     [dipol_dipol_wechselwirkung.svg]
     Dipol-Dipol-Wechselwirkung
 ---
-Sekundärbindungen herschen zwischen ganzen Molekülen.
-Sie sind viel schwächer als Primärbindungen.
+Sekundärbindungen herschen zwischen ganzen Molekülen und sind viel schwächer als Primärbindungen.
+Sie werden in Kohäsion und Adhäsion eingeteilt.
+Wenn sie zwischen gleichen Teilchen wirken spricht man von Kohäsion.
+Wenn sie zwischen verschiedenen Teilchen wirken von Adhäsion.
 
 # Dipol-Dipol-Wechselwirkung
 Wenn zwei Moleküle polar sind entstehen Dipol-Dipol-Wechselwirkungen.

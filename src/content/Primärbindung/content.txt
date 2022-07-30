@@ -25,7 +25,7 @@ Die Lewis-Schreibweise ist eine vereinfachte Darstellung komplexer Moleküle.
 # Chemische Formel
 Die chemische Formel ist eine verkürzte Art Moleküle zu Beschreiben.
 Dabei werden die chemischen Buchstaben die im Molekül vorkommen aufgeschrieben.
-Zusätzlich wird die Anzahl, wenn sie nich eins ist, als kleine Zahl unten rechts eingetragen.
+Zusätzlich wird die Anzahl, wenn sie nicht eins ist, als kleine Zahl unten rechts eingetragen.
 Die chemische Formel von Wasser ist:
 
 $$\ce{H_2O}$$
