@@ -85,7 +85,9 @@ async function mapSetup(){
     });
     mapCanvas.addEventListener("mouseout", (e) => {
         e.preventDefault();
-        endPointer();
+        if(mapToolDragElement.checked){
+            endPointer();
+        }
     });
     mapCanvas.addEventListener("wheel", (e) => {
         e.preventDefault();
