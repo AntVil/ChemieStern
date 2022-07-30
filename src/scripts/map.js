@@ -272,8 +272,16 @@ function setCanvasSize(){
 function startPointer(x, y){
     closeHeader();
 
-    document.getElementsByTagName("header")[0].style.display = "none";
-    document.getElementById("mapToolbar").style.display = "none";
+    let header = document.getElementsByTagName("header")[0];
+    let toolbar = document.getElementById("mapToolbar");
+    header.style.opacity = 0;
+    toolbar.style.opacity = 0;
+    setTimeout(() => {
+        if(pointerDragging){
+            header.style.display = "none";
+            toolbar.style.display = "none";
+        }
+    }, 1000);
 
     pointerStartPosition = [x, y];
     pointerDragging = true;
@@ -289,7 +297,7 @@ function startPointer(x, y){
 }
 
 function movePointer(x, y){
-    if(pointerDragging){
+    if(pointerDragging && mapToolDragElement.checked){
         pointerOffsetPosition[0] = x - pointerStartPosition[0];
         pointerOffsetPosition[1] = y - pointerStartPosition[1];
 
@@ -301,8 +309,16 @@ function movePointer(x, y){
 }
 
 function endPointer(){
-    document.getElementsByTagName("header")[0].style.display = "";
-    document.getElementById("mapToolbar").style.display = "";
+    let header = document.getElementsByTagName("header")[0];
+    let toolbar = document.getElementById("mapToolbar");
+    header.style.display = "";
+    toolbar.style.display = "";
+    setTimeout(() => {
+        if(!pointerDragging){
+            header.style.opacity = "";
+            toolbar.style.opacity = "";
+        }
+    }, 10);
 
     if(mapToolDragElement.checked){
         mapTransform[2] += pointerOffsetPosition[0];
@@ -322,7 +338,12 @@ function endPointer(){
 function mapRender(){
     ctxt.clearRect(0, 0, mapCanvas.width, mapCanvas.height);
     ctxt.save();
-    ctxt.setTransform(mapTransform[0], mapTransform[3], mapTransform[1], mapTransform[4], mapTransform[2] + pointerOffsetPosition[0], mapTransform[5] + pointerOffsetPosition[1]);
+    if(pointerDragging){
+        ctxt.setTransform(mapTransform[0], mapTransform[3], mapTransform[1], mapTransform[4], mapTransform[2] + pointerOffsetPosition[0], mapTransform[5] + pointerOffsetPosition[1]);
+    }else{
+        ctxt.setTransform(mapTransform[0], mapTransform[3], mapTransform[1], mapTransform[4], mapTransform[2], mapTransform[5]);
+    }
+    
 
     ctxt.lineWidth = 1;
     ctxt.strokeStyle = window.getComputedStyle(document.documentElement).getPropertyValue('--fontColor');
