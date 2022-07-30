@@ -7,3 +7,7 @@ Ion
 Ein Ion ist ein Teilchen, welches nicht neutral geladen ist.
 Dabei ist ein Kation positiv und ein Anion negativ geladen.
 Kationen haben zu wenig Elektronen und Anionen haben zuviele Elektronen.
+
+Ein Natrium Atom hat ein Elektron in der äußersten Elektronenschale.
+Gibt es dieses Elektron ab, um die Edelgas-Regel zu erfüllen, hat es mehr Protonen als Elektronen.
+Damit wird es zu einem Natrium-Kation.

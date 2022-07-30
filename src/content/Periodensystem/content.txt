@@ -8,11 +8,24 @@ Jedes Element wird durch die Anzahl der Protonen im Atomkern bestimmt und ist ne
 Diese Anzahl wird als Ordnungszahl bezeichnet.
 
 # Einteilung
+Die Spalten des Periodensystem enthalten Hauptgruppen.
+Dabei enthält die Spalte rechts die Edelgase.
+Die Spalte links davon enthält die Halogene, Stoffe die sehr reaktiv sind.
+Die beiden linken Spalten sind die Alkali- und Erdalkalimetalle, welche ebenfalls sehr reaktiv sind.
 
+Das Periodensystem wird auch in Metalle, Halbmetalle und Nichtmetalle eingeteilt.
+Die Elemente Bor, Silicium, usw. sind Halbmetalle.
+Alle Elemente links davon, außer Wasserstoff, sind Metalle.
+Wasserstoff und die restlichen Elemente sind Nichtmetalle.
 
 # Edelgas-Regel
-
+Die Edelgas-Regel besagt, dass alle Elemente ihre äußerste Elektronenschale vollkommen aufgefüllt haben wollen.
+Sie heißt so, weil jedes Edelgas diese Regel erfüllt.
+Aus diesem Grund reagieren Edelgase nicht.
+Alle anderen Elemente gehen Primärbindungen ein um die Regel zu erfüllen.
 
 # Elektronegativität
 Die Elektronegativität von einem Element bestimmt, wie stark dieses Element Elektronen zu sich zieht.
 Sie ist bedeutend für die Erklärung von Polarität und Partialladungen ($\delta^+$ bzw. $\delta^-$).
+Alkali- und Erdalkalimetalle haben eine sehr niedrige Elektronegativität.
+Halogene haben eine extrem hohe Elektronegativität.
