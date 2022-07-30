@@ -35,9 +35,17 @@ Eine Dispersion ist ein heterogenes Gemisch, in dem sich die Stoffe gegenseitig 
     Gasförmig:Aerosol:Aerosol:(Gas)
 }
 
+Dabei wird der Stoff, welcher fein verteilt ist, als innere Phase oder disperse Phase bezeichnet.
+Die andere Phase wird als äußere Phase oder Dispersionsmittel bezeichnet.
+
 # Tenside
 Tenside sind Stoffe, welche die Oberflächenspannung zwischen zwei Phasen herabsetzt.
 Sie werden auch als Dispergiermittel oder Emulgatoren bezeichnet.
 Sie können dafür sorgen, dass zwei nicht mischbare Phasen, wie Wasser und Öl, vermischt werden können.
+Im Fall von Wasser und Öl erreicht ein Emulgator das, indem er eine hydrophile und eine lipophile Seite hat.
+Die Oberflächenspannung zwischen den beiden Phasen kann somit überwunden werden.
+Ein Beispiel für einen solchen Emulgator bildet Ethanol.
+
+[ethanol.svg]
 
 # Trennverfahren

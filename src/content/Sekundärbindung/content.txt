@@ -21,6 +21,9 @@ Diese funktionieren genau gleich wie Dipol-Dipol-Wechselwirkungen, sind jedoch s
 
 [wasserstoffbrückenbindung.svg]
 
+Bildet ein Stoff Wasserstoffbrückenbindung so ist er hydrophil.
+Tut er dies nicht ist er hydrophob.
+
 # Van-der-Waals-Kraft
 Die Van-der-Waals-Kraft ist die schwächste Sekundärbindung.
 Sie entsteht wenn unpolare Moleküle sich nahe kommen.
@@ -28,3 +31,6 @@ Die Elektronen dieser Moleküle bewegen sich und können dabei weiter auf einer 
 Dadurch können für kurze Zeit Partielle Ladungen entstehen und die Moleküle ziehen sich kurz gegenseitig leicht an.
 
 [van_der_waals_kraft.svg]
+
+Bildet ein Stoff relativ starke Van-der-Waals-Kräfte mit unpolaren Molekülen so ist der lipophil.
+Ansonsten ist er lipophob.

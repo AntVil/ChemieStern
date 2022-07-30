@@ -1,0 +1,39 @@
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 160 160' shape-rendering='geometricPrecision' text-rendering='geometricPrecision'>
+    <g transform="translate(20, 5)">
+    <text x="0" y="75" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
+    <text x="30" y="75" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">C</text>
+    <text x="60" y="75" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">C</text>
+    
+    <text x="30" y="45" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
+    <text x="60" y="45" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
+    
+    <text x="30" y="105" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
+    <text x="60" y="105" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
+    
+    <path d="M 10 75 L 20 75" stroke="black"></path>
+    <path d="M 40 75 L 50 75" stroke="black"></path>
+    <path d="M 70 75 L 80 75" stroke="black"></path>
+    <path d="M 100 75 L 110 75" stroke="black"></path>
+
+    <path d="M 30 55 L 30 65" stroke="black"></path>
+    <path d="M 60 55 L 60 65" stroke="black"></path>
+    
+    <path d="M 30 85 L 30 95" stroke="black"></path>
+    <path d="M 60 85 L 60 95" stroke="black"></path>
+    
+    <text x="90" y="75" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">O</text>
+    <text x="120" y="75" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="16" font-family="Arab">H</text>
+    
+    <path d="M 85 65 L 95 65" stroke="black"></path>
+    <path d="M 85 85 L 95 85" stroke="black"></path>
+
+    
+    <text x="98" y="70" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="10" font-family="Arab" fill="#89CFF0">δ</text>
+    <text x="128" y="70" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="10" font-family="Arab" fill="#EE4B2B">δ</text>
+
+    <g transform="translate(4, -3)">
+        <text x="98" y="70" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="6" font-family="Arab" fill="#89CFF0">‒</text>
+        <text x="128" y="70" text-anchor="middle" dominant-baseline="central" alignment-baseline="central" font-size="6" font-family="Arab" fill="#EE4B2B">+</text>
+    </g>
+    </g>
+</svg>
