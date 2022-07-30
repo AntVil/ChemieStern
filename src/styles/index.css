@@ -185,6 +185,7 @@ nav>*:hover{
     height: 100%;
     transform: translate(100%, 0);
     transition: none;
+    cursor: unset;
 }
 
 #headerToggle:checked~header>#headerToggleLabel>*{

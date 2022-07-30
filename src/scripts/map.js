@@ -83,6 +83,10 @@ async function mapSetup(){
         e.preventDefault();
         endPointer();
     });
+    mapCanvas.addEventListener("mouseout", (e) => {
+        e.preventDefault();
+        endPointer();
+    });
     mapCanvas.addEventListener("wheel", (e) => {
         e.preventDefault();
         if(e.deltaY !== 0){
@@ -266,6 +270,9 @@ function setCanvasSize(){
 function startPointer(x, y){
     closeHeader();
 
+    document.getElementsByTagName("header")[0].style.display = "none";
+    document.getElementById("mapToolbar").style.display = "none";
+
     pointerStartPosition = [x, y];
     pointerDragging = true;
 
@@ -292,6 +299,9 @@ function movePointer(x, y){
 }
 
 function endPointer(){
+    document.getElementsByTagName("header")[0].style.display = "";
+    document.getElementById("mapToolbar").style.display = "";
+
     if(mapToolDragElement.checked){
         mapTransform[2] += pointerOffsetPosition[0];
         mapTransform[5] += pointerOffsetPosition[1];
