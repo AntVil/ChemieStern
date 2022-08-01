@@ -51,6 +51,7 @@
     height: calc(100% - 50px);
     max-width: 800px;
     box-sizing: border-box;
+    font-family: monaco, Consolas, "Lucida Console", monospace !important;
 }
 
 #editEditor>*{
@@ -58,6 +59,7 @@
     border: none;
     border-radius: 5px;
     padding: 5px;
+    font-family: inherit;
 }
 
 #editButton:hover{

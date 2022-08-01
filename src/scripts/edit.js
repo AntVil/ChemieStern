@@ -144,6 +144,9 @@ async function editContent(contentName, pushState){
 }
 
 async function commit(){
+    let editButton = document.getElementById("editButton");
+    editButton.disabled = true;
+
     let parents = [];
     for(let container of editParents.children){
         let select = container.children[0];
@@ -160,16 +163,19 @@ async function commit(){
         editCard.value.split("\n").map((a) => `    ${a.trim()}`).join("\n")
     }\n---\n${
         editText.value.trim()
-    }\n`;
+    }\n`.replaceAll("\r", "").replaceAll("\n", "\r\n").replaceAll(" ", " "); // do normalisation (remove non-breaking spaces etc.)
 
     if(editTitle.value.trim().length === 0){
         return;
     }
 
+    let {data: {sha}} = await octokit.request(`GET /repos/AntVil/ChemieStern/contents/src/content/${editTitle.value}/content.txt`)
+
     let result = await octokit.repos.createOrUpdateFileContents({
         "owner": "AntVil",
         "repo": "ChemieStern",
         "path": `src/content/${editTitle.value}/content.txt`,
+        "sha": sha,
         "message": `adding content ${editTitle.value}`,
         "content": Base64.encode(content)
     });
@@ -182,4 +188,5 @@ async function commit(){
     ]);
     
     history.back();
+    editButton.disabled = false;
 }
