@@ -20,11 +20,15 @@ body{
     font-family: system-ui;
 }
 
+textarea{
+    resize: none;
+}
+
 input[type="checkbox"], input[type="radio"]{
     display: none;
 }
 
-label:hover{
+label:hover, button:hover{
     cursor: pointer;
 }
 
@@ -42,6 +46,10 @@ label:hover{
 
 .cursorZoomOut:hover{
     cursor: zoom-out;
+}
+
+textarea:disabled, input:disabled, button:disabled{
+    filter: grayscale(100%) opacity(0.4);
 }
 
 #pageLoader{

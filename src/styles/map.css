@@ -10,7 +10,7 @@
 
 #mapToolbar{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     position: absolute;
     left: 50%;
     bottom: 0;
@@ -24,21 +24,22 @@
 }
 
 /* only highlight selected if not hovering other */
-#mapToolbar:hover, #mapToolbar>input:checked+label>*, #mapToolbar:hover>input+label:hover>*{
+#mapToolbar:hover, #mapToolbar>input:checked+label>*, #mapToolbar:hover>input+label:hover>*, #mapToolbar:hover>button:hover>*{
     background-color: var(--highlightColor);
 }
 
-#mapToolbar:hover>input+label>*{
+#mapToolbar:hover>input+label>*, #mapToolbar:hover>button>*{
     background-color: var(--fontColor);
 }
 
-#mapToolbar>input+label{
+#mapToolbar>input+label, #mapToolbar>button{
     background-color: var(--supportColor);
     padding: 5px;
     border-radius: var(--toolbarHeight);
+    border: none;
 }
 
-#mapToolbar>input+label>*{
+#mapToolbar>input+label>*, #mapToolbar>button>*{
     width: calc((var(--toolbarHeight) - 2 * 5px) * 0.8);
     height: calc((var(--toolbarHeight) - 2 * 5px) * 0.8);
     background-color: var(--fontColor);
@@ -57,4 +58,9 @@
 #mapToolZoomOut+label>*{
     -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 176.292 176.292' style='enable-background:new 0 0 176.292 176.292;' xml:space='preserve'%3E%3Cpath d='M144.768,78.685c4.321-16.125,2.103-32.968-6.244-47.426C127.392,11.978,106.633,0,84.347,0 c-10.912,0-21.7,2.899-31.199,8.383c-14.458,8.347-24.8,21.825-29.121,37.951c-4.321,16.125-2.104,32.968,6.244,47.426 c11.132,19.281,31.892,31.259,54.178,31.259c8.41,0,16.745-1.729,24.474-5.03l32.507,56.303l12.99-7.5l-32.508-56.305 C133.087,104.133,141.102,92.37,144.768,78.685z M108.148,103.646c-7.221,4.169-15.417,6.373-23.699,6.373 c-16.944,0-32.727-9.104-41.188-23.759c-6.344-10.988-8.029-23.789-4.745-36.043C41.8,37.96,49.66,27.717,60.648,21.373 C67.87,17.204,76.064,15,84.347,15c16.944,0,32.726,9.104,41.187,23.759c6.344,10.988,8.029,23.789,4.746,36.044 C126.996,87.059,119.136,97.302,108.148,103.646z M59.398,55.009h50v15h-50V55.009z'/%3E%3C/svg%3E%0A");
     mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 176.292 176.292' style='enable-background:new 0 0 176.292 176.292;' xml:space='preserve'%3E%3Cpath d='M144.768,78.685c4.321-16.125,2.103-32.968-6.244-47.426C127.392,11.978,106.633,0,84.347,0 c-10.912,0-21.7,2.899-31.199,8.383c-14.458,8.347-24.8,21.825-29.121,37.951c-4.321,16.125-2.104,32.968,6.244,47.426 c11.132,19.281,31.892,31.259,54.178,31.259c8.41,0,16.745-1.729,24.474-5.03l32.507,56.303l12.99-7.5l-32.508-56.305 C133.087,104.133,141.102,92.37,144.768,78.685z M108.148,103.646c-7.221,4.169-15.417,6.373-23.699,6.373 c-16.944,0-32.727-9.104-41.188-23.759c-6.344-10.988-8.029-23.789-4.745-36.043C41.8,37.96,49.66,27.717,60.648,21.373 C67.87,17.204,76.064,15,84.347,15c16.944,0,32.726,9.104,41.187,23.759c6.344,10.988,8.029,23.789,4.746,36.044 C126.996,87.059,119.136,97.302,108.148,103.646z M59.398,55.009h50v15h-50V55.009z'/%3E%3C/svg%3E%0A");
+}
+
+#mapToolEdit>*{
+    -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' xmlns:xlink='http://www.w3.org/1999/xlink' enable-background='new 0 0 512 512'%3E%3Cpath d='m179.2,410.4l-77.3-77.4 272.5-272.9 77.3,77.4-272.5,272.9zm-96-38.3l56.9,57-79.2,22.3 22.3-79.3zm411.8-249l-106.2-106.4c-7.7-7.7-21.2-7.7-28.9-3.55271e-15l-301.3,301.8c-2.5,2.5-4.3,5.5-5.2,8.9l-41.6,148c-2,7.1 0,14.8 5.2,20 3.9,3.9 11.7,6.7 20,5.2l147.8-41.7c3.4-0.9 6.4-2.7 8.9-5.2l301.3-301.7c8-8 8-20.9 0-28.9z'/%3E%3C/svg%3E%0A");
+    mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' xmlns:xlink='http://www.w3.org/1999/xlink' enable-background='new 0 0 512 512'%3E%3Cpath d='m179.2,410.4l-77.3-77.4 272.5-272.9 77.3,77.4-272.5,272.9zm-96-38.3l56.9,57-79.2,22.3 22.3-79.3zm411.8-249l-106.2-106.4c-7.7-7.7-21.2-7.7-28.9-3.55271e-15l-301.3,301.8c-2.5,2.5-4.3,5.5-5.2,8.9l-41.6,148c-2,7.1 0,14.8 5.2,20 3.9,3.9 11.7,6.7 20,5.2l147.8-41.7c3.4-0.9 6.4-2.7 8.9-5.2l301.3-301.7c8-8 8-20.9 0-28.9z'/%3E%3C/svg%3E%0A");
 }

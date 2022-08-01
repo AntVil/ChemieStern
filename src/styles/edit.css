@@ -1,0 +1,90 @@
+:root{
+    --editSelectHeight: 25px;
+}
+
+/* authentication */
+#editAuthenticationBackground{
+    width: 100%;
+    height: 100%;
+    background-color: var(--headerBackgroundColor);
+    backdrop-filter: grayscale(100%);
+}
+
+#editAuthentication{
+    display: grid;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    gap: 5px;
+    padding: 15px;
+    background-color: var(--contentBackgroundColor);
+    border-radius: 15px;
+    font-size: large;
+}
+
+#editAuthentication>input{
+    text-align: center;
+}
+
+#editAuthentication>button{
+    padding: 0;
+    border: none;
+    background-color: var(--supportColor);
+}
+
+#editAuthentication>button:hover{
+    background-color: var(--highlightColor);
+}
+
+/* editor */
+#editEditor{
+    display: grid;
+    grid-template-rows: auto auto 1fr 3fr auto;
+    gap: 5px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: calc(100% - 50px);
+    max-width: 800px;
+    box-sizing: border-box;
+}
+
+#editEditor>*{
+    background-color: var(--contentBackgroundColor);
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#editButton:hover{
+    background-color: var(--highlightColor);
+}
+
+#editParents>*, #editParents>*>*{
+    display: inline-block;
+    height: var(--editSelectHeight);
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+#editParents>*>button, #editParents>button{
+    width: var(--editSelectHeight);
+    height: var(--editSelectHeight);
+    border: none;
+    margin: 0;
+    padding: 0;
+    border-radius: calc(var(--editSelectHeight) / 4);
+    background-color: var(--supportColor);
+}
+
+#editParents>*>button:hover, #editParents>button:hover{
+    background-color: var(--highlightColor);
+}
+
+#editParents>*>button{
+    margin-right: 5px;
+}

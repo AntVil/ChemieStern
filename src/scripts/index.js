@@ -13,13 +13,15 @@ window.onload = async function(){
     await contentSetup();
     await Promise.all([
         searchSetup(),
-        mapSetup()
+        mapSetup(),
+        editSetup()
     ]);
     
     mapPage = document.getElementById("map");
     searchPage = document.getElementById("search");
     aboutPage = document.getElementById("about");
     contentPage = document.getElementById("content");
+    editPage = document.getElementById("edit");
 
     mapPage[UNLOAD_PAGE] = () => {};
     searchPage[UNLOAD_PAGE] = () => {};
@@ -27,8 +29,9 @@ window.onload = async function(){
     contentPage[UNLOAD_PAGE] = () => {
         contentImage.click()
     };
+    editPage[UNLOAD_PAGE] = () => {};
 
-    pages = [mapPage, searchPage, aboutPage, contentPage];
+    pages = [mapPage, searchPage, aboutPage, contentPage, editPage];
 
     for(let p of pages){
         p.style.opacity = "0";
@@ -43,10 +46,14 @@ window.onload = async function(){
 
     window.onpopstate = (e) => {
         try{
+            // prevents pushing
+            document.getElementById(e.state.page).style.opacity = "1";
+
             if(e.state.page === contentPage.id){
                 loadPageContent(e.state.attribute, false);
-            }else if(e.state.page === mapPage.id){
-                loadPageMap();
+            }else if(e.state.page === editPage.id){
+                loadPageEdit(null);
+                editContent(e.state.attribute, false);
             }else{
                 loadPage(document.getElementById(e.state.page), null);
             }
@@ -121,4 +128,12 @@ function loadPageContent(contentName, pushState){
         loadPage(contentPage, null);
     }
     renderContent(contentName);
+}
+
+function loadPageEdit(editAttribute){
+    if(editPage.style.opacity === "0"){
+        loadPage(editPage, {page: editPage.id, attribute: editAttribute});
+    }else{
+        loadPage(editPage, null);
+    }
 }

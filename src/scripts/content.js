@@ -68,10 +68,6 @@ function getContentChildren(contentName){
     return contentGraph[contentName].children.slice();
 }
 
-function getContentName(contentName){
-    return contents[contentName].split("---")[1].split("\n")[1].trim()
-}
-
 function getContentCardList(contentName){
     let result = contents[contentName].split("---")[1].split("\n").slice(2).map((a) => a.trim()).filter((a) => a.length > 0);
     return result;
@@ -202,7 +198,7 @@ function renderContentNav(links){
 
 function renderContent(contentName){
     // title
-    contentTitle.innerText = getContentName(contentName);
+    contentTitle.innerText = contentName;
 
     // card
     let cardList = getContentCardList(contentName);

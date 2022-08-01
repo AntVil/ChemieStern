@@ -9,6 +9,9 @@
         <script defer src="./lib/katex/mhchem.min.js"></script>
         <link rel="stylesheet" href="./lib/katex/katex.min.css">
 
+        <!-- Base64-->
+        <script defer src="./lib/base64/base64.min.js"></script>
+
         <!-- styles -->
         <link rel="stylesheet" href="./styles/colors.css">
         <link rel="stylesheet" href="./styles/index.css">
@@ -16,12 +19,14 @@
         <link rel="stylesheet" href="./styles/about.css">
         <link rel="stylesheet" href="./styles/content.css">
         <link rel="stylesheet" href="./styles/map.css">
+        <link rel="stylesheet" href="./styles/edit.css">
 
         <!-- scripts -->
         <script src="./scripts/content.js"></script>
         <script src="./scripts/index.js"></script>
         <script src="./scripts/search.js"></script>
         <script src="./scripts/map.js"></script>
+        <script src="./scripts/edit.js"></script>
         
         <!-- meta -->
         <meta name="viewport" content="width=device-width">
@@ -61,6 +66,10 @@
 
                     <input id="mapToolZoomOut" name="mapTool" type="radio"/>
                     <label for="mapToolZoomOut"><div></div></label>
+
+                    <button id="mapToolEdit" onclick="editContent(null, true)">
+                        <div></div>
+                    </button>
                 </div>
             </div>
 
@@ -81,12 +90,33 @@
             </div>
 
             <div id="content">
-                <div id="contentTitle"></div>
+                <div id="contentHeader">
+                    <div id="contentTitle"></div>
+                    <button id="contentEdit" onclick="editContent(undefined, true)"><div></div></button>
+                </div>
                 <div id="contentCard"></div>
                 <div id="contentText"></div>
             </div>
 
             <img id="contentImage"></img>
+
+            <div id="edit">
+                <form id="editEditor" onsubmit="return false;">
+                    <input id="editTitle" placeholder="Titel" />
+                    <div id="editParents"></div>
+                    <textarea id="editCard" placeholder="Karte"></textarea>
+                    <textarea id="editText" placeholder="Inhalt"></textarea>
+                    <button id="editButton" type="submit" onclick="commit()">überschreiben</button>
+                </form>
+
+                <div id="editAuthenticationBackground"></div>
+
+                <form id="editAuthentication" onsubmit="return false;">
+                    <div>Persönlicher Zugangstoken</div>
+                    <input id="accessTokenInput" placeholder="token" type="password" />
+                    <button id="authenticateButton" type="submit">authentifizieren</button>
+                </div>
+            </div>
         </main>
     </body>
 </html>
