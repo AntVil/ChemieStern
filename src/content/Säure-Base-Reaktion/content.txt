@@ -1,8 +1,11 @@
 Reaktionsgleichung
 ---
 Säure-Base-Reaktion
+    
 ---
-
 # Autoprotolyse (Autodissoziation) des Wasser
+
+Wasser reagiert in einem chemischen Gleichgewicht mit sich selber.
+Dabei Entstehen Oxonium- und Hydroxid-Ionen.
 
 $$\ce{H2O + H2O <<=>[endotherm][exotherm]H3O+ + OH-}$$
