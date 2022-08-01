@@ -122,7 +122,7 @@
 
 .table>*>*{
     border-right: 1px solid var(--fontColor);
-    border-bottom: 1px solid var(--fontColor);
+    border-top: 1px solid var(--fontColor);
     box-sizing: border-box;
     width: 100%;
 }
@@ -137,11 +137,11 @@
 }
 
 .table>*:first-child>*{
+    border-top: none;
     padding-top: 5px;
 }
 
 .table>*:last-child>*{
-    border-bottom: none;
     padding-bottom: 5px;
 }
 
