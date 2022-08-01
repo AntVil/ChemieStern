@@ -8,6 +8,7 @@
     height: 100%;
     background-color: var(--headerBackgroundColor);
     backdrop-filter: grayscale(100%);
+    -webkit-backdrop-filter: grayscale(100%);
 }
 
 #editAuthentication{

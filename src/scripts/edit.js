@@ -38,11 +38,11 @@ async function setupOctokit(){
                 accessTokenInput.disabled = true;
                 authenticateButton.disabled = true;
 
-                octokit = new Octokit({
-                    auth: accessTokenInput.value
-                });
-            
                 try{
+                    octokit = new Octokit({
+                        auth: accessTokenInput.value
+                    });
+
                     let result = await octokit.repos.get({
                         "owner": "AntVil",
                         "repo": "ChemieStern"
@@ -161,6 +161,10 @@ async function commit(){
     }\n---\n${
         editText.value.trim()
     }\n`;
+
+    if(editTitle.value.trim().length === 0){
+        return;
+    }
 
     let result = await octokit.repos.createOrUpdateFileContents({
         "owner": "AntVil",

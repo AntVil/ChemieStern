@@ -14,8 +14,10 @@ window.onload = async function(){
     await Promise.all([
         searchSetup(),
         mapSetup(),
-        editSetup()
     ]);
+
+    // edit not needed immediently so can be delayed a bit
+    editSetup()
     
     mapPage = document.getElementById("map");
     searchPage = document.getElementById("search");
