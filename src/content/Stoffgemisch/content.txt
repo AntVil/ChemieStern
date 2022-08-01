@@ -7,36 +7,70 @@ Ein Stoffgemisch besteht aus mindestens zwei verschiedenen Stoffen.
 Ein Stoffgemisch ist homogen, wenn es einheitlich vermischt ist und keine Phasen oder Teile erkennbar sind.
 Wenn Phasen oder Teile erkennbar sind, so ist es heterogen.
 
+
 # Lösung
 Eine Lösung ist ein Stoffgemisch in dem sich mindestens ein Stoff in einem anderen Stoff, dem Lösungsmittel, gelöst hat.
 Dabei wird eine Lösung mit Wasser als Lösungsmittel als wässrige Lösung bezeichnet.
 Ein Beispiel für eine Lösung ist eine Kochsalz-Wasser-Lösung $\ce{NaCl(aq)}$.
 Hierbei wird das Salzgitter von dem Wasser zerstört (Dissoziation) und die Ionen verteilen sich im Wasser.
 
+
 [salz-wasser-lösung.svg]
+
 
 # Diffusion
 Die Diffusion beschreibt die allmähliche Durchmischung eines Stoffgemisch.
-Sie läuft komplett von selber ab. 
+Sie läuft komplett von selber ab. 
 Grundlage für Diffusion ist, dass die beteiligten Stoffe sich vermischen lassen.
 
+
 [diffusion.svg]
+
 
 Diffusion geschieht, weil Teilchen sich permanent bewegen.
 Wenn sich die Teilchen nicht gegenseitig abstoßen oder eine andere Kraft wirkt, verteilen sich die Teilchen gleichmäßig.
 
+
 # Disperses System
 Eine Dispersion ist ein heterogenes Gemisch, in dem sich die Stoffe gegenseitig fast nicht oder garnicht lösen.
 
+
 {
-    :Fest in:Flüssig in:Gasförmig in
-    Fest:Suspension:Paste:Schaum
-    Flüssig:Suspension:Emulsion:Schaum
-    Gasförmig:Aerosol:Aerosol:(Gas)
+    :Fest in:Flüssig in:Gasförmig in
+    Fest:Suspension:Paste:Schaum
+    Flüssig:Suspension:Emulsion:Schaum
+    Gasförmig:Aerosol:Aerosol:(Gas)
 }
 
+
 Dabei wird der Stoff, welcher fein verteilt ist, als innere Phase oder disperse Phase bezeichnet.
-Die andere Phase wird als äußere Phase oder Dispersionsmittel bezeichnet.
+Die andere Phase wird als äußere bzw. kontinuierliche Phase oder Dispersionsmittel bezeichnet.
+
+
+# Pulver
+Eine für die Pharmazie wichtiges disperses System bilden Pulver.
+Sie sind Systeme der Kategorie fest in gasförmig, wobei sich die Teilchen der inneren Phase berühren.
+Pulver können verwendet werden um Lösungen oder Suspensionen herzustellen.
+Puder ist Pulver, bei dem der Teilchendurchmesser nur $100 \mu m$ beträgt.
+Es ist somit also extrem fein.
+
+
+Generell hat Pulver verschiedene Eigenschaften, wie die Teilchengröße, die Fließeigenschaft und die Pulverdichte.
+Für die Fließeigenschaft kann der Böschungswinkel untersucht werden.
+Er ist der Winkel den das Pulver, beim Streuen auf eine Fläche, bildet.
+
+
+[böschungswinkel.svg]
+
+
+Für die Pulverdichte kann die Schütt- und Stampfdichte betrachtet werden.
+Der Hausner-Faktor ist dabei der Quotient der beiden.
+Ist der Hausner-Faktor nah an dem Wert $1$ hat das Pulver ein sehr gutes Fließverhalten.
+
+
+Aus Pulver werden auch Granulate hergestellt.
+Dabei handelt es sich um Pulver-Agglomerate.
+
 
 # Tenside
 Tenside sind Stoffe, welche die Oberflächenspannung zwischen zwei Phasen herabsetzt.
@@ -46,6 +80,8 @@ Im Fall von Wasser und Öl erreicht ein Emulgator das, indem er eine hydrophile 
 Die Oberflächenspannung zwischen den beiden Phasen kann somit überwunden werden.
 Ein Beispiel für einen solchen Emulgator bildet Ethanol.
 
+
 [ethanol.svg]
+
 
 # Trennverfahren
