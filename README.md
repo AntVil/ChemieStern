@@ -6,9 +6,9 @@ Dieses Projekt wurde von Anton Böhler erstellt und soll Zusammenhänge von Chem
 ### ios-app-like
 [ios app-like](https://AntVil.github.io/ChemieStern/iosApp.html)
 
-*caution do not install unknown software without knowning the risks*
+*Achtung installiere keine Software ohne die risiken zu kennen*
 
-- using the provided link load the configuration-profile on your iphone
-- in your settings go to `profile loaded` and install
-- now there should be an app on your home-screen named ChemieStern
-- when opening it, it creates a browser-window, where the browser-ui is completly hidden
+- verwende den angegebenen link um ein configurations-profil auf dein handy zu laden
+- gehe in den Einstellungen zu `geladene profile` und installiere das Profil
+- auf dem Startbildschirm sollte nun eine App mit dem Namen ChemieStern sein
+- beim öffnen der App wird ein Browser fenster ohne UI geöffnet
